@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Fernando Lessa Magalhães">
+<meta name="dcterms.date" content="2026-09-14">
+
+<title>group-6-work-plan – CI-DIGITAL Group 6</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-707bca35fca44f299eaa8a5a18ad58e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const title = document.querySelector("#title-block-header .quarto-title");
+  if (!title || title.querySelector(".document-type-label")) return;
+
+  const heading = title.querySelector("h1.title")?.textContent.trim() || "";
+  const path = decodeURIComponent(window.location.pathname);
+  let label = "Reference";
+  let color = "secondary";
+
+  if (heading === "CI-DIGITAL Group 6") [label, color] = ["Project", "primary"];
+  else if (path.endsWith("/content/group-6-work-plan.html")) [label, color] = ["Work Plan", "warning"];
+  else if (path.endsWith("/ONTOLOGY.html")) [label, color] = ["Common Ontology", "info"];
+  else if (path.endsWith("/content/docs/approach.html")) [label, color] = ["Technical Approach", "info"];
+  else if (path.endsWith("/worktree/papers/notes/MANIFEST.html")) [label, color] = ["Author's Manifest", "primary"];
+  else if (path.includes("/content/docs/cases/")) [label, color] = ["Case Study", "info"];
+  else if (path.includes("/content/docs/research/")) [label, color] = ["Research", "info"];
+  else if (path.includes("/content/docs/workflows/")) [label, color] = ["Workflow Study", "success"];
+  else if (path.includes("/content/session/")) [label, color] = ["Session Reference", "dark"];
+  else if (path.includes("/worktree/hardware/UART/")) [label, color] = ["UART Engineering", "success"];
+  else if (path.includes("/worktree/software/")) [label, color] = ["Software Study", "success"];
+
+  const element = document.createElement("span");
+  element.className = `badge bg-${color} document-type-label`;
+  element.textContent = label;
+  title.prepend(element);
+});
+</script>
+
+
+<link rel="stylesheet" href="../quarto/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title"><span class="site-title-main">CI-DIGITAL Group 6</span><span class="site-title-subtitle">AI-Assisted Tools and Methods for VLSI Workflows</span></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-home" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Home</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-home">    
+        <li>
+    <a class="dropdown-item" href="../index.html">
+ <span class="dropdown-text">Project Home</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../content/docs/approach.html">
+ <span class="dropdown-text">Technical Approach</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../content/docs/research/ci-digital-concept-graph-methodology.html">
+ <span class="dropdown-text">Research and Methodology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../worktree/hardware/UART/submission_index.html">
+ <span class="dropdown-text">UART Engineering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../worktree/software/Code-example/index.html">
+ <span class="dropdown-text">Software Studies</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="../content/group-6-work-plan.html" aria-current="page"> 
+<span class="menu-text">Work Plan</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../ONTOLOGY.html"> 
+<span class="menu-text">Common Ontology</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../worktree/papers/notes/MANIFEST.html"> 
+<span class="menu-text">Author’s Manifest</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#identification" id="toc-identification" class="nav-link active" data-scroll-target="#identification">1. Identification</a></li>
+  <li><a href="#object" id="toc-object" class="nav-link" data-scroll-target="#object">2. Object</a>
+  <ul class="collapse">
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">2.1. Summary</a></li>
+  <li><a href="#general-objective" id="toc-general-objective" class="nav-link" data-scroll-target="#general-objective">2.2. General Objective</a></li>
+  <li><a href="#specific-objectives" id="toc-specific-objectives" class="nav-link" data-scroll-target="#specific-objectives">2.3. Specific Objectives</a></li>
+  </ul></li>
+  <li><a href="#project-relevance" id="toc-project-relevance" class="nav-link" data-scroll-target="#project-relevance">3. Project Relevance</a>
+  <ul class="collapse">
+  <li><a href="#research-problem-and-justification" id="toc-research-problem-and-justification" class="nav-link" data-scroll-target="#research-problem-and-justification">3.1. Research Problem and Justification</a></li>
+  <li><a href="#technological-challenges" id="toc-technological-challenges" class="nav-link" data-scroll-target="#technological-challenges">3.2. Technological Challenges</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">3.3. References</a></li>
+  </ul></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">4. Methodology</a>
+  <ul class="collapse">
+  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture">4.1. Architecture</a></li>
+  <li><a href="#activity-plan" id="toc-activity-plan" class="nav-link" data-scroll-target="#activity-plan">4.2. Activity Plan</a></li>
+  <li><a href="#project-members-and-responsibilities" id="toc-project-members-and-responsibilities" class="nav-link" data-scroll-target="#project-members-and-responsibilities">4.3. Project Members and Responsibilities</a></li>
+  </ul></li>
+  <li><a href="#expected-results" id="toc-expected-results" class="nav-link" data-scroll-target="#expected-results">5. Expected Results</a>
+  <ul class="collapse">
+  <li><a href="#deliverables-and-acceptance-criteria" id="toc-deliverables-and-acceptance-criteria" class="nav-link" data-scroll-target="#deliverables-and-acceptance-criteria">5.1. Deliverables and Acceptance Criteria</a></li>
+  <li><a href="#expected-gains" id="toc-expected-gains" class="nav-link" data-scroll-target="#expected-gains">5.2. Expected Gains</a></li>
+  </ul></li>
+  <li><a href="#execution-schedule" id="toc-execution-schedule" class="nav-link" data-scroll-target="#execution-schedule">6. Execution Schedule</a>
+  <ul class="collapse">
+  <li><a href="#schedule-with-detailed-activity-descriptions" id="toc-schedule-with-detailed-activity-descriptions" class="nav-link" data-scroll-target="#schedule-with-detailed-activity-descriptions">6.1. Schedule with Detailed Activity Descriptions</a></li>
+  <li><a href="#timeline-view-of-the-execution-schedule" id="toc-timeline-view-of-the-execution-schedule" class="nav-link" data-scroll-target="#timeline-view-of-the-execution-schedule">6.2. Timeline View of the Execution Schedule</a></li>
+  </ul></li>
+  <li><a href="#action-planning" id="toc-action-planning" class="nav-link" data-scroll-target="#action-planning">7. Action Planning</a>
+  <ul class="collapse">
+  <li><a href="#scope-change-management" id="toc-scope-change-management" class="nav-link" data-scroll-target="#scope-change-management">7.1. Scope Change Management</a></li>
+  <li><a href="#execution-mapping-and-interdependencies" id="toc-execution-mapping-and-interdependencies" class="nav-link" data-scroll-target="#execution-mapping-and-interdependencies">7.2. Execution Mapping and Interdependencies</a></li>
+  <li><a href="#schedule-change-control" id="toc-schedule-change-control" class="nav-link" data-scroll-target="#schedule-change-control">7.3. Schedule Change Control</a></li>
+  <li><a href="#risk-mapping-and-action-plan" id="toc-risk-mapping-and-action-plan" class="nav-link" data-scroll-target="#risk-mapping-and-action-plan">7.4. Risk Mapping and Action Plan</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Group 6 Work Plan</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Fernando Lessa Magalhães </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Updated</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 14, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Author’s Position — Tackling the Space</strong></p>
+<p>I began this project from a refusal: I do not accept a technically plausible conclusion as evidence that the engineering problem was understood. A clean implementation can still be a precise encoding of confusion. Requirements can become specifications, code, reports, and conclusions while the intent that should govern those representations is gradually narrowed, displaced, or merely assumed. My natural response is to “tackle the space”: before selecting a solution, identify the entities, relations, boundaries, assumptions, and evidence that constitute the problem.</p>
+<p>In that sense, I think of engineers not as problem-solvers but as problem architects. This is why I treat explanation and teaching as engineering operations rather than presentation afterthoughts. If a conclusion cannot be traced to its purpose, explained clearly, challenged, and corrected, technical polish is not enough. This work therefore investigates whether agentic tools can help preserve that discipline across selected VLSI-workflow transitions while keeping engineering judgment and responsibility explicit.</p>
+<section id="identification" class="level2">
+<h2 class="anchored" data-anchor-id="identification">1. Identification</h2>
+<p>This Work Plan presents the individual project proposed by Group 6 for the second class of the CI-DIGITAL program at the Inatel Competence Center. The identification table summarizes its title, execution period, technical area, member, and academic supervision.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Identification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Project Title</td>
+<td>AI-Assisted Tools and Methods for VLSI Workflows</td>
+</tr>
+<tr class="even">
+<td>Execution Duration</td>
+<td>7 months</td>
+</tr>
+<tr class="odd">
+<td>Start Month</td>
+<td>September 2026</td>
+</tr>
+<tr class="even">
+<td>End Month</td>
+<td>March 2027</td>
+</tr>
+<tr class="odd">
+<td>Main Topic</td>
+<td>Digital Circuit Design</td>
+</tr>
+<tr class="even">
+<td>Subareas</td>
+<td>VLSI workflows; electronic design automation; FPGA-based digital systems; design for test and built-in self-test; digital beamforming; AI-assisted engineering workflows</td>
+</tr>
+<tr class="odd">
+<td>Members</td>
+<td>Fernando Lessa de Oliveira Magalhães</td>
+</tr>
+<tr class="even">
+<td>Advisor</td>
+<td>Dr.&nbsp;Elivander Judas Tadeu Pereira</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="object" class="level2">
+<h2 class="anchored" data-anchor-id="object">2. Object</h2>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">2.1. Summary</h3>
+<p>The project will investigate whether agentic tools can help stabilize meaning across transitions in a representative VLSI workflow. Its object is not faster artifact generation or a single automated pipeline. It is an augmented workflow in which original intent, specification, successive engineering representations, and supporting evidence remain traceably related so that semantic drift can be detected, explained, and corrected.</p>
+<p>The work begins by asking what constitutes an engineering task: its parts, relationships, behavior, inputs, dependencies, assumptions, and observable results. Existing project material provides the concrete cases. A C++ helper relates a UART verification failure to waveform state. The concept-index work examines how engineering terms and relationships retain their sources. The Cadence study organizes simulation, synthesis, design-for-test, BIST, and boundary-scan questions. An RF direction examines digital control and beamforming requirements. A temporal-coherence study investigates what may change between observing a system and acting on that observation.</p>
+<p>One planned object of study within this investigation is the epistemological and ontological organization of knowledge used and produced when agentic tools work alongside representative VLSI workflows. Starting from the repository’s existing conceptual consolidation, the study will identify relevant entities, concepts, relations, contexts, claims, and evidence; establish a controlled vocabulary and taxonomy; record ontological commitments, interpretation rules, conceptual provenance, and epistemic status; and assess alignment with applicable standards, normative references, and established ontology-engineering principles (References 9–16). At selected IC-flow transitions, the meaning expected from recorded intent and specification will be compared with the meaning supported by the resulting artifact and evidence; discrepancies, reviewed corrections, and unresolved limits will be recorded. The trial will evaluate whether this repeated stabilization can reduce, and in bounded cases eliminate, identifiable misunderstanding between transitions. The existing consolidation is preparatory material rather than the completed result; the planned work is to review, correct, extend, and validate it, and to determine whether a machine-readable application ontology and explicit conformance constraints are justified.</p>
+<p>AI assistance will be applied primarily to linguistic and semantic work: comparing terminology, relationships, constraints, assumptions, claims, and rationale across representations. Code, scripts, documentation, and diagrams may be produced within the cases, but they are transition artifacts and evidence rather than the central contribution under evaluation. Each case will retain its own purpose and evidence. The final result will report where semantic stabilization succeeded, failed, or remained unresolved without presenting the independent experiments as one already implemented production system.</p>
+</section>
+<section id="general-objective" class="level3">
+<h3 class="anchored" data-anchor-id="general-objective">2.2. General Objective</h3>
+<p>Develop and empirically evaluate an AI-augmented semantic-assurance method for preserving consistency between original design intent, specification, and successive representations in a representative VLSI workflow, using documented cases to determine whether repeated comparison and reviewed correction can reduce or, within bounded transitions, eliminate identifiable misunderstandings.</p>
+</section>
+<section id="specific-objectives" class="level3">
+<h3 class="anchored" data-anchor-id="specific-objectives">2.3. Specific Objectives</h3>
+<p>The specific objectives are:</p>
+<ol type="1">
+<li><span class="badge term-emphasis">O1</span> <strong>— Foundations and scope:</strong> establish the project’s purpose, original intent, governing specification, selected transition points, semantic-consistency criteria, and principal architectural questions;</li>
+<li><span class="badge term-emphasis">O2</span> <strong>— C++ and UART case:</strong> explain how an AI-assisted C++ process connects a UART mismatch to waveform observations and a useful technical account;</li>
+<li><span class="badge term-emphasis">O3</span> <strong>— Epistemological and ontological organization:</strong> develop and evaluate a controlled vocabulary, taxonomy, ontological commitments, provenance relations, and conformance criteria for interpreting the project’s engineering knowledge;</li>
+<li><span class="badge term-emphasis">O4</span> <strong>— Cadence workflow and BIST:</strong> describe an AI-assisted Cadence workflow with explicit simulation, synthesis, design-for-test, BIST, and boundary-scan responsibilities;</li>
+<li><span class="badge term-emphasis">O5</span> <strong>— RF control and beamforming:</strong> define the digital control, interface, synchronization, test, and observation questions for the RF and beamforming direction;</li>
+<li><span class="badge term-emphasis">O6</span> <strong>— Temporal behavior:</strong> explain how changing state and timing affect the relationship between observation, reasoning, action, and eventual effect; and</li>
+<li><span class="badge term-emphasis">O7</span> <strong>— Integration and presentation:</strong> consolidate the cases, evaluate their semantic-transition evidence, and produce a coherent repository and academic presentation with traceable claims, readable figures, and consistent references.</li>
+</ol>
+</section>
+</section>
+<section id="project-relevance" class="level2">
+<h2 class="anchored" data-anchor-id="project-relevance">3. Project Relevance</h2>
+<section id="research-problem-and-justification" class="level3">
+<h3 class="anchored" data-anchor-id="research-problem-and-justification">3.1. Research Problem and Justification</h3>
+<p>VLSI work crosses several technical representations: requirements, architecture, HDL, scripts, simulation results, synthesis reports, test structures, hardware interfaces, and documentation. Each transition interprets engineering meaning in another form. A downstream artifact can be locally valid while omitting, altering, or rebinding part of the intent or specification that should govern it.</p>
+<p>The project does not take faster reading, code generation, or document production as its primary result. Its research problem is whether an AI-augmented semantic-assurance loop can detect and correct identifiable interpretation loss across selected IC-flow transitions. The loop compares the meaning expected from recorded intent and specification with the meaning supported by the downstream artifact and evidence, records the discrepancy, subjects a proposed correction to review, and carries the resulting state forward. Requirements traceability and validation (Reference 2), pre- and post-requirements-specification traceability (Reference 14), intent specifications (Reference 15), and semantic interoperability (Reference 16) provide the established engineering concepts. Whether agentic assistance reduces or eliminates misunderstanding remains the empirical question.</p>
+<p>The trial applies language models primarily to linguistic and semantic comparison: terminology, relations, claims, constraints, assumptions, and rationale. It does not presume that model output is correct. In this plan, <em>self-correcting</em> means that a reviewed resulting state becomes the comparison basis for the next transition; it does not mean that model output validates itself. A useful result must preserve the evidence for each comparison, the correction applied or rejected, and anything that remains unresolved.</p>
+<p>The project is relevant to CI-DIGITAL because it connects digital-circuit subjects to concrete practices of design, verification, test, and technical communication. It is also relevant to engineering education: the selected cases expose both successful results and limitations, allowing the reader to examine how an initial formulation becomes a more precise specification. Existing work provides the basis for this study, so the planned period can concentrate on consolidation, explanation, and bounded continuation rather than claiming a new end-to-end hardware implementation.</p>
+</section>
+<section id="technological-challenges" class="level3">
+<h3 class="anchored" data-anchor-id="technological-challenges">3.2. Technological Challenges</h3>
+<p>The principal challenges are:</p>
+<ul>
+<li>preserving original intent, specification meaning, and domain concepts as information moves among people, documents, AI systems, source code, EDA tools, and reports;</li>
+<li>distinguishing observed evidence, interpretation, proposal, implementation, execution, and verification;</li>
+<li>integrating heterogeneous languages and tools without treating them as one homogeneous pipeline;</li>
+<li>making AI-assisted transformations reproducible and attributable;</li>
+<li>relating vendor documentation to the exact tool version, interface, library, license, and target technology in use;</li>
+<li>defining meaningful stimulus, observation, expected response, and fault scope for BIST and boundary-scan discussions;</li>
+<li>identifying interface, clocking, synchronization, calibration, and carrier-compatibility questions in the RF and beamforming direction;</li>
+<li>keeping observations temporally valid when the environment can change during reasoning or execution; and</li>
+<li>producing a concise academic narrative from contributions that were created for different purposes.</li>
+</ul>
+</section>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">3.3. References</h3>
+<p>The following references establish the planning, requirements, VLSI, EDA, test, and application context used by the project:</p>
+<ol type="1">
+<li>ISO/IEC/IEEE 16326:2019, <em>Systems and software engineering—Life cycle processes—Project management</em>.</li>
+<li>ISO/IEC/IEEE 29148:2018, <em>Systems and software engineering—Life cycle processes—Requirements engineering</em>.</li>
+<li>IEEE, <em>IEEE Editorial Style Manual</em>, IEEE Author Center.</li>
+<li>D. Chen et al., “Report for NSF Workshop on AI for Electronic Design Automation,” arXiv:2601.14541, 2026.</li>
+<li>Cadence Design Systems, Inc., <em>Genus Design for Test Guide</em>, product version 25.11, August 2025.</li>
+<li>Cadence Design Systems, Inc., <em>Genus/Modus PMBIST Guide</em>, product version 25.11, August 2025.</li>
+<li>S. Wijayaratna, A. Madanayake, C. Wijenayake, and L. T. Bruton, “Digital VLSI architectures for beam-enhanced RF aperture arrays,” <em>IEEE Transactions on Aerospace and Electronic Systems</em>, vol.&nbsp;51, no. 3, pp.&nbsp;1996–2011, July 2015, doi: 10.1109/TAES.2015.140507.</li>
+<li>SQLite, “The Tcl interface to the SQLite library,” SQLite documentation.</li>
+<li>T. R. Gruber, “A Translation Approach to Portable Ontology Specifications,” <em>Knowledge Acquisition</em>, vol.&nbsp;5, no. 2, pp.&nbsp;199–220, 1993, doi: 10.1006/knac.1993.1008.</li>
+<li>N. Guarino, “Formal Ontology and Information Systems,” in <em>Formal Ontology in Information Systems: Proceedings of FOIS ’98</em>, IOS Press, 1998, pp.&nbsp;3–15.</li>
+<li>W3C, <em>OWL 2 Web Ontology Language: Direct Semantics</em>, Second Edition, W3C Recommendation, 11 December 2012.</li>
+<li>ISO/IEC/IEEE 42010:2022, <em>Software, systems and enterprise—Architecture description</em>.</li>
+<li>W3C, <em>Shapes Constraint Language (SHACL)</em>, W3C Recommendation, 20 July 2017.</li>
+<li>O. C. Z. Gotel and A. C. W. Finkelstein, “An Analysis of the Requirements Traceability Problem,” in <em>Proceedings of the First IEEE International Conference on Requirements Engineering</em>, pp.&nbsp;94–101, 1994, doi: 10.1109/ICRE.1994.292398.</li>
+<li>N. G. Leveson, “Intent Specifications: An Approach to Building Human-Centered Specifications,” <em>IEEE Transactions on Software Engineering</em>, vol.&nbsp;26, no. 1, pp.&nbsp;15–35, January 2000, doi: 10.1109/32.825764.</li>
+<li>ISO/IEC 21838-1:2021, <em>Information technology—Top-level ontologies (TLO)—Part 1: Requirements</em>.</li>
+</ol>
+<p>Detailed citations and links are maintained with the corresponding cases and in the academic reference plan.</p>
+</section>
+</section>
+<section id="methodology" class="level2">
+<h2 class="anchored" data-anchor-id="methodology">4. Methodology</h2>
+<section id="architecture" class="level3">
+<h3 class="anchored" data-anchor-id="architecture">4.1. Architecture</h3>
+<p>The project uses a three-layer semantic-assurance architecture. The first layer establishes the governing intent, current specification, transition boundary, and available evidence. The second observes a selected transition and uses bounded agentic comparison to identify changes in meaning, omissions, contradictions, ambiguity, or unsupported assumptions. The third records the expected meaning, observed meaning, discrepancy, reviewed correction or unresolved state, and resulting semantic state. The resulting state becomes the reference for the next evaluated transition.</p>
+<p>This architecture organizes the study; it does not assert that every case executes through a single software platform. Each case may use different tools and representations while following the same requirements for scope, evidence, and explanation.</p>
+<section id="engineering-objects-and-evidence" class="level4">
+<h4 class="anchored" data-anchor-id="engineering-objects-and-evidence">4.1.1. Engineering Objects and Evidence</h4>
+<p>Each activity begins with a defined engineering question and the smallest relevant collection of source material. Sources may include requirements, HDL or software, Tcl scripts, logs, waveforms, EDA reports, manuals, papers, structured records, and prior experiment results. Their origin, version, location, and verification state will be preserved where they materially affect the claim.</p>
+<p>The UART case begins from a reported mismatch and its waveform context. The concept-index case begins from source records, measured occurrences, and separately reviewed engineering meanings. The Cadence case begins from an inventoried documentation collection and selected DFT, BIST, boundary-scan, and simulation references. The RF case begins from the proposed payload, the FMCOMMS8 interface, the candidate Agilex 5 platform, and the beamforming literature. The temporal case begins from a recorded automation incident, related literature, source programs, and saved measurements.</p>
+</section>
+<section id="ai-assisted-operations-and-tools" class="level4">
+<h4 class="anchored" data-anchor-id="ai-assisted-operations-and-tools">4.1.2. AI-Assisted Operations and Tools</h4>
+<p>AI assistance will be used for bounded linguistic and semantic operations whose governing intent, inputs, and expected outputs can be stated. These include source comparison, terminology and binding analysis, traceability across representations, discrepancy formulation, correction proposals, and technical explanation. C or C++, Tcl, SQLite, HDL, and EDA interfaces may produce or inspect evidence within individual cases; those mechanisms do not define the primary AI contribution under evaluation.</p>
+<p>An operation is not treated as verified merely because text or code was generated. When execution is required, the environment, command, inputs, outputs, and observed result must be identifiable. When execution is unavailable, the result will remain a specification, proposed continuation, or source-based analysis.</p>
+</section>
+<section id="documentation-and-case-integration" class="level4">
+<h4 class="anchored" data-anchor-id="documentation-and-case-integration">4.1.3. Documentation and Case Integration</h4>
+<p>Each case will be developed as a readable technical account containing its question, arrangement, evidence, result, limitations, and next engineering decisions. Diagrams and tables will expose relationships that are difficult to communicate linearly. References will stay with the claims they support.</p>
+<p>Integration occurs at the level of the project argument: agentic comparison may help preserve intent and specification meaning as work moves between representations. Integration does not erase the independent origin or purpose of the cases. The final presentation will connect their transition evidence while keeping their technical interfaces and completion criteria separate.</p>
+</section>
+</section>
+<section id="activity-plan" class="level3">
+<h3 class="anchored" data-anchor-id="activity-plan">4.2. Activity Plan</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Activity</th>
+<th>Objective</th>
+<th>Work to be performed</th>
+<th>Physical indicator</th>
+<th style="text-align: right;">Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A1 — Foundations and scope</td>
+<td><span class="badge term-emphasis">O1</span></td>
+<td>Define the original intent, governing specification, selected transitions, semantic-consistency criteria, cases, claim states, and reading path.</td>
+<td>D1 — Foundation and scope statement</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>A2 — C++ and UART case</td>
+<td><span class="badge term-emphasis">O2</span></td>
+<td>Relate the selected mismatch to waveform values; explain the helper structure, refinements, and documentation flow.</td>
+<td>D2 — Completed worked case</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td>A3 — Epistemological and ontological organization</td>
+<td><span class="badge term-emphasis">O3</span></td>
+<td>Review the existing conceptual consolidation; refine the controlled vocabulary, taxonomy, ontological commitments, interpretation rules, provenance relations, and conformance criteria; and evaluate them through selected project artifacts.</td>
+<td>D3 — Semantic and ontology study</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>A4 — Cadence workflow and BIST</td>
+<td><span class="badge term-emphasis">O4</span></td>
+<td>Map inputs and outputs; define the BIST, boundary-scan, and evidence questions.</td>
+<td>D4 — Cadence and BIST workflow specification</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td>A5 — RF control and beamforming</td>
+<td><span class="badge term-emphasis">O5</span></td>
+<td>Identify channel meaning, interfaces, clocks, synchronization, configuration, calibration, test, and observation needs.</td>
+<td>D5 — RF application specification</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>A6 — Temporal behavior</td>
+<td><span class="badge term-emphasis">O6</span></td>
+<td>Present the temporal question, a timeline, selected study evidence, and its implication for engineering automation.</td>
+<td>D6 — Temporal-behavior case</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td>A7 — Integration and presentation</td>
+<td><span class="badge term-emphasis">O7</span></td>
+<td>Connect the completed cases, compare their semantic-transition evidence, refine figures and references, assemble the repository reading path, and review the presentation.</td>
+<td>D7 — Integrated repository and presentation</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Each activity follows the same cycle: identify the intent and specification to be preserved; delimit the source and target representations; perform or observe the transition; compare expected and expressed meaning; record discrepancies; correct or explicitly retain unresolved mismatches; and review the resulting state before the next transition.</p>
+</section>
+<section id="project-members-and-responsibilities" class="level3">
+<h3 class="anchored" data-anchor-id="project-members-and-responsibilities">4.3. Project Members and Responsibilities</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Role in the project</th>
+<th>Activity allocation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fernando Lessa de Oliveira Magalhães</td>
+<td>Project member and author</td>
+<td>Responsible for A1–A7: define the direction and scope; provide project knowledge and source material; perform or direct the activities; review technical interpretations; adopt the final text; and deliver the academic presentation.</td>
+</tr>
+</tbody>
+</table>
+<p>Academic supervision is provided by Dr.&nbsp;Elivander Judas Tadeu Pereira.</p>
+<p>AI assistance serves as the semantic-consistency mechanism under study across A1–A7. It compares representations, exposes drift from the specification and original intent, and supports documented correction. It may also support bounded implementation within a case, but it is not evaluated primarily as a code generator or isolated-task accelerator. It is not a project member and does not replace engineering verification, academic supervision, or the author’s decisions.</p>
+</section>
+</section>
+<section id="expected-results" class="level2">
+<h2 class="anchored" data-anchor-id="expected-results">5. Expected Results</h2>
+<section id="deliverables-and-acceptance-criteria" class="level3">
+<h3 class="anchored" data-anchor-id="deliverables-and-acceptance-criteria">5.1. Deliverables and Acceptance Criteria</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Deliverable</th>
+<th>Project location</th>
+<th>Acceptance criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D1 — Foundation and scope statement</td>
+<td><code>README.md</code>; <code>docs/approach.md</code></td>
+<td>States the central research question, original intent, governing specification, selected transitions, semantic-consistency criteria, boundaries, and purpose of each case; includes an understandable map of the approach.</td>
+</tr>
+<tr class="even">
+<td>D2 — C++ and UART worked case</td>
+<td><code>worktree/hardware/UART/docs/README.md</code></td>
+<td>Connects the selected mismatch to waveform values and explains the process structure, AI-assisted choices, and technical-documentation outcome.</td>
+</tr>
+<tr class="odd">
+<td>D3 — Semantic and ontology study</td>
+<td><code>ONTOLOGY.md</code>; <code>docs/cases/concept-index.md</code></td>
+<td>Defines the selected entities, relations, interpretations, taxonomy, provenance, and conformance criteria; evaluates them against a bounded sample of project artifacts; and distinguishes documentary commitments from any unperformed machine-readable formalization.</td>
+</tr>
+<tr class="even">
+<td>D4 — Cadence and BIST workflow specification</td>
+<td><code>docs/workflows/cadence/cadence-documentation.md</code> and the adopted public case page</td>
+<td>Defines simulation and synthesis inputs and outputs; identifies dependencies; specifies target, stimulus, observation, and fault scope for BIST and boundary scan.</td>
+</tr>
+<tr class="odd">
+<td>D5 — RF application specification</td>
+<td>Adopted RF case page</td>
+<td>Describes control states, interfaces, clocks, synchronization, and observation points; distinguishes the metasurface and beamforming directions; identifies unresolved hardware-integration questions.</td>
+</tr>
+<tr class="even">
+<td>D6 — Temporal-behavior case</td>
+<td><code>docs/cases/temporal-coherence.md</code></td>
+<td>States the temporal question; includes a timeline and an existing study result; explains their significance for observation and action in an engineering workflow.</td>
+</tr>
+<tr class="odd">
+<td>D7 — Integrated academic presentation</td>
+<td>Adopted presentation page; repository entry point</td>
+<td>Provides a complete speaking sequence, linked cases, readable figures, consistent terminology, and traceable technical references; reports where transition discrepancies were detected, corrected, or retained as unresolved.</td>
+</tr>
+</tbody>
+</table>
+<p>Acceptance depends on the explanatory adequacy of each deliverable, not merely on creating a file. A deliverable is accepted when another reader can follow its engineering rationale and distinguish established results from proposed continuation.</p>
+<p>The semantic-assurance claim is bounded to the selected transitions. Each evaluated transition must record its source and target representations, expected and observed meaning, discrepancy, reviewed correction or unresolved state, and supporting evidence. Reduction is supported when the reviewed resulting state resolves one or more recorded discrepancies without introducing an unsupported relation. Elimination applies only when no stated discrepancy remains under that transition’s acceptance criteria; it is not a claim about the complete IC flow.</p>
+</section>
+<section id="expected-gains" class="level3">
+<h3 class="anchored" data-anchor-id="expected-gains">5.2. Expected Gains</h3>
+<p>The expected gains are:</p>
+<ul>
+<li>empirical evidence of whether repeated AI-assisted stabilization can reduce recorded semantic discrepancies and, within a bounded transition, resolve all discrepancies stated by its acceptance criteria;</li>
+<li>improved traceability from original intent and specification to derived representations, discrepancies, reviewed corrections, and resulting states;</li>
+<li>reusable tools, scripts, documentation patterns, and case structures;</li>
+<li>a practical account of AI participation that includes limitations and corrections rather than only successful outputs;</li>
+<li>improved understanding of simulation, synthesis, DFT, BIST, FPGA, RF, and temporal-validity relationships; and</li>
+<li>a coherent academic presentation that can support later engineering implementation without claiming that implementation prematurely.</li>
+</ul>
+</section>
+</section>
+<section id="execution-schedule" class="level2">
+<h2 class="anchored" data-anchor-id="execution-schedule">6. Execution Schedule</h2>
+<section id="schedule-with-detailed-activity-descriptions" class="level3">
+<h3 class="anchored" data-anchor-id="schedule-with-detailed-activity-descriptions">6.1. Schedule with Detailed Activity Descriptions</h3>
+<p>The planned effort is 56 hours of development and elaboration, 14 hours of review, and 14 hours of contingency, totaling 84 hours. Each month allocates eight hours to development and elaboration, two hours to review, and two hours to contingency.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Activity</th>
+<th>Goal</th>
+<th>Description and completion point</th>
+<th>Justification</th>
+<th>Physical indicator</th>
+<th>Unit</th>
+<th style="text-align: right;">Quantity</th>
+<th>Start</th>
+<th>End</th>
+<th style="text-align: right;">Effort</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A1</td>
+<td><span class="badge term-emphasis">O1</span>; accept D1</td>
+<td>Establish the purpose, concepts, boundaries, case map, and work-plan baseline.</td>
+<td>Later cases depend on a stable project argument.</td>
+<td>Foundation and scope statement</td>
+<td>Document</td>
+<td style="text-align: right;">1</td>
+<td>Sep.&nbsp;2026</td>
+<td>Sep.&nbsp;2026</td>
+<td style="text-align: right;">12 h</td>
+</tr>
+<tr class="even">
+<td>A2</td>
+<td><span class="badge term-emphasis">O2</span>; accept D2</td>
+<td>Complete the C++ and UART worked case, including the selected mismatch, waveform relation, tool structure, and explanatory flow.</td>
+<td>Provides the first concrete tool-to-evidence example.</td>
+<td>Completed worked case</td>
+<td>Case</td>
+<td style="text-align: right;">1</td>
+<td>Oct.&nbsp;2026</td>
+<td>Oct.&nbsp;2026</td>
+<td style="text-align: right;">12 h</td>
+</tr>
+<tr class="odd">
+<td>A3</td>
+<td><span class="badge term-emphasis">O3</span>; accept D3</td>
+<td>Review and extend the conceptual consolidation, then evaluate its vocabulary, taxonomy, ontological commitments, provenance, and conformance criteria against selected project artifacts.</td>
+<td>Establishes the semantic foundation used to interpret agentic-tool contributions across the VLSI cases.</td>
+<td>Semantic and ontology study</td>
+<td>Document</td>
+<td style="text-align: right;">1</td>
+<td>Nov.&nbsp;2026</td>
+<td>Nov.&nbsp;2026</td>
+<td style="text-align: right;">12 h</td>
+</tr>
+<tr class="even">
+<td>A4</td>
+<td><span class="badge term-emphasis">O4</span>; accept D4</td>
+<td>Complete the Cadence workflow and testability specification with explicit simulation, synthesis, DFT, BIST, and boundary-scan responsibilities.</td>
+<td>Connects AI-assisted preparation to core VLSI tool and test questions.</td>
+<td>Cadence and BIST workflow specification</td>
+<td>Document</td>
+<td style="text-align: right;">1</td>
+<td>Dec.&nbsp;2026</td>
+<td>Dec.&nbsp;2026</td>
+<td style="text-align: right;">12 h</td>
+</tr>
+<tr class="odd">
+<td>A5</td>
+<td><span class="badge term-emphasis">O5</span>; accept D5</td>
+<td>Complete the RF control and beamforming specification, including interfaces, clocks, synchronization, configuration, and observation needs.</td>
+<td>Gives the study a concrete application direction and exposes integration requirements.</td>
+<td>RF application specification</td>
+<td>Document</td>
+<td style="text-align: right;">1</td>
+<td>Jan.&nbsp;2027</td>
+<td>Jan.&nbsp;2027</td>
+<td style="text-align: right;">12 h</td>
+</tr>
+<tr class="even">
+<td>A6</td>
+<td><span class="badge term-emphasis">O6</span>; accept D6</td>
+<td>Complete the temporal-behavior case with a timeline and selected recorded result.</td>
+<td>Makes the validity of observations over time explicit.</td>
+<td>Temporal-behavior case</td>
+<td>Case</td>
+<td style="text-align: right;">1</td>
+<td>Feb.&nbsp;2027</td>
+<td>Feb.&nbsp;2027</td>
+<td style="text-align: right;">12 h</td>
+</tr>
+<tr class="odd">
+<td>A7</td>
+<td><span class="badge term-emphasis">O7</span>; accept D7</td>
+<td>Integrate the cases, semantic-transition evidence, figures, references, repository path, and presentation; perform the final technical and editorial review.</td>
+<td>Produces the complete academic deliverable and evaluates the bounded feasibility claim.</td>
+<td>Integrated repository and presentation</td>
+<td>Integrated deliverable</td>
+<td style="text-align: right;">1</td>
+<td>Mar.&nbsp;2027</td>
+<td>Mar.&nbsp;2027</td>
+<td style="text-align: right;">12 h</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td><span class="badge term-emphasis">O1–O7</span>; <strong>accept D1–D7</strong></td>
+<td><strong>Seven activities and seven deliverables</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align: right;"><strong>7</strong></td>
+<td><strong>Sep.&nbsp;2026</strong></td>
+<td><strong>Mar.&nbsp;2027</strong></td>
+<td style="text-align: right;"><strong>84 h</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="timeline-view-of-the-execution-schedule" class="level3">
+<h3 class="anchored" data-anchor-id="timeline-view-of-the-execution-schedule">6.2. Timeline View of the Execution Schedule</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Activity, objective, and deliverable</th>
+<th>Physical indicator</th>
+<th style="text-align: center;">Sep.&nbsp;2026</th>
+<th style="text-align: center;">Oct.&nbsp;2026</th>
+<th style="text-align: center;">Nov.&nbsp;2026</th>
+<th style="text-align: center;">Dec.&nbsp;2026</th>
+<th style="text-align: center;">Jan.&nbsp;2027</th>
+<th style="text-align: center;">Feb.&nbsp;2027</th>
+<th style="text-align: center;">Mar.&nbsp;2027</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A1 / <span class="badge term-emphasis">O1</span> / D1</td>
+<td>Foundation and scope statement</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>A2 / <span class="badge term-emphasis">O2</span> / D2</td>
+<td>Completed C++ and UART case</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>A3 / <span class="badge term-emphasis">O3</span> / D3</td>
+<td>Semantic and ontology study</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>A4 / <span class="badge term-emphasis">O4</span> / D4</td>
+<td>Cadence and BIST workflow specification</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>A5 / <span class="badge term-emphasis">O5</span> / D5</td>
+<td>RF application specification</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>A6 / <span class="badge term-emphasis">O6</span> / D6</td>
+<td>Temporal-behavior case</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>A7 / <span class="badge term-emphasis">O7</span> / D7</td>
+<td>Integrated repository and presentation</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">●</td>
+</tr>
+</tbody>
+</table>
+<p>Review and refinement occur within every monthly activity. Contingency is reserved for corrections, unresolved questions, and evidence gaps inside the selected scope.</p>
+</section>
+</section>
+<section id="action-planning" class="level2">
+<h2 class="anchored" data-anchor-id="action-planning">7. Action Planning</h2>
+<section id="scope-change-management" class="level3">
+<h3 class="anchored" data-anchor-id="scope-change-management">7.1. Scope Change Management</h3>
+<p>A proposed scope change must identify the new object, reason, expected output, dependencies, effort, and effect on existing deliverables. It remains a proposal until it is explicitly adopted. New FPGA implementation, fabrication, laboratory campaigns, production deployment, or a unified automation platform will not enter this work plan implicitly through a documentation or research activity.</p>
+<p>Changes that affect the academic commitment, schedule, or final deliverables will be reviewed with the advisor. Minor editorial refinements and corrections may be incorporated during the review allocation when they do not alter the project object.</p>
+</section>
+<section id="execution-mapping-and-interdependencies" class="level3">
+<h3 class="anchored" data-anchor-id="execution-mapping-and-interdependencies">7.2. Execution Mapping and Interdependencies</h3>
+<p>A1 establishes the original intent, governing specification, selected transitions, consistency criteria, boundaries, and project map used by all later activities. A2 through A6 can then progress independently because each case has its own sources, tools, and acceptance criterion. A7 depends on D1 through D6 because the integrated presentation must evaluate the transition evidence assembled from completed, reviewable case accounts.</p>
+<p>Within each case, source availability precedes interpretation, and implementation precedes runtime claims. The Cadence and RF specifications may continue from documentation even when matching licensed tools or hardware are unavailable, but they cannot report simulation, synthesis, BIST insertion, or board validation without identified execution evidence.</p>
+</section>
+<section id="schedule-change-control" class="level3">
+<h3 class="anchored" data-anchor-id="schedule-change-control">7.3. Schedule Change Control</h3>
+<p>Progress will be reviewed at the end of each monthly activity against the corresponding acceptance criterion. A delay will be recorded with its cause, remaining work, dependency impact, and proposed recovery. Contingency will first absorb corrections within the existing activity. A change that adds a new technical object or exceeds the 84-hour allocation requires a revised estimate and explicit adoption before the schedule is changed.</p>
+</section>
+<section id="risk-mapping-and-action-plan" class="level3">
+<h3 class="anchored" data-anchor-id="risk-mapping-and-action-plan">7.4. Risk Mapping and Action Plan</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Risk</th>
+<th>Possible effect</th>
+<th>Preventive or corrective action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Scope expansion</td>
+<td>Independent studies are presented as one implemented pipeline, or the final deliverable becomes too broad.</td>
+<td>Maintain case-specific purposes and acceptance criteria; require an explicit scope-change record for new objects.</td>
+</tr>
+<tr class="even">
+<td>Insufficient provenance</td>
+<td>A generated claim, diagram, or code fragment cannot be traced to its source or operation.</td>
+<td>Record material sources, tool or author, version where relevant, and the distinction between observation, interpretation, and proposal.</td>
+</tr>
+<tr class="odd">
+<td>Unavailable EDA tools, licenses, libraries, or hardware</td>
+<td>A specified Cadence, FPGA, RF, or BIST step cannot be executed.</td>
+<td>Keep source-based specification distinct from execution; identify the exact missing dependency; use no runtime claim without evidence.</td>
+</tr>
+<tr class="even">
+<td>Stale or temporally inconsistent evidence</td>
+<td>An observation no longer represents the state on which a later action depends.</td>
+<td>Record collection time and relevant state; refresh observations when the environment can change; qualify finite experiment results.</td>
+</tr>
+<tr class="odd">
+<td>Terminology drift across domains</td>
+<td>The same term is used with incompatible meanings, weakening the technical account.</td>
+<td>Define terms in their active context; state necessary cross-domain mappings; review terminology during integration.</td>
+</tr>
+<tr class="even">
+<td>Schedule pressure</td>
+<td>Case work remains incomplete when final integration begins.</td>
+<td>Use the monthly acceptance criteria, prioritize the smallest complete case account, and apply contingency before adding scope.</td>
+</tr>
+<tr class="odd">
+<td>Reference or publication restrictions</td>
+<td>Vendor material or project evidence cannot be redistributed in the public deliverable.</td>
+<td>Cite permitted sources and describe the relevant finding; keep restricted documents at their authorized location rather than copying them.</td>
+</tr>
+</tbody>
+</table>
+<p>The action plan prioritizes a coherent, supportable deliverable over the number of tools, cases, or features mentioned. A narrower claim with identifiable evidence is preferable to a broader claim whose implementation or verification cannot be demonstrated.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

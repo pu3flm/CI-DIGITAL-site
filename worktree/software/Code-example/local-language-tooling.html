@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Fernando Lessa Magalhães">
+<meta name="dcterms.date" content="2026-09-14">
+
+<title>local-language-tooling – CI-DIGITAL Group 6</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-707bca35fca44f299eaa8a5a18ad58e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const title = document.querySelector("#title-block-header .quarto-title");
+  if (!title || title.querySelector(".document-type-label")) return;
+
+  const heading = title.querySelector("h1.title")?.textContent.trim() || "";
+  const path = decodeURIComponent(window.location.pathname);
+  let label = "Reference";
+  let color = "secondary";
+
+  if (heading === "CI-DIGITAL Group 6") [label, color] = ["Project", "primary"];
+  else if (path.endsWith("/content/group-6-work-plan.html")) [label, color] = ["Work Plan", "warning"];
+  else if (path.endsWith("/ONTOLOGY.html")) [label, color] = ["Common Ontology", "info"];
+  else if (path.endsWith("/content/docs/approach.html")) [label, color] = ["Technical Approach", "info"];
+  else if (path.endsWith("/worktree/papers/notes/MANIFEST.html")) [label, color] = ["Author's Manifest", "primary"];
+  else if (path.includes("/content/docs/cases/")) [label, color] = ["Case Study", "info"];
+  else if (path.includes("/content/docs/research/")) [label, color] = ["Research", "info"];
+  else if (path.includes("/content/docs/workflows/")) [label, color] = ["Workflow Study", "success"];
+  else if (path.includes("/content/session/")) [label, color] = ["Session Reference", "dark"];
+  else if (path.includes("/worktree/hardware/UART/")) [label, color] = ["UART Engineering", "success"];
+  else if (path.includes("/worktree/software/")) [label, color] = ["Software Study", "success"];
+
+  const element = document.createElement("span");
+  element.className = `badge bg-${color} document-type-label`;
+  element.textContent = label;
+  title.prepend(element);
+});
+</script>
+<script src="../../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../../quarto/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title"><span class="site-title-main">CI-DIGITAL Group 6</span><span class="site-title-subtitle">AI-Assisted Tools and Methods for VLSI Workflows</span></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-home" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Home</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-home">    
+        <li>
+    <a class="dropdown-item" href="../../../index.html">
+ <span class="dropdown-text">Project Home</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/docs/approach.html">
+ <span class="dropdown-text">Technical Approach</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../content/docs/research/ci-digital-concept-graph-methodology.html">
+ <span class="dropdown-text">Research and Methodology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../worktree/hardware/UART/submission_index.html">
+ <span class="dropdown-text">UART Engineering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../worktree/software/Code-example/index.html">
+ <span class="dropdown-text">Software Studies</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../content/group-6-work-plan.html"> 
+<span class="menu-text">Work Plan</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../ONTOLOGY.html"> 
+<span class="menu-text">Common Ontology</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../worktree/papers/notes/MANIFEST.html"> 
+<span class="menu-text">Author’s Manifest</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#one-word-should-name-one-role" id="toc-one-word-should-name-one-role" class="nav-link active" data-scroll-target="#one-word-should-name-one-role">One word should name one role</a></li>
+  <li><a href="#where-a-capability-can-live" id="toc-where-a-capability-can-live" class="nav-link" data-scroll-target="#where-a-capability-can-live">Where a capability can live</a>
+  <ul class="collapse">
+  <li><a href="#available-bridge-patterns" id="toc-available-bridge-patterns" class="nav-link" data-scroll-target="#available-bridge-patterns">Available bridge patterns</a></li>
+  </ul></li>
+  <li><a href="#directly-callable-fedora-tools" id="toc-directly-callable-fedora-tools" class="nav-link" data-scroll-target="#directly-callable-fedora-tools">Directly callable Fedora tools</a></li>
+  <li><a href="#candidate-editor-independent-service-boundary" id="toc-candidate-editor-independent-service-boundary" class="nav-link" data-scroll-target="#candidate-editor-independent-service-boundary">Candidate editor-independent service boundary</a>
+  <ul class="collapse">
+  <li><a href="#microservice-like-aggregation" id="toc-microservice-like-aggregation" class="nav-link" data-scroll-target="#microservice-like-aggregation">Microservice-like aggregation</a></li>
+  </ul></li>
+  <li><a href="#user-installed-vs-code-language-tools" id="toc-user-installed-vs-code-language-tools" class="nav-link" data-scroll-target="#user-installed-vs-code-language-tools">User-installed VS Code language tools</a></li>
+  <li><a href="#built-in-vs-code-language-features" id="toc-built-in-vs-code-language-features" class="nav-link" data-scroll-target="#built-in-vs-code-language-features">Built-in VS Code language features</a></li>
+  <li><a href="#current-gaps" id="toc-current-gaps" class="nav-link" data-scroll-target="#current-gaps">Current gaps</a></li>
+  <li><a href="#tcl-formatting-and-the-whitesmiths-requirement" id="toc-tcl-formatting-and-the-whitesmiths-requirement" class="nav-link" data-scroll-target="#tcl-formatting-and-the-whitesmiths-requirement">Tcl formatting and the Whitesmiths requirement</a></li>
+  <li><a href="#tool-routing-for-local-observable-work" id="toc-tool-routing-for-local-observable-work" class="nav-link" data-scroll-target="#tool-routing-for-local-observable-work">Tool routing for local, observable work</a></li>
+  <li><a href="#evidence-behind-this-inventory" id="toc-evidence-behind-this-inventory" class="nav-link" data-scroll-target="#evidence-behind-this-inventory">Evidence behind this inventory</a></li>
+  <li><a href="#rechecking-the-snapshot" id="toc-rechecking-the-snapshot" class="nav-link" data-scroll-target="#rechecking-the-snapshot">Rechecking the snapshot</a></li>
+  <li><a href="#subsequent-implemented-container-boundary" id="toc-subsequent-implemented-container-boundary" class="nav-link" data-scroll-target="#subsequent-implemented-container-boundary">Subsequent implemented container boundary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Local language tooling: capabilities and boundaries</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Fernando Lessa Magalhães </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Updated</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 14, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This note records the language-oriented tools observed on the current CI-DIGITAL workstation. It distinguishes what each kind of tool does, where the capability lives, whether it can be used without VS Code, and what has actually been verified.</p>
+<p>The inventory is a local snapshot from September 13, 2026. It is not a claim that every installed component is active in every editor session, and it is not an upstream maintenance assessment. No software was installed while producing this inventory.</p>
+<section id="one-word-should-name-one-role" class="level2">
+<h2 class="anchored" data-anchor-id="one-word-should-name-one-role">One word should name one role</h2>
+<p>Several tools can report a red underline, but they do not necessarily perform the same operation.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Primary role</th>
+<th>Typical result</th>
+<th>Usually changes source?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Syntax highlighter</td>
+<td>Classifies tokens for display</td>
+<td>Colors and text scopes</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Language server or language service</td>
+<td>Maintains a semantic model for an editor</td>
+<td>Completion, hover, navigation, symbols, references, diagnostics, and sometimes formatting</td>
+<td>Usually no; code actions and formatting may propose or apply edits</td>
+</tr>
+<tr class="odd">
+<td>Linter</td>
+<td>Checks source against static rules</td>
+<td>Diagnostics with locations and explanations</td>
+<td>No by default; some linters offer explicit fixes</td>
+</tr>
+<tr class="even">
+<td>Formatter</td>
+<td>Rewrites layout according to a style</td>
+<td>Indentation, spacing, line wrapping, and brace placement where supported</td>
+<td>Yes when its result is accepted or written</td>
+</tr>
+<tr class="odd">
+<td>Compiler</td>
+<td>Translates source and checks the language while doing so</td>
+<td>Object code, an executable, and compiler diagnostics</td>
+<td>It normally creates build artifacts, not source edits</td>
+</tr>
+<tr class="even">
+<td>Interpreter</td>
+<td>Evaluates source directly</td>
+<td>Program behavior, output, and runtime errors</td>
+<td>It can cause any side effects permitted by the program</td>
+</tr>
+<tr class="odd">
+<td>Solver</td>
+<td>Searches for a model, proof result, or satisfying assignment</td>
+<td><code>sat</code>, <code>unsat</code>, <code>unknown</code>, a model, or solver diagnostics</td>
+<td>No source edit by default</td>
+</tr>
+</tbody>
+</table>
+<p>These are roles, not mutually exclusive product categories. One implementation may supply several roles. Tcl LSP, for example, provides language-server features, diagnostics, and formatting. A compiler can also supply diagnostics that an editor presents like lint results. LSP is a communication protocol; not every editor language service uses it.</p>
+</section>
+<section id="where-a-capability-can-live" class="level2">
+<h2 class="anchored" data-anchor-id="where-a-capability-can-live">Where a capability can live</h2>
+<p>VS Code presents one interface over several distinct execution layers:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    S[Source file] --&gt; V[VS Code Flatpak]
+    V --&gt; B[Built-in language feature]
+    V --&gt; E[Extension with bundled engine]
+    V --&gt; C[Extension acting as a client]
+    C --&gt; X[Executable visible inside Flatpak]
+    C -. explicit host bridge .-&gt; H[Executable on Fedora host]
+    S --&gt; D[Direct command-line caller]
+    D --&gt; H
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ol type="1">
+<li><strong>Built into VS Code.</strong> The editor ships and updates the implementation.</li>
+<li><strong>Bundled by a user extension.</strong> The extension contains its own server, parser, formatter, or solver.</li>
+<li><strong>Supplied externally.</strong> The extension is only a client or wrapper and expects a separate executable.</li>
+<li><strong>Installed on the Fedora host.</strong> A terminal, script, or local agent can call the executable without VS Code.</li>
+</ol>
+<p>The current VS Code installation is a Flatpak. Its extension host does not inherit the Fedora host’s normal executable path. An executable can therefore be present and directly callable on Fedora while still being invisible to an extension. The integrated terminal’s host-shell configuration does not change the extension host. External-tool extensions need an explicit path, wrapper, or <code>flatpak-spawn --host</code> bridge.</p>
+<p>This creates four useful verification states:</p>
+<ul>
+<li><strong>Declared:</strong> a setting or extension manifest advertises the capability.</li>
+<li><strong>Present:</strong> the required component exists in its execution environment.</li>
+<li><strong>Reachable:</strong> the intended caller can start it.</li>
+<li><strong>Exercised:</strong> it has processed a representative file or command successfully.</li>
+</ul>
+<p>An extension entry in Settings proves only the first or second state. It does not, by itself, prove that a backend is reachable or working.</p>
+<section id="available-bridge-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="available-bridge-patterns">Available bridge patterns</h3>
+<p>Flatpak is one present client boundary, not the target architecture. The broader objective is to make verified local tools available to editors, agents, command-line workflows, and other authorized clients. There is no single universal bridge, but four patterns are technically sound:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pattern</th>
+<th>When it fits</th>
+<th>Tradeoff</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Install the backend inside Flatpak</td>
+<td>The package or a compatible Flatpak SDK extension exists</td>
+<td>Simple for the editor, but it creates a second installation that can drift from the Fedora host</td>
+</tr>
+<tr class="even">
+<td>Use a <code>flatpak-spawn --host</code> wrapper</td>
+<td>The extension accepts a configurable executable or command</td>
+<td>Reuses the authoritative host installation; the wrapper and Flatpak permissions must be explicit</td>
+</tr>
+<tr class="odd">
+<td>Connect to a server through TCP or a Unix socket</td>
+<td>Both the language server and editor client support a network address</td>
+<td>Clean process separation, but LSP support over a socket is implementation-specific and socket visibility must cross the sandbox</td>
+</tr>
+<tr class="even">
+<td>Install the upstream standalone tool in both environments</td>
+<td>Exact isolation is desirable and duplicate management is acceptable</td>
+<td>Predictable within each environment, but versions must be checked independently</td>
+</tr>
+</tbody>
+</table>
+<p>The reverse direction is also possible when an extension bundles a tool that is published separately: install the upstream command on Fedora and use that public interface from terminals and automation. Depending on a private binary inside an extension is fragile because its path, permissions, and version belong to the extension’s packaging rather than to the host toolchain.</p>
+<p>For this workstation, an authoritative editor-independent interface should be the default. An editor-specific wrapper can consume that interface when needed. A bundled engine remains appropriate when it is self-contained and already works, as with the current Tcl, Prolog, and SMT extensions.</p>
+</section>
+</section>
+<section id="directly-callable-fedora-tools" class="level2">
+<h2 class="anchored" data-anchor-id="directly-callable-fedora-tools">Directly callable Fedora tools</h2>
+<p>These commands were found and executed on the host.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tool</th>
+<th>Observed version</th>
+<th>Role</th>
+<th>Direct use without VS Code</th>
+<th>Important boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>tclsh</code></td>
+<td>Tcl 9.0.2</td>
+<td>Tcl interpreter</td>
+<td>Yes</td>
+<td>Independent of the Tcl LSP executable and of EDA applications’ embedded Tcl versions</td>
+</tr>
+<tr class="even">
+<td>User-local <code>tcl</code> toolchain</td>
+<td>2.2.5 development build</td>
+<td>Tcl validation, lint, formatting, symbol extraction, control-flow diagrams, call graphs, symbol graphs, and data-flow graphs</td>
+<td>Yes</td>
+<td>Accepts files, directories, or inline source and can emit structured JSON for diagnostics and graph operations</td>
+</tr>
+<tr class="odd">
+<td><code>tcl-mcp</code></td>
+<td>Bundled with the Tcl toolchain</td>
+<td>MCP server for Tcl capabilities</td>
+<td>Yes</td>
+<td>Speaks MCP over standard input/output; it is a tool interface, not the Tcl interpreter</td>
+</tr>
+<tr class="even">
+<td><code>swipl</code></td>
+<td>SWI-Prolog 10.0.2</td>
+<td>Prolog interpreter and development runtime</td>
+<td>Yes</td>
+<td>The installed VS Code Prolog server does not use this host process on Linux</td>
+</tr>
+<tr class="odd">
+<td><code>z3</code></td>
+<td>Z3 4.16.0</td>
+<td>SMT solver</td>
+<td>Yes</td>
+<td>Separate from the WebAssembly Z3 bundled by the VS Code extension</td>
+</tr>
+<tr class="even">
+<td><code>go</code> and <code>gofmt</code></td>
+<td>Go 1.26.5</td>
+<td>Compiler/toolchain and canonical Go formatter</td>
+<td>Yes</td>
+<td>The VS Code Flatpak currently cannot see these host commands directly</td>
+</tr>
+<tr class="odd">
+<td><code>gcc</code> and <code>g++</code></td>
+<td>GCC 16.2.1</td>
+<td>C and C++ compilers</td>
+<td>Yes</td>
+<td>Not the same components as the C/C++ extension’s language service or bundled formatter</td>
+</tr>
+<tr class="even">
+<td><code>gfortran</code></td>
+<td>GNU Fortran 16.2.1</td>
+<td>Fortran compiler and diagnostics source</td>
+<td>Yes</td>
+<td>VS Code’s Flatpak contains a different GNU Fortran version, 15.2.0</td>
+</tr>
+<tr class="odd">
+<td><code>tsc</code></td>
+<td>TypeScript 7.0.2</td>
+<td>TypeScript compiler and type checker</td>
+<td>Yes</td>
+<td>Separate from VS Code’s bundled TypeScript service</td>
+</tr>
+<tr class="even">
+<td><code>astyle</code></td>
+<td>Artistic Style 3.6.13</td>
+<td>Formatter for supported C-like languages</td>
+<td>Yes</td>
+<td>Supports Whitesmiths for those languages, but not Tcl</td>
+</tr>
+<tr class="odd">
+<td><code>tidy</code></td>
+<td>HTML Tidy 5.8.0</td>
+<td>HTML checker and formatter</td>
+<td>Yes</td>
+<td>Its edits and diagnostics are independent of VS Code’s HTML service</td>
+</tr>
+<tr class="even">
+<td><code>xmllint</code></td>
+<td>libxml2 2.12.10</td>
+<td>XML parser, validator, and formatter</td>
+<td>Yes</td>
+<td>The Flatpak has its own libxml2 2.14.6 build</td>
+</tr>
+<tr class="odd">
+<td><code>markdown-guard</code></td>
+<td>Local command</td>
+<td>Repository-oriented Markdown checker</td>
+<td>Yes</td>
+<td>It is a local workflow command, not a general VS Code language server</td>
+</tr>
+</tbody>
+</table>
+<p>The Tcl graph operations accept the same language and EDA dialect profiles as the diagnostic operations. They can write to standard output and expose JSON, which makes them suitable for the shared service without screen automation. <code>tclsh</code> remains the actual Tcl interpreter.</p>
+</section>
+<section id="candidate-editor-independent-service-boundary" class="level2">
+<h2 class="anchored" data-anchor-id="candidate-editor-independent-service-boundary">Candidate editor-independent service boundary</h2>
+<p>The common service should not automate VS Code. It should expose the public interfaces of the underlying tools, allowing VS Code, local agents, scripts, and other clients to become peers.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Backend</th>
+<th>Verified native interface</th>
+<th>Smallest safe adapter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tcl toolchain</td>
+<td>CLI accepts files, directories, or inline source; diagnostics can be JSON; rewritten source goes to a selected file or standard output</td>
+<td>Supervised one-shot process for validate, lint, format, graphs, and other batch operations</td>
+</tr>
+<tr class="even">
+<td>Tcl MCP</td>
+<td>MCP protocol over standard input/output</td>
+<td>Direct MCP connection for agent clients</td>
+</tr>
+<tr class="odd">
+<td>Tcl language server</td>
+<td>LSP JSON-RPC over standard input/output</td>
+<td>Persistent per-workspace process only when completion, navigation, or live diagnostics are needed</td>
+</tr>
+<tr class="even">
+<td>SWI-Prolog</td>
+<td>CLI accepts source files and explicit goals; the host also supplies <code>libswipl</code></td>
+<td>One-shot CLI for bounded queries; a persistent Prolog service only for an explicitly stateful use case</td>
+</tr>
+<tr class="odd">
+<td>Z3</td>
+<td>CLI accepts SMT-LIB files or standard input and returns solver results on standard output</td>
+<td>One-shot solver process with time and memory limits</td>
+</tr>
+<tr class="even">
+<td>GCC, G++, GNU Fortran, and TypeScript compiler</td>
+<td>CLI accepts project or source inputs and reports through exit status and output streams</td>
+<td>Isolated compile/check job with an explicit artifact directory</td>
+</tr>
+<tr class="odd">
+<td><code>gofmt</code>, AStyle, HTML Tidy, and <code>xmllint</code></td>
+<td>File mode and/or standard input to standard output</td>
+<td>Transform request that returns proposed text or a diff instead of overwriting the caller’s file</td>
+</tr>
+<tr class="even">
+<td>Extension-private engines</td>
+<td>Internal extension process or protocol</td>
+<td>Do not use as the shared boundary unless the same engine publishes a stable standalone interface</td>
+</tr>
+</tbody>
+</table>
+<p>MCP is a good client-facing protocol for agent tools. A small HTTP, Unix-socket, or ordinary command interface can serve non-MCP clients. The backend adapter does not need to use the same protocol: it can translate one bounded request into a CLI process, an LSP session, or a solver invocation.</p>
+<p>A minimal request needs:</p>
+<ul>
+<li>Operation: validate, lint, format, compile-check, interpret, or solve.</li>
+<li>Language and dialect.</li>
+<li>Source text or an explicitly bounded set of files.</li>
+<li>Tool-specific options and resource limits.</li>
+<li>Whether generated artifacts are permitted.</li>
+</ul>
+<p>A useful response needs:</p>
+<ul>
+<li>Exact tool identity and version.</li>
+<li>Exit status and elapsed time.</li>
+<li>Structured diagnostics when available.</li>
+<li>Preserved standard output and standard error.</li>
+<li>Proposed rewritten source or a diff, never an unannounced write.</li>
+<li>Explicit artifact paths when compilation is authorized.</li>
+</ul>
+<p>Rootless Podman is feasible as a packaging and isolation layer, especially when a backend is large, has conflicting dependencies, or should be reproducible for other users. Batch tools should normally start on demand and exit. Language servers may remain alive per workspace because their value comes from maintaining an index. In either case, use read-only source mounts by default, a scratch output directory, no network unless required, and CPU, memory, process, and time limits.</p>
+<p>This separation also prevents a workspace-indexing language server from being treated like a trivial formatter. Both consume source, but the server may retain state and search an entire tree, while a formatter can usually be a stateless transformation of one document.</p>
+<section id="microservice-like-aggregation" class="level3">
+<h3 class="anchored" data-anchor-id="microservice-like-aggregation">Microservice-like aggregation</h3>
+<p>The useful pattern is a stable front door with isolated tool workers, rather than one process that pretends every capability has the same semantics.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A[Agent or MCP client] --&gt; G[Tool broker]
+    C[Command-line client] --&gt; G
+    E[Editor client] --&gt; G
+    R[Remote authorized client] --&gt; G
+    G --&gt; V[Validate request and select profile]
+    V --&gt; O[On-demand batch worker]
+    V --&gt; P[Persistent workspace worker]
+    O --&gt; N[Evidence envelope]
+    P --&gt; N
+    N --&gt; G
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>On-demand workers</strong> fit lint, format, compile-check, interpretation, and solver jobs that can be reproduced from explicit inputs.</li>
+<li><strong>Persistent workspace workers</strong> fit LSP servers and indexers whose value depends on retained project state.</li>
+<li><strong>Profiles</strong> bind a language or domain to a tool version, dialect, rules, limits, and permitted operations without merging those domains.</li>
+<li><strong>The evidence envelope</strong> gives every response common provenance fields while retaining the backend’s native output.</li>
+</ul>
+<p>Containers make each worker reproducible, replaceable, resource-bounded, and deployable on another local or remote host. They do not require every worker to become a permanently running network service. Starting stateless workers on demand avoids idle resource use and limits the number of background indexers.</p>
+<p>Fast responses come from keeping only the state that earns its cost: a cached capability registry, warm images, persistent indices for active workspaces, and event-driven invalidation when source or configuration changes. The broker may aggregate results, but it should not erase which tool, profile, version, and input produced each result.</p>
+<p>This is intentionally <strong>microservice-like</strong>, not a conclusion that a large distributed microservice platform is already required. Container boundaries and common contracts provide most of the portability and isolation benefits. Network discovery, retries, distributed tracing, replicated state, and orchestration should be added only when a real remote or multi-host use case requires them.</p>
+<p>Podman 5.8.4 is present on this workstation, so the container boundary is locally feasible. The architecture above is a recorded candidate, not an implemented service: no image, broker, socket, daemon, or remote endpoint was created during this inventory.</p>
+</section>
+</section>
+<section id="user-installed-vs-code-language-tools" class="level2">
+<h2 class="anchored" data-anchor-id="user-installed-vs-code-language-tools">User-installed VS Code language tools</h2>
+<p>All entries below were installed and were not disabled when inspected. “Installed” is not silently promoted to “operational.”</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>What it actually provides</th>
+<th>Execution model</th>
+<th>Verified current state</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tcl LSP 2.2.5</td>
+<td>Tcl/Tk and EDA-dialect language server, semantic diagnostics, navigation, completion, and document/range formatting</td>
+<td>Bundled native server</td>
+<td>Installed, enabled, and confirmed initialized. Selected as the Tcl formatter with Tcl 9.0, four-space indentation, LF endings, and format-on-save disabled</td>
+</tr>
+<tr class="even">
+<td>SWI-Prolog Language Server 1.0.7</td>
+<td>Parser diagnostics, outline, definitions, references, hover, and basic completion/call hierarchy</td>
+<td>Bundled Node language server</td>
+<td>Installed and enabled. It has no formatting provider and is largely single-file; it is independent of host <code>swipl</code> on Linux</td>
+</tr>
+<tr class="odd">
+<td>Prolog Syntax 1.0.0</td>
+<td>Prolog file associations and syntax grammar</td>
+<td>Extension grammar only</td>
+<td>Installed and enabled. It is highlighting, not an LSP, linter, interpreter, or formatter</td>
+</tr>
+<tr class="even">
+<td>SMT Z3 5.1.0</td>
+<td>SMT-LIB syntax plus Execute/Stop actions and solver output</td>
+<td>Bundled Z3 WebAssembly runner</td>
+<td>Installed and enabled. It is not an LSP, linter, or formatter, and it does not require host <code>z3</code></td>
+</tr>
+<tr class="odd">
+<td>Modern Fortran 4.0.0</td>
+<td>Syntax support; compiler-backed lint; clients for <code>fortls</code>, <code>findent</code>, or <code>fprettify</code></td>
+<td>Mixed: extension plus external programs</td>
+<td>GNU Fortran is available inside Flatpak. <code>fortls</code>, <code>findent</code>, and <code>fprettify</code> are absent, so the language server and formatter portions are currently unbacked</td>
+</tr>
+<tr class="even">
+<td>Go 0.56.1</td>
+<td>Client and orchestration for <code>gopls</code>, formatters, and Go tools</td>
+<td>Primarily external programs</td>
+<td>Installed, but <code>go</code> and <code>gopls</code> are not visible inside Flatpak. A recent activation attempt failed, so full editor support is not currently operational</td>
+</tr>
+<tr class="odd">
+<td>C/C++ 1.35.0 pre-release</td>
+<td>Microsoft C/C++ language service, IntelliSense diagnostics, formatting, debugging, and optional clang-tidy analysis</td>
+<td>Bundled language service plus bundled <code>clang-format</code> and <code>clang-tidy</code></td>
+<td>Installed. The formatter is bundled; clang-tidy analysis is off by default. There is no system-wide <code>clangd</code> or <code>clang-format</code> in the host path</td>
+</tr>
+<tr class="even">
+<td>Container Tools 2.5.0</td>
+<td>Dockerfile and Compose language services, including diagnostics, completion, navigation, and Dockerfile formatting</td>
+<td>Bundled Node language servers</td>
+<td>Installed and configured for Podman and Podman Compose</td>
+</tr>
+</tbody>
+</table>
+<p>The AI assistant extensions are intentionally excluded from this table. They can reason about code, but they are not deterministic language servers, compilers, or formatters.</p>
+</section>
+<section id="built-in-vs-code-language-features" class="level2">
+<h2 class="anchored" data-anchor-id="built-in-vs-code-language-features">Built-in VS Code language features</h2>
+<p>These implementations ship with VS Code rather than appearing as independently selected host tools.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Built-in feature</th>
+<th>Languages</th>
+<th>Capability and current boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TypeScript and JavaScript Language Features</td>
+<td>JavaScript, JSX, TypeScript, TSX</td>
+<td>Bundled TypeScript service for diagnostics, navigation, refactoring, and formatting. It uses a custom TypeScript protocol rather than LSP and is not ESLint. VS Code currently bundles TypeScript 6.0.3; host <code>tsc</code> is a separate 7.0.2 installation</td>
+</tr>
+<tr class="even">
+<td>CSS Language Features</td>
+<td>CSS, SCSS, Less</td>
+<td>Bundled language server, validation/lint rules, completion, navigation, and formatting</td>
+</tr>
+<tr class="odd">
+<td>HTML Language Features</td>
+<td>HTML, Handlebars</td>
+<td>Bundled language server, completion, navigation, embedded language support, and formatting</td>
+</tr>
+<tr class="even">
+<td>JSON Language Features</td>
+<td>JSON and JSONC</td>
+<td>Bundled language server with schema and syntax diagnostics, completion, navigation, and formatting</td>
+</tr>
+<tr class="odd">
+<td>Markdown Language Features</td>
+<td>Markdown</td>
+<td>Links, symbols, navigation, completion, and optional link/reference diagnostics. It does not provide a document formatter</td>
+</tr>
+<tr class="even">
+<td>PHP Language Features</td>
+<td>PHP</td>
+<td>Basic completion, hover, and signatures. Validation calls external <code>php -l</code>; PHP is absent inside the Flatpak, so that validation is currently unavailable</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="current-gaps" class="level2">
+<h2 class="anchored" data-anchor-id="current-gaps">Current gaps</h2>
+<p>The following commonly expected backends were not found in the relevant host or Flatpak execution paths during this inventory:</p>
+<ul>
+<li>Go language server: <code>gopls</code>.</li>
+<li>Fortran language server and formatters: <code>fortls</code>, <code>findent</code>, and <code>fprettify</code>.</li>
+<li>System-wide Clang language server and formatter: <code>clangd</code> and <code>clang-format</code>. The C/C++ extension has its own private formatter copy.</li>
+<li>Rust language server and formatter: <code>rust-analyzer</code> and <code>rustfmt</code>.</li>
+<li>Common standalone Python analysis tools such as Pyright, Pylsp, Ruff, Black, Mypy, Pylint, and Flake8.</li>
+<li>Common shell and YAML tools such as Bash Language Server, ShellCheck, shfmt, YAML Language Server, and yamllint.</li>
+<li>Alternative SMT solvers such as cvc5, Yices, Boolector, and Bitwuzla.</li>
+<li>Separate Tcl linters or formatters such as Tclint, <code>tclfmt</code>, and Nagelfar.</li>
+</ul>
+<p>“Not found” means that no usable executable was observed in the checked environment. It is not a claim about what Fedora could install or what exists upstream.</p>
+</section>
+<section id="tcl-formatting-and-the-whitesmiths-requirement" class="level2">
+<h2 class="anchored" data-anchor-id="tcl-formatting-and-the-whitesmiths-requirement">Tcl formatting and the Whitesmiths requirement</h2>
+<p>The project’s desired visual signature is specifically the placement and alignment of block braces in Whitesmiths style. It is not merely a tab choice or an indentation width.</p>
+<p>The current Tcl formatter cannot produce that signature. Its only exposed brace style is <code>k_and_r</code>. It can normalize indentation and whitespace, but it leaves opening block braces at the end of their command line. Running it therefore does not satisfy the requirement even when the resulting body indentation changes.</p>
+<p>Tcl also makes this more than a cosmetic substitution. An unescaped newline terminates a command, so blindly moving an opening brace to a line of its own can change or break the program. The official <a href="https://core.tcl-lang.org/tips/doc/trunk/tip/352.md">Tcl style guide</a> states that an opening brace cannot appear alone and should remain at the end of the preceding line. The installed formatter’s <a href="https://github.com/bitwisecook/tcl-lsp/blob/HEAD/docs/kcs/features/kcs-feature-formatting.md">formatting specification</a> exposes only K&amp;R brace placement.</p>
+<p>A robust Whitesmiths feature for Tcl would therefore need all of the following:</p>
+<ol type="1">
+<li>Tcl-aware parsing rather than a textual brace-moving rule.</li>
+<li>A semantics-preserving continuation strategy wherever a block brace moves.</li>
+<li>Coverage for Tcl 9 and each relevant embedded EDA dialect.</li>
+<li>Idempotence: formatting the result again must produce no further change.</li>
+<li>Execution or parser comparisons on representative scripts before adoption.</li>
+</ol>
+<p>That feature is feasible, but it is not present today. Format-on-save remains disabled so the existing K&amp;R-only formatter cannot silently erase the intended visual marker.</p>
+</section>
+<section id="tool-routing-for-local-observable-work" class="level2">
+<h2 class="anchored" data-anchor-id="tool-routing-for-local-observable-work">Tool routing for local, observable work</h2>
+<p>Deterministic local tools should answer mechanically checkable questions before an AI system interprets the result.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>First tool</th>
+<th>AI contribution after the tool</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Is this token sequence valid Tcl?</td>
+<td>Tcl parser/interpreter or Tcl diagnostics</td>
+<td>Explain the error in project context and propose a bounded correction</td>
+</tr>
+<tr class="even">
+<td>Does the source violate static rules?</td>
+<td>Linter or language-server diagnostics</td>
+<td>Correlate findings, distinguish signal from noise, and prioritize</td>
+</tr>
+<tr class="odd">
+<td>Does layout match the selected style?</td>
+<td>Formatter plus a source diff</td>
+<td>Explain exceptional cases and verify that no unintended semantic edit occurred</td>
+</tr>
+<tr class="even">
+<td>Does C, C++, Fortran, Go, or TypeScript type-check or compile?</td>
+<td>Corresponding compiler/toolchain</td>
+<td>Interpret diagnostics and relate them to design intent</td>
+</tr>
+<tr class="odd">
+<td>Is an SMT constraint satisfiable?</td>
+<td>Z3</td>
+<td>Explain the model, assumptions, and limits of the result</td>
+</tr>
+<tr class="even">
+<td>What changed?</td>
+<td>Version-control diff and preserved command output</td>
+<td>Relate the observable delta to the stated requirement</td>
+</tr>
+</tbody>
+</table>
+<p>This division reduces speculative work. A compiler or solver supplies reproducible evidence; AI is then used for synthesis, explanation, cross-domain reasoning, and carefully bounded changes. When provenance matters, retain the invoked command, tool version, input identity, raw result, and resulting diff rather than only a prose retelling.</p>
+<p>The action footprint still matters:</p>
+<ul>
+<li>Highlighting, navigation, and ordinary linting are read-only observations.</li>
+<li>Formatting becomes a source mutation when its result is accepted.</li>
+<li>Compilation normally creates artifacts even when it does not edit source.</li>
+<li>Interpretation executes a program and can trigger its permitted side effects.</li>
+<li>Solver execution is normally read-only with respect to the source, but its result depends on the exact assertions and solver version.</li>
+</ul>
+</section>
+<section id="evidence-behind-this-inventory" class="level2">
+<h2 class="anchored" data-anchor-id="evidence-behind-this-inventory">Evidence behind this inventory</h2>
+<p>The snapshot was assembled from observable sources rather than from extension names alone:</p>
+<ul>
+<li>Host command resolution and version output.</li>
+<li>Fedora package records for the host runtimes and compilers.</li>
+<li>The VS Code Flatpak’s own shell view of executable availability.</li>
+<li>VS Code’s extension registry and disabled-extension state.</li>
+<li>Installed extension manifests, bundled files, and declared providers.</li>
+<li>Current VS Code user settings.</li>
+<li>Current Tcl LSP initialization logs.</li>
+</ul>
+<p>The relevant VS Code state lives under the user Flatpak data and configuration directories. Built-in language features live under the active system Flatpak installation. Extension-private binaries are evidence of a bundled capability, not stable system interfaces.</p>
+<p>Installed versions describe this workstation only. Before recommending a new dependency or treating one as a durable project choice, also verify its upstream release date, recent maintenance, supported language versions, and unresolved issues. That maintenance check was outside this local inventory and is therefore not implied here.</p>
+</section>
+<section id="rechecking-the-snapshot" class="level2">
+<h2 class="anchored" data-anchor-id="rechecking-the-snapshot">Rechecking the snapshot</h2>
+<p>The host inventory can be refreshed without VS Code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">command</span> <span class="at">-v</span> swipl z3 tclsh go gofmt gcc g++ gfortran tsc astyle tidy xmllint</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">swipl</span> <span class="at">--version</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">z3</span> <span class="at">--version</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">printf</span> <span class="st">'puts [info patchlevel]\n'</span> <span class="kw">|</span> <span class="ex">tclsh</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">go</span> version</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">gcc</span> <span class="at">--version</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 1</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">gfortran</span> <span class="at">--version</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 1</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">tsc</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The Flatpak view must be checked separately. This example demonstrates the version boundary rather than changing it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">flatpak</span> run <span class="at">--command</span><span class="op">=</span>sh com.visualstudio.code <span class="at">-lc</span> <span class="dt">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'command -v gfortran; gfortran --version | head -n 1'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The final check belongs at the point of use: open or process a representative file, observe which implementation responds, retain its output, and avoid inferring an operational capability from a settings page alone.</p>
+</section>
+<section id="subsequent-implemented-container-boundary" class="level2">
+<h2 class="anchored" data-anchor-id="subsequent-implemented-container-boundary">Subsequent implemented container boundary</h2>
+<p>After the inventory and architectural candidate were recorded, a separate authorized step implemented the first container boundary at <span class="internal-reference">language-toolbox/</span>. This changes the earlier statement about no image having been created; it does not promote the proposed broker, socket service, or remote endpoint into implemented components.</p>
+<p>The image packages the editor-independent Tcl, Prolog, Z3, C, C++, Fortran, Go, JavaScript, TypeScript, HTML, XML, and C-like formatting tools behind one foreground entry point. It uses a digest-pinned Fedora base, exact direct RPM versions, checked Tcl release artifacts, and a version-pinned Go language server. The <span class="internal-reference">runtime lock</span> records those inputs.</p>
+<p>Verification established four distinct levels rather than collapsing them:</p>
+<ul>
+<li>The image built from the recorded sources and package versions.</li>
+<li>Every installed tool family processed a representative input under a read-only, network-disabled, capability-dropped container invocation.</li>
+<li>Tcl LSP and <code>gopls</code> each completed a real LSP initialization exchange.</li>
+<li>Tcl MCP and <code>gopls mcp</code> each completed a real MCP initialization exchange.</li>
+</ul>
+<p>The resulting image is below 1 GB unpacked. That size is dominated by the actual compiler toolchains and three independent Tcl analysis executables, not by an editor or graphical environment. The exact image identity, size, checks, and remaining boundaries are retained in the <span class="internal-reference">build record</span>.</p>
+<p>This implementation does not yet connect VS Code to the container. The editor remains one possible client, while the image is already usable directly by Podman, scripts, or an agent. No repository source was formatted, compiled, or otherwise transformed as part of the container’s smoke tests.</p>
+<p>Go is the selected implementation language for a later common broker or protocol adapter if that next layer is authorized. This is a forward implementation decision, not evidence that the broker already exists.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

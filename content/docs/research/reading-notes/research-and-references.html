@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Fernando Lessa Magalhães">
+<meta name="dcterms.date" content="2026-09-14">
+
+<title>research-and-references – CI-DIGITAL Group 6</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-707bca35fca44f299eaa8a5a18ad58e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const title = document.querySelector("#title-block-header .quarto-title");
+  if (!title || title.querySelector(".document-type-label")) return;
+
+  const heading = title.querySelector("h1.title")?.textContent.trim() || "";
+  const path = decodeURIComponent(window.location.pathname);
+  let label = "Reference";
+  let color = "secondary";
+
+  if (heading === "CI-DIGITAL Group 6") [label, color] = ["Project", "primary"];
+  else if (path.endsWith("/content/group-6-work-plan.html")) [label, color] = ["Work Plan", "warning"];
+  else if (path.endsWith("/ONTOLOGY.html")) [label, color] = ["Common Ontology", "info"];
+  else if (path.endsWith("/content/docs/approach.html")) [label, color] = ["Technical Approach", "info"];
+  else if (path.endsWith("/worktree/papers/notes/MANIFEST.html")) [label, color] = ["Author's Manifest", "primary"];
+  else if (path.includes("/content/docs/cases/")) [label, color] = ["Case Study", "info"];
+  else if (path.includes("/content/docs/research/")) [label, color] = ["Research", "info"];
+  else if (path.includes("/content/docs/workflows/")) [label, color] = ["Workflow Study", "success"];
+  else if (path.includes("/content/session/")) [label, color] = ["Session Reference", "dark"];
+  else if (path.includes("/worktree/hardware/UART/")) [label, color] = ["UART Engineering", "success"];
+  else if (path.includes("/worktree/software/")) [label, color] = ["Software Study", "success"];
+
+  const element = document.createElement("span");
+  element.className = `badge bg-${color} document-type-label`;
+  element.textContent = label;
+  title.prepend(element);
+});
+</script>
+
+
+<link rel="stylesheet" href="../../../../quarto/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title"><span class="site-title-main">CI-DIGITAL Group 6</span><span class="site-title-subtitle">AI-Assisted Tools and Methods for VLSI Workflows</span></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-home" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Home</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-home">    
+        <li>
+    <a class="dropdown-item" href="../../../../index.html">
+ <span class="dropdown-text">Project Home</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/approach.html">
+ <span class="dropdown-text">Technical Approach</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/ci-digital-concept-graph-methodology.html">
+ <span class="dropdown-text">Research and Methodology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/submission_index.html">
+ <span class="dropdown-text">UART Engineering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/Code-example/index.html">
+ <span class="dropdown-text">Software Studies</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../content/group-6-work-plan.html"> 
+<span class="menu-text">Work Plan</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../ONTOLOGY.html"> 
+<span class="menu-text">Common Ontology</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../worktree/papers/notes/MANIFEST.html"> 
+<span class="menu-text">Author’s Manifest</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#living-project-thesaurus-the-authors-corrections-in-conversation" id="toc-living-project-thesaurus-the-authors-corrections-in-conversation" class="nav-link active" data-scroll-target="#living-project-thesaurus-the-authors-corrections-in-conversation">Living Project Thesaurus: the author’s corrections in conversation</a></li>
+  <li><a href="#signals-fundamental-concepts" id="toc-signals-fundamental-concepts" class="nav-link" data-scroll-target="#signals-fundamental-concepts">Signals: Fundamental Concepts</a></li>
+  <li><a href="#timing-trials-or-the-trials-of-timing" id="toc-timing-trials-or-the-trials-of-timing" class="nav-link" data-scroll-target="#timing-trials-or-the-trials-of-timing">Timing Trials, or, the Trials of Timing</a></li>
+  <li><a href="#binary-substrate-and-computational-intelligence" id="toc-binary-substrate-and-computational-intelligence" class="nav-link" data-scroll-target="#binary-substrate-and-computational-intelligence">Binary substrate and computational intelligence</a></li>
+  <li><a href="#lamport-folder-and-reference-note" id="toc-lamport-folder-and-reference-note" class="nav-link" data-scroll-target="#lamport-folder-and-reference-note">Lamport folder and reference note</a></li>
+  <li><a href="#concept-index-methodology-and-local-mock-up" id="toc-concept-index-methodology-and-local-mock-up" class="nav-link" data-scroll-target="#concept-index-methodology-and-local-mock-up">Concept-index methodology and local mock-up</a></li>
+  <li><a href="#relational-domain-ontology-proposal" id="toc-relational-domain-ontology-proposal" class="nav-link" data-scroll-target="#relational-domain-ontology-proposal">Relational Domain Ontology proposal</a></li>
+  <li><a href="#historical-masters-work-plan" id="toc-historical-masters-work-plan" class="nav-link" data-scroll-target="#historical-masters-work-plan">Historical master’s work plan</a></li>
+  <li><a href="#masters-conversation-from-a-plan-to-an-epistemic-workspace" id="toc-masters-conversation-from-a-plan-to-an-epistemic-workspace" class="nav-link" data-scroll-target="#masters-conversation-from-a-plan-to-an-epistemic-workspace">Master’s conversation: from a plan to an epistemic workspace</a></li>
+  <li><a href="#nsf-workshop-report-on-ai-for-eda" id="toc-nsf-workshop-report-on-ai-for-eda" class="nav-link" data-scroll-target="#nsf-workshop-report-on-ai-for-eda">NSF Workshop report on AI for EDA</a></li>
+  <li><a href="#reading-connections-and-remaining-gaps" id="toc-reading-connections-and-remaining-gaps" class="nav-link" data-scroll-target="#reading-connections-and-remaining-gaps">Reading connections and remaining gaps</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Research and reference reading notes</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Fernando Lessa Magalhães </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Updated</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 14, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Source-reading record for 10 September 2026. These notes preserve questions, approaches and limits before further presentation work. Connections below are reading interpretations, not claims that the sources share one theory or implementation history. No project code, examples or experiments were executed. PDF reading used Poppler text extraction; graph curves were not digitized and this is not a visual-layout inspection.</p>
+<section id="living-project-thesaurus-the-authors-corrections-in-conversation" class="level2">
+<h2 class="anchored" data-anchor-id="living-project-thesaurus-the-authors-corrections-in-conversation">Living Project Thesaurus: the author’s corrections in conversation</h2>
+<p><strong>Source:</strong> Preserved dialogue record. Its chronological reading copy and corresponding JSON preserve message identifiers and content types in the private source collection.</p>
+<p><strong>Scope and origin:</strong> Read the complete chronological reconstruction, 429 lines and 29 entries, including visible historical tool requests. Also previously read the complete earlier reverse-order cache, 556 lines and 71 entries, which included empty records. The chronological version follows the shared conversation’s current-node parent chain. Tool outputs explicitly marked redacted remain unavailable. Historical requests were read as source text and were not executed.</p>
+<p><strong>Question:</strong> The user supplies an ASIC-oriented abstract proposing a living project thesaurus and asks whether that proposal breaks the definition of a thesaurus.</p>
+<p><strong>Sequence and corrections:</strong></p>
+<ol type="1">
+<li>The user-supplied abstract connects project intent, assumptions, dependencies, uncertainty and evidence across engineering representations. It describes normalization through learning and sources, with human judgment and accountability; it distinguishes physical hardware constraints from transferable software-management practices (<code>bbe7a3a9-6089-45e9-8f16-5286c92f2a89</code>).</li>
+<li>The assistant distinguishes a controlled vocabulary from project-specific assertions and proposes a thesaurus plus a semantic traceability/evidence layer (<code>fc351e8b-6576-4e0d-9d05-af0935e4f128</code>). That decomposition is an assistant proposal.</li>
+<li>The user explains that the organization is not already present at time zero. Meaningful relations develop through human interaction, AI tools, pipeline interfaces, logs and other existing artifacts (<code>eb909072-c5c9-4309-867c-148cfd1712e7</code>).</li>
+<li>The user corrects <strong>“world” to “word”</strong> (<code>eb39f108-d443-4dbc-9013-079b598cf402</code>), then repeats “word, not world” and identifies human intervention as the organic, living tissue around the project (<code>a561adac-bc7a-444f-811a-d6bb9622beda</code>). The user calls this a human and anthropological system. Tool entry <code>c9f30dde-a76e-454f-9132-bbbbf4975629</code> reverses the correction; it must not override the user’s explicit wording.</li>
+<li>The assistant proposes terms including “human-governed,” “socio-semantic” and “epistemic,” and reframes the construct as computationally implemented but not reducible to a computer system (<code>35bb3478-5ebc-4455-b294-940b8869e567</code>). The user responds “you made it right on spot!” and requests an abstract with those corrections (<code>2262bf1e-5a8b-45b3-9dc1-fcc4b17a2862</code>). This supports acceptance of that response in context, not automatic adoption of every assistant example or future architecture.</li>
+<li>The subsequent exchange considers “level” versus “layer.” The assistant recommends “layer” for cross-cutting integration and “level” for ASIC abstraction. The user specifies an engineering view intended to be sent to IEEE (<code>b75ab431-9529-4519-a54e-d120ebb38316</code>); the assistant supplies an IEEE-oriented abstract and suggested title (<code>da79c650-0fde-4a2e-9959-9043b1b75def</code>).</li>
+</ol>
+<p><strong>Contribution and limit:</strong> The author supplies the developmental and human constitution of “living,” including the absence of a complete organization at inception. The assistant helps articulate terminology and draft abstracts. IEEE submission is an expressed intention, not a recorded submission or publication. The visible record does not establish implementation details or a complete development chronology.</p>
+<p><strong>Possible connection:</strong> This conversation gives essential author context for concept-index and relational-ontology material: relations develop through use, correction and evidence. It also exceeds the scope of a standalone database. No exact derivation of either repository artifact from this conversation is established here.</p>
+</section>
+<section id="signals-fundamental-concepts" class="level2">
+<h2 class="anchored" data-anchor-id="signals-fundamental-concepts">Signals: Fundamental Concepts</h2>
+<p><strong>Source:</strong> <em>Signals: Fundamental Concepts</em>, retained in the private source collection.</p>
+<p><strong>Scope and origin:</strong> Full extracted text of PDF pages 1-34, including chapter sections 20.1-20.16, Table 20-1, figure text, program listings, example transcripts, summary and exercises. The visible printed numbering runs from 388 on PDF page 2 to 419 on page 33; page 34 yields no extracted text. External textbook chapter; no author byline or full publication imprint appears in the supplied extract. References to <code>tlpi_hdr.h</code> are an internal provenance clue, not a complete bibliographic record.</p>
+<p><strong>Question and approach:</strong> How do UNIX/Linux processes receive and respond to asynchronous events? The chapter builds from signal generation and delivery to dispositions, handlers, permissions, signal sets, masking, pending signals and waiting, using C examples and historical portability distinctions.</p>
+<p><strong>Findings and limits:</strong> Generation, pending state and delivery are distinct events. Standard pending signals record presence rather than multiplicity: the chapter’s examples show many sends collapsing into fewer deliveries, including when scheduling prevents the receiver from running. A successful process-existence check does not prove that the same program remains alive, because process identifiers can be reused or refer to zombies. Handler examples explicitly identify some demonstration calls as unsafe for real handlers. The chapter favors <code>sigaction()</code> for portable handler installation and distinguishes standard from queued realtime signals. These are statements and examples in the historical chapter, not fresh measurements of this workspace.</p>
+<p><strong>Possible connection:</strong> Concrete foundations for the author’s questions about runtime, asynchronous events, observation and intervention. The distinction between a notification, a retained state and an action is useful beside temporal-control work. It does not establish that a conversational agent is a continuous controller, or that all events are recorded losslessly.</p>
+</section>
+<section id="timing-trials-or-the-trials-of-timing" class="level2">
+<h2 class="anchored" data-anchor-id="timing-trials-or-the-trials-of-timing">Timing Trials, or, the Trials of Timing</h2>
+<p><strong>Source:</strong> <em>Timing Trials, or, the Trials of Timing</em>, retained in the private source collection.</p>
+<p><strong>Scope and origin:</strong> Full extracted text of PDF pages 1-21, including all sections, code listings, chart labels/captions, acknowledgments and references. External manuscript by <strong>Brian W. Kernighan</strong> and <strong>Christopher J. Van Wyk</strong>, affiliated in the file with Bell Laboratories and Drew University. It is not by Lamport. Its experiments explicitly describe a summer-1997 snapshot; PDF creation metadata from 2018 is not a publication date. No journal or conference publication imprint was established from this copy.</p>
+<p><strong>Question and approach:</strong> How do scripting and interface languages perform on representative tasks, and how trustworthy are such comparisons? Eight languages are examined across Irix, Solaris and Windows 95, varying input size. Tasks cover loops, calls, arrays, strings, associative lookup, I/O, text widgets, drawing and compilation. The authors report tasks separately rather than manufacture one aggregate ranking.</p>
+<p><strong>Findings and limits:</strong> Observed performance depends on implementation, representation, memory, buffering, input size and what the timer includes. Compilation usually helped but sometimes made a task slower. Loop elimination changed what one benchmark actually measured. I/O chunk size and buffering strongly affected results; graphical completion could outlast an internal timer. Some measurements included startup while others excluded it. The authors report failed or nonterminating cases, admit interests in Awk and Limbo, and repeatedly limit conclusions to the tested processors and machines. Their numerical rankings are not present-day language rankings.</p>
+<p><strong>Possible connection:</strong> Supports reading beneath modern tool names to the execution mechanism and the task a language serves. Its distinction between orchestration convenience and execution cost is relevant to the author’s small compiled tools and Tcl workflows. That relevance is methodological; it does not prove a language choice for every project.</p>
+</section>
+<section id="binary-substrate-and-computational-intelligence" class="level2">
+<h2 class="anchored" data-anchor-id="binary-substrate-and-computational-intelligence">Binary substrate and computational intelligence</h2>
+<p><strong>Source:</strong> <em>Ontoepistemological Limitations of Computational Intelligence Arising from Electronic Hardware: Binary Substrate Problem, Possible Solutions and Theories</em>, retained in the private source collection.</p>
+<p><strong>Scope and origin:</strong> Full extracted text of PDF pages 1-7, including abstract, methodology, literature review, both tables, findings, conclusion, hypothetical experiment, proposed theories and references. External review article by <strong>Adem Bilgin</strong>. The PDF states <em>Open Access Journal of Physics and Science</em>, 2025, 2(3), pages 1-7; DOI <code>10.61440/OAJPS.2025.v2.17</code>; published 18 September 2025. These are the file’s publication statements, not externally refreshed records.</p>
+<p><strong>Question and approach:</strong> The article asks whether a binary electronic substrate fundamentally limits semantic, ethical and self-revising intelligence. It combines philosophical literature with a proposed comparison of digital neural models, neuromorphic emulation and quantum models, then introduces a hypothetical dual-pulse experiment and two proposed theories of non-binary electronics.</p>
+<p><strong>Findings and limits:</strong> The author asserts that non-binary models support richer semantic and ethical behavior. However, the methodology describes simulations in future tense while later sections claim completed empirical demonstrations. The tables are qualitative; the seven-page file provides no numerical experimental results, dataset specification, detailed reproducible simulation protocol or hardware measurements. Its claims about meaning, Gödel, cognition and substrate remain the external author’s claims. The dual-pulse experiment is explicitly hypothetical.</p>
+<p><strong>Possible connection:</strong> A comparative or critical reference on physical realization and meaning. It can sit beside the user’s own inquiries into representation and epistemology without supplying their origin or proving their conclusions. Shared language such as “semantic” or “coherence” does not establish equivalent meanings across this article and the engineering studies.</p>
+</section>
+<section id="lamport-folder-and-reference-note" class="level2">
+<h2 class="anchored" data-anchor-id="lamport-folder-and-reference-note">Lamport folder and reference note</h2>
+<p><strong>Source:</strong> <code>ai/assistant/inputs/Lamport/References.md</code>.</p>
+<p><strong>Scope and inventory:</strong> Read the complete 27-line reference note. Recursive file inventory of <code>inbox/Lamport/</code> found exactly <code>References.md</code> and <code>interpreters.pdf</code>; no additional local source files were found there.</p>
+<p><strong>Content:</strong> The note links to external work on mutual exclusion, wait-free synchronization, multiprocessor consistency, interprocess communication, linearizability, event ordering, distributed snapshots, replicated databases, fault tolerance, Byzantine agreement, consensus/Paxos, refinement mappings and TLA+, followed by LaTeX/TeX references. It is a bibliography, not an authored research paper or proof that the linked works were used in an implementation.</p>
+<p><strong>Possible connection and unread scope:</strong> These topics offer separate entry points for the author’s investigation of ordering, coordination, state and specification. The linked works were not fetched or read in this pass. Reading their titles does not establish their assumptions, proofs or applicability. The non-Lamport timing paper remains separately attributed.</p>
+</section>
+<section id="concept-index-methodology-and-local-mock-up" class="level2">
+<h2 class="anchored" data-anchor-id="concept-index-methodology-and-local-mock-up">Concept-index methodology and local mock-up</h2>
+<p><strong>Sources:</strong> <span class="internal-reference">Complete methodology</span>; <span class="internal-reference">application README</span>.</p>
+<p><strong>Scope and origin:</strong> Previously read the full 1,104-line methodology, including all tables, proposed tests, staged work, footnotes and sources, and the complete application README. Repository research and implementation artifacts; the user supplies their place in the semester’s AI-assisted work. No named byline appears in those documents.</p>
+<p><strong>Question and approach:</strong> Make recurring language and technical relationships inspectable without converting counts into meaning. The methodology uses reported defects in an 18-record pilot to distinguish source evidence, observations, semantic interpretation, verification, intended-use validation and governance. It preserves provenance, source dependencies, isolated nodes, uncertainty and versions; external schemes receive scoped mappings.</p>
+<p><strong>Contribution and limits:</strong> The methodology specifies a proposed concept index and typed graphs. It records the earlier pilot as supplied project evidence because original historical exports were unavailable. The Python/SQLite mock-up represents selected distinctions through separate records and views; its README reports static authoring checks and leaves runtime acceptance unverified. English-only admission and the VLSI domain boundary apply to this index, not the whole master’s repository. A governed graph release is not an academic publication, and a graph is not automatically a formal ontology.</p>
+<p><strong>Possible connection:</strong> A bounded treatment of how AI-pipeline tools can preserve the origin and meaning of information they transform. It shares concerns with the living-thesaurus conversation while retaining its own narrower specification and artifact status.</p>
+</section>
+<section id="relational-domain-ontology-proposal" class="level2">
+<h2 class="anchored" data-anchor-id="relational-domain-ontology-proposal">Relational Domain Ontology proposal</h2>
+<p><strong>Source:</strong> <span class="internal-reference">Proposal: Relational Domain Ontology as a Semantic Invariant Across Engineering and AI Workflows</span>.</p>
+<p><strong>Scope and origin:</strong> Previously read the complete Markdown proposal, all fourteen sections. No named byline, date or submission/publication status is stated.</p>
+<p><strong>Question and approach:</strong> Investigate loss of relations connecting project purpose, rationale, constraints, realization and evidence across lifecycle transformations. The proposal separates the domain, its semantic model, selected properties, formal representations, reasoning mechanisms and realization. It proposes a small demonstrator with orphan requirements, lost rationale, false compliance, AI transformation drift and a defective ontology.</p>
+<p><strong>Contribution and limits:</strong> Relations are proposed as observable engineering state. Compliance supplies feedback; a deterministic solver can reason correctly from an incorrect model. The ontology must therefore preserve assumptions, evidence, unresolved terms and revision history. Its comparisons, metrics and expected findings are proposed, not completed experiments.</p>
+<p><strong>Possible connection:</strong> Broader methodological research that could inform a VLSI workflow case. The source does not prove that the concept-index mock-up implements this proposal or that all repository work adopted one architecture.</p>
+</section>
+<section id="historical-masters-work-plan" class="level2">
+<h2 class="anchored" data-anchor-id="historical-masters-work-plan">Historical master’s work plan</h2>
+<p><strong>Source:</strong> <code>ai/assistant/inputs/Untitled 3.md</code>.</p>
+<p><strong>Scope and origin:</strong> Previously read the complete Markdown plan, including identification, activities, schedule and expected results. It names <strong>Fernando Lessa de Oliveira Magalhães</strong> and advisor <strong>William Orivaldo Faria Carvalho</strong>.</p>
+<p><strong>Question and approach:</strong> Develop digitally reconfigurable metasurfaces controlled by PIN diodes for beam steering and beamforming. Planned work proceeds through literature, a unit cell, electromagnetic simulation, array/control design, fabrication, integration and experimental characterization.</p>
+<p><strong>Status and limits:</strong> It records a 1 August 2026 start, 24 months with possible approximately 18-month completion, and an expected journal article. A schedule introduction says 12 months while the bimonthly table contains B1-B12; the inconsistency remains unresolved. Functional prototypes, measurements, article submission and dissertation completion are expected outputs. The plan does not establish a formal change to the degree topic or a defense board.</p>
+<p><strong>Possible connection:</strong> Independent academic context for the repository. Metasurface engineering and AI-Pipeline Tools for VLSI Workflows may inform one another, but the inspected plan does not make them one project.</p>
+</section>
+<section id="masters-conversation-from-a-plan-to-an-epistemic-workspace" class="level2">
+<h2 class="anchored" data-anchor-id="masters-conversation-from-a-plan-to-an-epistemic-workspace">Master’s conversation: from a plan to an epistemic workspace</h2>
+<p><strong>Source:</strong> Preserved dialogue record. Its chronological reading copy and corresponding JSON preserve message identifiers and content types in the private source collection.</p>
+<p><strong>Scope and origin:</strong> Read all 8,132 lines and 201 chronological entries, including the complete visible code for two historical package generators, their visible outputs, prose and redaction markers. This is a conversation between the user and an assistant, with historical tool records. Reading it does not recover the original uploaded images, archive, redacted tool outputs or downloadable packages. No historical code was executed here.</p>
+<p><strong>Question and author direction:</strong> How can a master’s plan become a precise environment in which humans and agents develop knowledge together? The sequence begins with exact transcription and Obsidian formatting, then moves through terminology and research structure to a source-informed workspace:</p>
+<ol type="1">
+<li>The user asks whether the plan can be transformed into specifications, requirements and minimum terminology (<code>1e8ab4eb-abb5-4509-bc12-0f347b47fcd9</code>). The assistant separates source statements from candidate requirements, operational definitions and unresolved parameters.</li>
+<li>The user challenges the proposed starting point: “need/mission or Intent? the meta-meta-analysis” (<code>64593fde-2430-49c5-9b29-04121f222936</code>), then asks whether a more rigorous approach exists (<code>217808c9-dd37-4681-831b-0b1455958642</code>). The assistant shifts from a single hierarchy to several kinds of entities and relations: why the work matters, what research seeks to learn, what a system should do, what evidence supports it, and what the degree program must deliver.</li>
+<li>“Implemente” (<code>1762b18b-60f9-47f4-8fbc-9079bd24a97f</code>) leads to a candidate Markdown metamodel. The user then explicitly requests a project-environment foundation for humans and agents, canonical English, and terminology based on IEEE, Elsevier and high-level sources (<code>72e5b1bc-3782-40c0-aab3-6ef238736046</code>). The assistant generates a v0.1 environment with domain notes, terminology, relations, registers and templates.</li>
+<li>The user asks whether the professor’s papers would improve the effort (<code>10cce276-17da-446e-afaa-46544814ba3c</code>), then directs the assistant to ingest the professor’s master’s and doctoral work, articles and work-plan-related papers properly: “do not infer or lie about ingest. Used it for real” (<code>3bb5ac31-1945-4bf6-8cdd-641c74558dce</code>). This is a demand to let the material actually shape the work.</li>
+<li>The assistant’s final v0.2 response (<code>b618dfd0-f961-461a-bafb-b35d03f60db6</code>) reports a 15-PDF corpus and 68-file environment. It distinguishes direct PIN/metasurface component overlap from beam-control lineage, modeling-method lineage and an external reference. Its principal examples separate PIN bias, digital commands, electromagnetic response, phase and spatial distribution; they also separate a periodic cell from a finite array and an integrated prototype.</li>
+</ol>
+<p><strong>What this contributes:</strong> The conversation documents AI-assisted development of research organization, English terminology, source comparison and reusable project documents. Its concrete engineering question is useful: what does “bit” actually designate in a given paper or system? The resulting distinctions can help a controller designer, an electromagnetic modeler and a reader of the literature discuss the same experiment without assuming their representations are interchangeable. This is also a learning process: the user’s questions repeatedly change the level and form of the assistant’s answer.</p>
+<p><strong>Status and limits:</strong> Visible historical execution outputs report creation of v0.1 and v0.2 packages and structural checks. The assistant’s all-page visual-ingestion claims cannot be independently established from the shared transcript because the relevant tool outputs are redacted; the code sets visual-scan flags directly. Historical source summaries therefore remain assistant-produced research records until checked against their PDFs. The final response is not followed by user acceptance in the recovered chain. Generated authority assignments, local fidelity levels, mandatory workflows and <code>UNCONVERGED</code> scope are assistant artifact choices, not independent evidence of current academic governance. No final architecture, degree-topic change, novelty judgment or journal submission follows automatically from them.</p>
+<p><strong>Possible connection:</strong> The living-thesaurus conversation explains how project meaning develops through participation; this conversation shows a different concrete case in which terminology and relations are shaped around an academic plan and supplied literature. Both can sit beside the concept-index and RDO proposal, while retaining separate artifacts and histories. The metasurface plan remains its own engineering and academic context beside the current AI-Pipeline Tools for VLSI Workflows direction.</p>
+</section>
+<section id="nsf-workshop-report-on-ai-for-eda" class="level2">
+<h2 class="anchored" data-anchor-id="nsf-workshop-report-on-ai-for-eda">NSF Workshop report on AI for EDA</h2>
+<p><strong>Source:</strong> <span class="internal-reference">Report for NSF Workshop on AI for Electronic Design Automation</span>.</p>
+<p><strong>Scope and origin:</strong> Full Poppler-extracted text of PDF pages 1-12, including executive summary, all technical sections, recommendations, acknowledgments, 39 references and biographies. External report by <strong>Deming Chen, Vijay Ganesh, Weikai Li, Yingyan (Celine) Lin, Yong Liu, Subhasish Mitra, David Z. Pan, Ruchir Puri, Jason Cong and Yizhou Sun</strong>. The supplied version is <code>arXiv:2601.14541v1</code>, dated 20 January 2026, reporting a workshop held 10 December 2024 in Vancouver alongside NeurIPS. Its repeated “Journal of LaTeX Class Files” header and 2021 copyright placeholders do not establish journal publication. References include 2025 material, so this should not be described as only a contemporaneous December-2024 snapshot.</p>
+<p><strong>Question and approach:</strong> Where can AI contribute to electronic design, and what work would make those contributions practical? The report synthesizes four workshop themes: physical synthesis/manufacturing; high-level and logic synthesis; an AI toolbox for optimization and design; and test/verification. The toolbox participants contributed to the other groups rather than supplying a separate technical chapter. The report combines discussed techniques, cited examples, remaining obstacles and funding/community recommendations; it is not one controlled comparative experiment.</p>
+<p><strong>Findings:</strong> AI’s role is broad. The report discusses performance prediction, pragma insertion and program transformation, RTL generation, placement and routing, design-rule assistance, simulation surrogates, solver heuristics, debugging and tool-using agents. Pages 7-8 describe feedback-driven agent workflows and learning from existing designs, settings, logs and reports. Pages 3-4 and 7 call for shared data, interoperable frameworks, cross-community collaboration and education connecting AI and EDA. Pages 8-10 explain why physical observability, manufacturing defects, reliability and verification remain substantial engineering problems. Hybrid methods recur throughout: learned models contribute where useful, alongside established EDA algorithms and symbolic tools.</p>
+<p><strong>Limits:</strong> The report identifies scarce/proprietary data, tool-version and design-domain shifts, integration difficulty, expensive evaluation and limited generalization. Reported performance figures belong to their cited studies and conditions, not to the user’s artifacts. Agentic end-to-end design, community data infrastructure and workforce recommendations are proposed directions; their appearance in a workshop report does not establish implementation success or an NSF commitment. The referenced papers were not independently read as part of reading this report.</p>
+<p><strong>Possible connection:</strong> A direct foundation named by the concept-index methodology and a useful external setting for AI-Pipeline Tools for VLSI Workflows. It supports showing concrete concurrent activities—tool interaction, reuse of pipeline artifacts, modeling/optimization and learning—without making every contribution a verification exercise. The user’s living-thesaurus proposal adds its own account of meaning developing around project words; the report does not originate or validate that concept.</p>
+</section>
+<section id="reading-connections-and-remaining-gaps" class="level2">
+<h2 class="anchored" data-anchor-id="reading-connections-and-remaining-gaps">Reading connections and remaining gaps</h2>
+<ul>
+<li><strong>Representation and realization:</strong> Signals and Timing Trials expose mechanisms beneath process and language abstractions. The thesaurus conversation and RDO proposal address how humans form and carry meaning across representations. These are possible correspondences to explore, not a demonstrated universal equivalence.</li>
+<li><strong>History changes interpretation:</strong> A reused process identifier, a cached benchmark input, a copied source and a revised definition each require attention to their history. The mechanisms differ; their differences are part of the inquiry.</li>
+<li><strong>A visible result has conditions:</strong> Signal counts, timing measurements, graph edges and semantic claims acquire meaning from the way they were produced. The sources supply different examples and different limits.</li>
+<li><strong>Authorship remains distinct:</strong> The living-thesaurus corrections come directly from the user. The downloaded PDFs are external literature. Repository proposals, plans, mock-ups and stated publication intentions retain their respective status.</li>
+<li><strong>Learning and engineering occur together:</strong> The master’s conversation makes terminology useful through a cell/control example; the NSF report connects tools, reusable data, design methods and education. These offer concrete ways to present concurrent contributions while preserving the author’s human account of how meanings develop.</li>
+<li><strong>Still unread or unavailable:</strong> The external works linked by the Lamport bibliography; external references cited by the PDFs and methodology unless separately read elsewhere by the team; redacted ChatGPT outputs and unrecovered original uploads/packages; and original historical exports underlying the concept-index pilot. The Temporal Coherence paper’s prose and source inventory were inspected earlier, but its full embedded code appendices were not read in this assignment. The 95-page <code>kb/2411.14870v1.pdf</code> review is assigned to another reader and is not included in this agent’s full-reading claim. This note is not an inventory or full-reading claim for the rest of <code>inbox/</code> or <code>kb/</code>.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

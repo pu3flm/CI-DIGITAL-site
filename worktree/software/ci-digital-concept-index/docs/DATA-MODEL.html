@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Fernando Lessa Magalhães">
+<meta name="dcterms.date" content="2026-09-14">
+
+<title>data-model – CI-DIGITAL Group 6</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-707bca35fca44f299eaa8a5a18ad58e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const title = document.querySelector("#title-block-header .quarto-title");
+  if (!title || title.querySelector(".document-type-label")) return;
+
+  const heading = title.querySelector("h1.title")?.textContent.trim() || "";
+  const path = decodeURIComponent(window.location.pathname);
+  let label = "Reference";
+  let color = "secondary";
+
+  if (heading === "CI-DIGITAL Group 6") [label, color] = ["Project", "primary"];
+  else if (path.endsWith("/content/group-6-work-plan.html")) [label, color] = ["Work Plan", "warning"];
+  else if (path.endsWith("/ONTOLOGY.html")) [label, color] = ["Common Ontology", "info"];
+  else if (path.endsWith("/content/docs/approach.html")) [label, color] = ["Technical Approach", "info"];
+  else if (path.endsWith("/worktree/papers/notes/MANIFEST.html")) [label, color] = ["Author's Manifest", "primary"];
+  else if (path.includes("/content/docs/cases/")) [label, color] = ["Case Study", "info"];
+  else if (path.includes("/content/docs/research/")) [label, color] = ["Research", "info"];
+  else if (path.includes("/content/docs/workflows/")) [label, color] = ["Workflow Study", "success"];
+  else if (path.includes("/content/session/")) [label, color] = ["Session Reference", "dark"];
+  else if (path.includes("/worktree/hardware/UART/")) [label, color] = ["UART Engineering", "success"];
+  else if (path.includes("/worktree/software/")) [label, color] = ["Software Study", "success"];
+
+  const element = document.createElement("span");
+  element.className = `badge bg-${color} document-type-label`;
+  element.textContent = label;
+  title.prepend(element);
+});
+</script>
+
+
+<link rel="stylesheet" href="../../../../quarto/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title"><span class="site-title-main">CI-DIGITAL Group 6</span><span class="site-title-subtitle">AI-Assisted Tools and Methods for VLSI Workflows</span></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-home" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Home</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-home">    
+        <li>
+    <a class="dropdown-item" href="../../../../index.html">
+ <span class="dropdown-text">Project Home</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/approach.html">
+ <span class="dropdown-text">Technical Approach</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/ci-digital-concept-graph-methodology.html">
+ <span class="dropdown-text">Research and Methodology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/submission_index.html">
+ <span class="dropdown-text">UART Engineering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/Code-example/index.html">
+ <span class="dropdown-text">Software Studies</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../content/group-6-work-plan.html"> 
+<span class="menu-text">Work Plan</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../ONTOLOGY.html"> 
+<span class="menu-text">Common Ontology</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../worktree/papers/notes/MANIFEST.html"> 
+<span class="menu-text">Author’s Manifest</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#canonical-store" id="toc-canonical-store" class="nav-link active" data-scroll-target="#canonical-store">Canonical Store</a></li>
+  <li><a href="#registry-groups" id="toc-registry-groups" class="nav-link" data-scroll-target="#registry-groups">Registry Groups</a></li>
+  <li><a href="#identity-model" id="toc-identity-model" class="nav-link" data-scroll-target="#identity-model">Identity Model</a></li>
+  <li><a href="#acquisition-and-derivation-invariants" id="toc-acquisition-and-derivation-invariants" class="nav-link" data-scroll-target="#acquisition-and-derivation-invariants">Acquisition and Derivation Invariants</a></li>
+  <li><a href="#evidence-and-warrant-invariants" id="toc-evidence-and-warrant-invariants" class="nav-link" data-scroll-target="#evidence-and-warrant-invariants">Evidence and Warrant Invariants</a></li>
+  <li><a href="#claim-profiles" id="toc-claim-profiles" class="nav-link" data-scroll-target="#claim-profiles">Claim Profiles</a></li>
+  <li><a href="#scheme-model" id="toc-scheme-model" class="nav-link" data-scroll-target="#scheme-model">Scheme Model</a></li>
+  <li><a href="#release-and-approval-identity" id="toc-release-and-approval-identity" class="nav-link" data-scroll-target="#release-and-approval-identity">Release and Approval Identity</a></li>
+  <li><a href="#derived-state" id="toc-derived-state" class="nav-link" data-scroll-target="#derived-state">Derived State</a></li>
+  <li><a href="#migration-files" id="toc-migration-files" class="nav-link" data-scroll-target="#migration-files">Migration Files</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Model</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Fernando Lessa Magalhães </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Updated</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 14, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="canonical-store" class="level2">
+<h2 class="anchored" data-anchor-id="canonical-store">Canonical Store</h2>
+<p>SQLite is canonical. JSON and TSV are downstream snapshots. Every JSON-valued column stores canonical explicit JSON; comma-packed identifiers are prohibited. Every typed entity also appears in <code>stable_identifiers</code> with a constrained <code>entity_type</code>.</p>
+</section>
+<section id="registry-groups" class="level2">
+<h2 class="anchored" data-anchor-id="registry-groups">Registry Groups</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Concern</th>
+<th>Tables</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Identity and actors</td>
+<td><code>stable_identifiers</code>, <code>actors</code>, lookup registries</td>
+</tr>
+<tr class="even">
+<td>Methods and runtime</td>
+<td><code>procedures</code>, <code>procedure_versions</code>, <code>tools</code>, <code>tool_versions</code>, <code>configurations</code>, <code>configuration_versions</code>, configuration procedure/tool applicability, <code>execution_environments</code>, <code>environment_versions</code></td>
+</tr>
+<tr class="odd">
+<td>Execution provenance</td>
+<td><code>acquisition_activities</code>, <code>acquisition_activity_tools</code>, <code>derivation_runs</code>, <code>derivation_run_inputs</code>, <code>derivation_run_tools</code>, <code>derivation_run_outputs</code>, <code>artifact_versions</code>, <code>artifact_content_identities</code></td>
+</tr>
+<tr class="even">
+<td>Source and extraction</td>
+<td><code>source_registry</code>, <code>source_routing_decisions</code>, <code>source_versions</code>, <code>extraction_runs</code>, <code>extracted_texts</code>, <code>extracted_text_spans</code>, <code>segments</code></td>
+</tr>
+<tr class="odd">
+<td>Domain boundary</td>
+<td><code>domain_applicability_records</code>, <code>domain_applicability_facets</code>, <code>admission_decisions</code>, <code>concept_schemes</code>, <code>concept_scheme_versions</code>, <code>external_schemes</code>, <code>external_scheme_versions</code>, <code>domain_warrants</code>, <code>requirements</code></td>
+</tr>
+<tr class="even">
+<td>Evidence</td>
+<td><code>evidence_items</code>, <code>evidence_lineage_groups</code>, <code>evidence_lineage_links</code>, <code>independence_rules</code>, <code>independence_assessments</code>, assessment memberships/classes</td>
+</tr>
+<tr class="odd">
+<td>Lexical analysis</td>
+<td><code>normalization_rules</code>, <code>normalized_segments</code>, <code>sentence_occurrences</code>, <code>token_occurrences</code>, <code>ngram_occurrences</code>, <code>ngram_occurrence_tokens</code>, <code>measure_definitions</code>, <code>aggregate_measures</code>, <code>aggregate_measure_evidence</code></td>
+</tr>
+<tr class="even">
+<td>Observation graph</td>
+<td><code>observation_windows</code>, <code>graph_nodes</code>, <code>observation_edges</code>, edge evidence/derivations, <code>similarity_signals</code>, <code>similarity_signal_evidence</code></td>
+</tr>
+<tr class="odd">
+<td>Semantic workspace</td>
+<td>candidate tables, <code>term_registry</code>, <code>term_forms</code>, <code>concept_registry</code>, <code>concept_terms</code>, <code>concept_facets</code>, <code>predicate_registry</code>, claim/profile/link tables, <code>concept_definition_claims</code>, <code>semantic_assertions</code>, <code>mapping_registry</code></td>
+</tr>
+<tr class="even">
+<td>V&amp;V and use</td>
+<td>versioned/superseding <code>intended_uses</code> and <code>query_sets</code>, <code>query_set_baselines</code>, <code>query_cases</code>, <code>relevance_judgments</code>, <code>retrieval_evaluations</code>, <code>reviews</code>, <code>verification_records</code>, <code>validation_records</code> and tool links</td>
+</tr>
+<tr class="odd">
+<td>Release and lifecycle</td>
+<td><code>assurance_arguments</code>, <code>releases</code>, canonical <code>release_items</code>, <code>release_approval_packages</code>, <code>release_baseline_snapshots</code>, <code>approval_decisions</code>, <code>publication_events</code>, change/impact/deprecation/retirement/tombstone tables</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="identity-model" class="level2">
+<h2 class="anchored" data-anchor-id="identity-model">Identity Model</h2>
+<ul>
+<li>A stable ID identifies one immutable version record, not a mutable logical object.</li>
+<li>Logical continuity uses <code>*_key + version</code>, <code>supersedes_*</code>, validity intervals, or state-event links.</li>
+<li>Every typed insert requires the same ID/type to be preregistered and live; Python registers it in the same transaction.</li>
+<li><code>stable_identifiers</code> cannot be deleted. Its only permitted update is the tombstone time caused by a matching tombstone trigger.</li>
+<li>A tombstoned ID remains resolvable and cannot be registered under any type again.</li>
+</ul>
+</section>
+<section id="acquisition-and-derivation-invariants" class="level2">
+<h2 class="anchored" data-anchor-id="acquisition-and-derivation-invariants">Acquisition and Derivation Invariants</h2>
+<ul>
+<li>An acquisition artifact has exactly <code>producer_kind='acquisition'</code>, one acquisition activity, and no derivation run.</li>
+<li>A derived artifact has exactly <code>producer_kind='derivation'</code>, one derivation run, and no acquisition activity.</li>
+<li>Artifact identity is explicitly <code>available</code> with a hash or <code>unavailable</code> with a non-empty rationale; null never silently means either state.</li>
+<li>Every selected configuration is explicitly applicable to the procedure and every linked tool used by its acquisition, derivation, verification, or validation act.</li>
+<li>Every successful derivation has input and output links plus tool versions or an explicit no-tool rationale. Each input records the exact observed identity state/hash/unavailable rationale; no field is inferred from the current artifact row.</li>
+<li>Every concrete derived row’s <code>artifact_version_id</code> and <code>derivation_run_id</code> match both <code>artifact_versions</code> and <code>derivation_run_outputs</code>; the output hash equals the artifact identity hash, including the explicit unavailable state.</li>
+<li>Every source version’s artifact producer matches its <code>acquisition_activity_id</code>.</li>
+<li>Source authentication/completeness and payload hash match that acquisition activity and artifact identity; routing changes form an immutable reviewed supersession chain.</li>
+<li>Extraction binds exactly <code>extraction_run -&gt; derivation input/output -&gt; extracted_text -&gt; span -&gt; segment</code>; each segment’s required span covers its complete half-open range. The UTF-8 byte hash is a typed <code>artifact_content_identity</code> bound to output artifact/run/content role and is not equated to the extraction bundle’s identity hash.</li>
+<li>Every release item’s stored canonical JSON and hash recompute from the exact typed record. The release manifest is the identity/output hash of a non-recursive content artifact containing release metadata and item snapshots.</li>
+</ul>
+</section>
+<section id="evidence-and-warrant-invariants" class="level2">
+<h2 class="anchored" data-anchor-id="evidence-and-warrant-invariants">Evidence and Warrant Invariants</h2>
+<ul>
+<li><code>E-SOURCE</code> binds an authenticated source version or a segment from it.</li>
+<li><code>E-DERIVED</code> binds the exact artifact producer run and registered output.</li>
+<li><code>E-DOMAIN</code> requires <code>domain_warrant_id</code>; the warrant binds an external scheme version, authenticated source version, exact locator, scope, normative/authoritative status, and optional source segment. Informative warrants remain records but never qualify.</li>
+<li><code>E-PROJECT</code> requires <code>project_requirement_id</code>; the target requirement version must be approved.</li>
+<li>Other evidence classes cannot populate those warrant fields.</li>
+<li>Aggregate, edge, and similarity hashes are recomputable from normalized memberships; any supplied evidence item, source version, and segment must be the exact same provenance chain.</li>
+<li>A projected edge copies the complete source membership, keeps the same membership hash, records its source edge, and has independent evidence delta zero.</li>
+</ul>
+</section>
+<section id="claim-profiles" class="level2">
+<h2 class="anchored" data-anchor-id="claim-profiles">Claim Profiles</h2>
+<p>Each claim binds <code>claim_type_profile_id + profile_version + claim_type</code> and requires a matching immutable <code>claim_profile_seal</code>. A seal canonicalizes the profile plus all requirements and is permitted only when at least one requirement exists and every minimum is positive. Profile requirements use <code>requirement_group</code>:</p>
+<ul>
+<li>rows in one group are alternatives (<code>E-DOMAIN</code> <strong>or</strong> <code>E-PROJECT</code>);</li>
+<li>different groups are cumulative (<code>corpus_occurrence</code> <strong>and</strong> <code>vlsi_warrant</code>);</li>
+<li>each alternative states support role, evidence class, minimum count, and optional independent count;</li>
+<li><code>minimum_isf</code> is an additional profile-wide floor.</li>
+</ul>
+<p>An independence association is append-only in <code>claim_evidence_independence_links</code>; its assessment must name the same claim and include that exact evidence item. Release gates recompute ISF from available, accepted, supporting evidence in the exact profile role/class and under the profile’s named rule; stored assessment-wide <code>isf_value</code> is not trusted as the gate result.</p>
+</section>
+<section id="scheme-model" class="level2">
+<h2 class="anchored" data-anchor-id="scheme-model">Scheme Model</h2>
+<ul>
+<li><code>concept_schemes</code> and versions own internal <code>cid</code> and <code>ifc</code> namespaces.</li>
+<li><code>external_schemes</code> and versions own <code>ext</code> concepts.</li>
+<li>A <code>cid</code>/<code>ifc</code> concept names exactly one matching internal scheme version and no external scheme.</li>
+<li>An <code>ext</code> concept names exactly one external scheme version and no internal scheme.</li>
+<li>A mapping’s source and target scheme-version IDs equal the actual owning internal/external scheme versions of its concepts; it also states conditions, intended use, prohibited use, and information loss.</li>
+<li>Claim-level <code>cid</code> governance is active when <code>scope_namespace='cid'</code>, the predicate namespace is <code>cid</code>, or either endpoint resolves to a <code>cid</code> concept. Every such claim must use an active <code>cid</code> concept-scheme version; <code>scope_scheme_type='none'</code> is reserved for sealed non-semantic profiles.</li>
+</ul>
+</section>
+<section id="release-and-approval-identity" class="level2">
+<h2 class="anchored" data-anchor-id="release-and-approval-identity">Release and Approval Identity</h2>
+<ul>
+<li><code>releases.manifest_hash</code> is immutable release-content identity and is finalized before V&amp;V.</li>
+<li><code>release_approval_packages</code> are separate derivation artifacts created after current verification, validation, retrieval, and assurance exist. <code>package_version</code> plus <code>supersedes_approval_package_id</code> creates one ordered, immutable, non-forking chain per release, exposed by <code>current_release_approval_packages</code>. Each package’s snapshots exactly equal the deterministic release-relative closure of definitions, labels/forms/facets, semantic relations/predicates, mappings, sealed profiles/constraints/rules, approved uses, sealed query/relevance material, and current V&amp;V/retrieval/assurance records.</li>
+<li><code>approval_decisions</code> and <code>publication_events</code> bind one exact current-head package ID; <code>publication_events.attempted_manifest_hash</code> carries that approval-package hash, not the release-content hash.</li>
+</ul>
+</section>
+<section id="derived-state" class="level2">
+<h2 class="anchored" data-anchor-id="derived-state">Derived State</h2>
+<p><code>current_claim_state</code>, <code>current_change_request_state</code>, <code>current_source_routing</code>, <code>current_verification_records</code>, <code>current_intended_uses</code>, <code>current_query_sets</code>, <code>current_retrieval_evaluations</code>, <code>current_validation_records</code>, <code>current_release_approval_packages</code>, <code>governed_item_state</code>, <code>current_published_releases</code>, and <code>published_claims</code> are views over immutable events or supersession chains. Current state is never inferred from an older pass/fit, use/query/package version, claim row, or approval alone.</p>
+</section>
+<section id="migration-files" class="level2">
+<h2 class="anchored" data-anchor-id="migration-files">Migration Files</h2>
+<ul>
+<li><code>0001_initial.sql</code>: canonical registries and constraints.</li>
+<li><code>0002_invariants_and_views.sql</code>: normalized views, indexes, and validation queries.</li>
+<li><code>0003_transition_guards.sql</code>: typed-ID, producer, domain, evidence-profile, role-separation, publication, retirement, and append-only triggers.</li>
+</ul>
+<p>Their exact SHA-256 values are pinned in <code>migrations/manifest.json</code>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

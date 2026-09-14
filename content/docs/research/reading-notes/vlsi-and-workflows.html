@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Fernando Lessa Magalhães">
+<meta name="dcterms.date" content="2026-09-14">
+
+<title>vlsi-and-workflows – CI-DIGITAL Group 6</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-707bca35fca44f299eaa8a5a18ad58e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const title = document.querySelector("#title-block-header .quarto-title");
+  if (!title || title.querySelector(".document-type-label")) return;
+
+  const heading = title.querySelector("h1.title")?.textContent.trim() || "";
+  const path = decodeURIComponent(window.location.pathname);
+  let label = "Reference";
+  let color = "secondary";
+
+  if (heading === "CI-DIGITAL Group 6") [label, color] = ["Project", "primary"];
+  else if (path.endsWith("/content/group-6-work-plan.html")) [label, color] = ["Work Plan", "warning"];
+  else if (path.endsWith("/ONTOLOGY.html")) [label, color] = ["Common Ontology", "info"];
+  else if (path.endsWith("/content/docs/approach.html")) [label, color] = ["Technical Approach", "info"];
+  else if (path.endsWith("/worktree/papers/notes/MANIFEST.html")) [label, color] = ["Author's Manifest", "primary"];
+  else if (path.includes("/content/docs/cases/")) [label, color] = ["Case Study", "info"];
+  else if (path.includes("/content/docs/research/")) [label, color] = ["Research", "info"];
+  else if (path.includes("/content/docs/workflows/")) [label, color] = ["Workflow Study", "success"];
+  else if (path.includes("/content/session/")) [label, color] = ["Session Reference", "dark"];
+  else if (path.includes("/worktree/hardware/UART/")) [label, color] = ["UART Engineering", "success"];
+  else if (path.includes("/worktree/software/")) [label, color] = ["Software Study", "success"];
+
+  const element = document.createElement("span");
+  element.className = `badge bg-${color} document-type-label`;
+  element.textContent = label;
+  title.prepend(element);
+});
+</script>
+
+
+<link rel="stylesheet" href="../../../../quarto/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title"><span class="site-title-main">CI-DIGITAL Group 6</span><span class="site-title-subtitle">AI-Assisted Tools and Methods for VLSI Workflows</span></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-home" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Home</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-home">    
+        <li>
+    <a class="dropdown-item" href="../../../../index.html">
+ <span class="dropdown-text">Project Home</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/approach.html">
+ <span class="dropdown-text">Technical Approach</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/ci-digital-concept-graph-methodology.html">
+ <span class="dropdown-text">Research and Methodology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/submission_index.html">
+ <span class="dropdown-text">UART Engineering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/Code-example/index.html">
+ <span class="dropdown-text">Software Studies</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../content/group-6-work-plan.html"> 
+<span class="menu-text">Work Plan</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../ONTOLOGY.html"> 
+<span class="menu-text">Common Ontology</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../worktree/papers/notes/MANIFEST.html"> 
+<span class="menu-text">Author’s Manifest</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#reading-scope" id="toc-reading-scope" class="nav-link active" data-scroll-target="#reading-scope">Reading scope</a></li>
+  <li><a href="#c-helper-and-uart-work" id="toc-c-helper-and-uart-work" class="nav-link" data-scroll-target="#c-helper-and-uart-work">C++ helper and UART work</a></li>
+  <li><a href="#vivado-investigation-and-proposed-supporting-tools" id="toc-vivado-investigation-and-proposed-supporting-tools" class="nav-link" data-scroll-target="#vivado-investigation-and-proposed-supporting-tools">Vivado: investigation and proposed supporting tools</a></li>
+  <li><a href="#cadence-bist-and-rf-application-material" id="toc-cadence-bist-and-rf-application-material" class="nav-link" data-scroll-target="#cadence-bist-and-rf-application-material">Cadence, BIST, and RF application material</a></li>
+  <li><a href="#recovered-chatgpt-material-and-author-corrections" id="toc-recovered-chatgpt-material-and-author-corrections" class="nav-link" data-scroll-target="#recovered-chatgpt-material-and-author-corrections">Recovered ChatGPT material and author corrections</a>
+  <ul class="collapse">
+  <li><a href="#pcienpu-inquiry" id="toc-pcienpu-inquiry" class="nav-link" data-scroll-target="#pcienpu-inquiry">PCIe/NPU inquiry</a></li>
+  <li><a href="#dft-and-meaning-among-people" id="toc-dft-and-meaning-among-people" class="nav-link" data-scroll-target="#dft-and-meaning-among-people">DFT and meaning among people</a></li>
+  <li><a href="#eight-generated-background-documents" id="toc-eight-generated-background-documents" class="nav-link" data-scroll-target="#eight-generated-background-documents">Eight generated background documents</a></li>
+  <li><a href="#the-mixed-source-in-a.md" id="toc-the-mixed-source-in-a.md" class="nav-link" data-scroll-target="#the-mixed-source-in-a.md">The mixed source in <code>a.md</code></a></li>
+  </ul></li>
+  <li><a href="#available-material-and-remaining-limits" id="toc-available-material-and-remaining-limits" class="nav-link" data-scroll-target="#available-material-and-remaining-limits">Available material and remaining limits</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Reading notes: VLSI cases and workflow sources</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Fernando Lessa Magalhães </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Updated</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 14, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Reading record, 2026-09-10. These are source capsules for continued learning, not a new specification or an adopted common architecture. The independent efforts belong to the author’s CI-DIGITAL and master’s work. Historical instructions, generated documents, and proposed commands were read as material, not followed.</p>
+<section id="reading-scope" class="level2">
+<h2 class="anchored" data-anchor-id="reading-scope">Reading scope</h2>
+<ul>
+<li>Cumulative full reading in this conversation: the 569-line <code>ai-code/vcd_snapshot.cpp</code>; all six Markdown documents under <code>UART/docs/</code>; the ten <code>UART/rtl/docs/uart/</code> Markdown documents; the submission index; all 26 small text, schema, contract, and historical-reference files inventoried under <code>docs/workflows/vivado/</code>; <code>inbox/agilex.md</code>, <code>inbox/a.md</code>, <code>inbox/role in  rf.md</code>, and <code>docs/workflows/cadence/cadence-documentation.md</code>.</li>
+<li>Both one-page UART PDFs were read through Poppler text extraction and page images. The beamforming paper was located in <code>kb/</code>: all 16 pages of extracted text were read, including tables, captions, references, and biographies; PDF pages 2 and 11 were also visually inspected for Figures 1 and 11. Other paper figures were read through their captions and surrounding discussion, not individually examined as images.</li>
+<li>The complete saved UART boundary log was read. Baseline log lines 3018–3090, parity log lines 175–196, and the VCD header were read as selected supporting evidence. The full raw waveform and every simulation log were not exhaustively read.</li>
+<li>The Cadence inventory’s 79 descriptive rows were reviewed. Selected cached LBIST/PMBIST introductory sections and the complete four-page ADC-BIST paper text were read. This is not full reading of the vendor manual collection.</li>
+<li>The complete recovered PCIe/NPU conversation and Cadence contact conversation were read. All eight generated Markdown bodies embedded in the recovered greeting conversation were read. The shared-chat limitations and exact entrances are recorded below.</li>
+<li>A subsequent <span class="internal-reference">OpenCode reading batch</span> recovered the UART helper’s bounded origin dialogue, original source patches, documentation requests and saved output. Its exact reading interval and source IDs are recorded separately.</li>
+</ul>
+<p>No project was built or tested in this reading pass. The earlier C++ compile/replay, performed before the author’s no-execution correction, is separate from the historical evidence summarized here.</p>
+</section>
+<section id="c-helper-and-uart-work" class="level2">
+<h2 class="anchored" data-anchor-id="c-helper-and-uart-work">C++ helper and UART work</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source read</th>
+<th>Contribution and source status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="internal-reference">C++ source</span></td>
+<td>Implemented small helper, made with AI and used in the workflow according to the author’s direct account. It extracts a selected scoreboard mismatch, resolves VCD signals, retains the latest change at or before the timestamp, and prints a correlation report. It also accepts an explicit timestamp. Its comments explain purpose and component responsibilities; it does not generate explanatory prose or establish a failure’s cause. The subsequently recovered <span class="internal-reference">OpenCode dialogue</span> grounds the author’s design choices, the comments’ provenance and a recorded boundary output.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">SD242 assignment</span></td>
+<td>Direct course context: an individual activity extending the classroom UART example with two tests beyond byte equality, with baud variation and parity errors given as examples. It asks the student to investigate simulation errors and report them. Historical deadline: noon, April 22, 2026.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">UART architecture PDF</span></td>
+<td>Visual reference connecting DUT/BFMs and <code>uvm_config_db</code> to symmetric RX/TX agents, sequencers, drivers, monitors, scoreboards, and coverage. It makes the intended observation and comparison paths legible.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">UART overview</span></td>
+<td>Baseline design/verification description and assignment-oriented extension directions. Read with the later results documents: its future-tense baud/parity directions do not mean those extensions are still absent.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">Architecture study</span></td>
+<td>Earlier report comparing diagrams with the proto-UVM organization and describing a passing two-sided byte-comparison baseline. Its file characterizations and coverage figures belong to that reported snapshot.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">Incremental changes</span></td>
+<td>Retrospective comparison against <code>original_snapshot/sim/</code>: completion of partial TX structures, shared checking/coverage, configuration-aware items and BFMs, focused tests, and saved evidence. Supports an account of developing an existing scaffold. It is a comparison report, not a fresh comparison performed here.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">Extension results</span></td>
+<td>Records baud/parity implementation and useful failures: codes 21/24 pass in the described runs; the boundary run first fails at 25; parity corruption is observed while the monitored DUT error count remains zero. Separates a reportedly corrected monitor race from remaining DUT-facing observations. The latter are diagnostic interpretations, not a proved root cause.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">Correlation process</span></td>
+<td>Historical use/documentation of the C++ helper: connect a log mismatch to the waveform and use the resulting values in the submission report. Its boundary example is concrete. Its parity example reuses the boundary VCD and omits required signal selection; do not present that example as a demonstrated same-run parity correlation.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">Waveform guide</span></td>
+<td>Explains which signals help present the first failing code-25 frame: configuration, receiver timing, transmitted/received bytes, and status. Supports the connection between an engineering trace and an audience-facing explanation.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">Submission index</span></td>
+<td>Historical packaging record linking design, verification, reports, and waveform evidence. Some locations reflect the earlier package layout; it names a waveform-side C++ source that is now available at <code>ai-code/vcd_snapshot.cpp</code> rather than at that listed path.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">Saved boundary log</span></td>
+<td>Archived April 22 run: eight matches at code 24, then expected <code>0x37</code> versus observed <code>0x9b</code> at code 25 and timestamp <code>559615000</code>. This is the concrete event used by the helper’s process note.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">Baseline log</span>, <span class="internal-reference">parity log</span>, <span class="internal-reference">VCD</span></td>
+<td>Selected archived evidence: the baseline summaries report 500 matches per side; the parity ending reports 32 expected error events and zero observed; the boundary VCD declares a 1 ps timescale. The baseline log’s coverage percentage differs from the earlier architecture study, so those percentages must retain their source/snapshot context.</td>
+</tr>
+</tbody>
+</table>
+<p>The ten DUT documentation files were each read fully:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>What it explains</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="internal-reference">overview</span></td>
+<td>Five modules and their configuration, timing, TX, and RX relationships.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">uart_controller</span></td>
+<td>Top-level composition and wiring rather than register or protocol implementation.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">reg_bank</span></td>
+<td>Configuration, data capture, status, interrupt, and transmit-start behavior.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">register_map</span></td>
+<td>Addresses 0/1/2, writable fields, status bits, and access side effects.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">clock_div</span></td>
+<td>Counter-based timing and the distinct transmit/receive divider paths.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">baud_rate_type</span></td>
+<td>Encoded baud selections shared by configuration and clock generation.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">rx_uart</span></td>
+<td>Receive states, sub-bit sampling, parity/stop checks, output, and completion.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">tx_uart</span></td>
+<td>Transmit framing, state progression, parity, and completion.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">signal_map</span></td>
+<td>Signal ownership and connections across the modules.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">data_flow</span></td>
+<td>How configuration, bytes, and status travel through the design.</td>
+</tr>
+</tbody>
+</table>
+<p>These are existing implementation descriptions with reported observations. Their small A5-byte examples were not rerun or independently reconstructed in this reading.</p>
+</section>
+<section id="vivado-investigation-and-proposed-supporting-tools" class="level2">
+<h2 class="anchored" data-anchor-id="vivado-investigation-and-proposed-supporting-tools">Vivado: investigation and proposed supporting tools</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source read</th>
+<th>Contribution and source status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="internal-reference">README</span></td>
+<td>Distinguishes the historical Xilinx investigation from supplied AI-tool scaffolding. Explicitly states that the toolbox executable and inventory database are not implemented.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">AGENTS</span></td>
+<td>Stored operating-policy artifact: bounded specialists, scope, observations, analytical units, and evidence interpretation. Useful for studying one proposed working arrangement; it is not adopted here as the whole repository’s architecture.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">architecture</span></td>
+<td>Proposed division among repository interpretation, specialist mechanics, execution mechanisms, and evidence artifacts; names JSON, SQLite, filesystem, and Tcl roles.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">vocabularies</span></td>
+<td>Explicit distinctions among discovery, presence, execution levels, current condition, and kinds of claim. Describes a vocabulary, not populated observations.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">tool-builder</span>, <span class="internal-reference">podman-operator</span></td>
+<td>Two stored role descriptions: tool construction and existing-container operation, respectively. Bounded responsibilities and result expectations are proposal material, not evidence these agents performed a task.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">inventory README</span>, <span class="internal-reference">SQL schema</span>, <span class="internal-reference">toolbox README</span></td>
+<td>Proposed capability/evidence inventory and its intended query interface. The schema relates providers, capabilities, runtimes, verification observations, artifacts, and external contracts. An executable or populated database is not supplied by these files.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">task contract</span></td>
+<td>Fields for objective, read/write boundaries, denials, acceptance, and authority. A formal structure for delegation, not proof of enforcement.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">specialist result</span></td>
+<td>Proposed return structure for changes, acceptance evidence, observations, unknowns, and suggested inventory updates; its completed state requires verified acceptance entries.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">capability record</span></td>
+<td>Describes a capability’s provider, purpose, limits, and material context.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">verification record</span></td>
+<td>Describes an observation’s level, condition, mechanism, time, result, and evidence.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">runtime record</span></td>
+<td>Describes a runtime, its state, supplied capabilities, and limits.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">external contract record</span></td>
+<td>Describes a sourced statement about a component and its applicability.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">tool-builder example</span>, <span class="internal-reference">Podman example</span></td>
+<td>Illustrative parser-construction and runtime-health assignments. Their requested checks are examples, not recorded executions or current instructions.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">Xilinx lookup</span></td>
+<td>Report of bounded archive inspection: saved <code>fernview</code> layout, historical installer clues, preserved earlier studies, and a Git repository without a tracked baseline. Supports environment investigation, not a claim of verified vendor modifications.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">Historical-reference README</span>, <span class="internal-reference">SHA256SUMS</span></td>
+<td>Preservation record for six small historical files. Describes unchanged copying and checked hashes at preservation time; no new hash comparison was performed here.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">Historical AGENTS</span></td>
+<td>Earlier exploration map and proposed future investigations. Its instructions remain historical data.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">First-flight notes</span></td>
+<td>Reports initial filesystem/ELF/Tcl inspection and a historical <code>vivado -version</code> invocation. Dynamic tracing appears as future work.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">Launch map</span></td>
+<td>Maps shell setup, environment resolution, loader, and native/Java/Tcl boundaries. Supports understanding what sits behind the application entry point.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">Native dependencies</span>, <span class="internal-reference">binary specimens</span></td>
+<td>Selected payload metadata and dependency families. These are preserved observations and interpretations, not a fresh vendor inventory.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">Tcl command surface</span></td>
+<td>Describes command registration, argument handling, and bridges into native design objects. A concrete investigation of the mechanisms behind an EDA command surface.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cadence-bist-and-rf-application-material" class="level2">
+<h2 class="anchored" data-anchor-id="cadence-bist-and-rf-application-material">Cadence, BIST, and RF application material</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source read</th>
+<th>Contribution and boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="internal-reference">Cadence/BIST note</span></td>
+<td>Working specification note connecting simulation, synthesis, and testability to a proposed four-antenna beamformer. Keeps <strong>logic BIST, memory BIST, ADC BIST, and boundary scan</strong> distinct. Its workspace and self-test story are proposals.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">Documentation inventory</span></td>
+<td>Descriptive inventory of 79 PDFs: 27 application/training notes, 51 Genus-collection files, and one ADC-BIST paper. The larger 1,133-path search and 77-digest count are reported by the accompanying note, not recomputed here.</td>
+</tr>
+<tr class="odd">
+<td><strong>Genus DFT cached text</strong> (<code>genus-dft.txt</code>)</td>
+<td>Read lines 35438–35575, printed pages 955–960 from a temporary source-review copy: LBIST introduction, PRPG/MISR structure, hierarchical operation, and interfaces. Supports a concrete discussion of internally generated stimulus and response signatures. The whole 1,284-page manual was not read.</td>
+</tr>
+<tr class="even">
+<td><strong>PMBIST and Legacy UI cached text</strong> (<code>pmbist-guide.txt</code>, <code>pmbist-legacy.txt</code>)</td>
+<td>Read Common UI lines 917–1000 and Legacy lines 804–860 from temporary source-review copies: purpose, selected features, and introduction to the architecture. PMBIST applies and observes patterns on targeted memories; its design planning, insertion, patterns, and interpretation are related but distinct activities. Interfaces remain version/UI-specific.</td>
+</tr>
+<tr class="odd">
+<td><span class="internal-reference">ADC ramp-BIST paper</span></td>
+<td>Four-page SForum 2012 paper by Bruno Golzio Navarro Winkeler and Raimundo Carlos Silvério Freire. Describes a calibrated ramp-generator study with Cadence/XFAB 0.18 µm simulation and layout. Contributes a mixed-signal test example; it does not describe FMCOMMS8 self-test or establish a fabricated/tested chip. Text read fully; equation extraction is imperfect.</td>
+</tr>
+<tr class="even">
+<td><strong>Agilex note</strong> (<code>ai/assistant/inputs/agilex.md</code>)</td>
+<td>Historical candidate integration argument: reuse FPGA learning for control, instrumentation, and a Telecom demonstrator. It retains independent layer deliverables and says board identification matters. Its suggested shared development chain does not override the author’s current framing of independent contributions.</td>
+</tr>
+<tr class="odd">
+<td><strong>RF metasurface exposition</strong> (<code>ai/assistant/inputs/role in  rf.md</code>)</td>
+<td>Research synthesis distinguishing cell states, electromagnetic response, finite-aperture effects, and measurement. Its response-first interpretation is explicitly interpretive. Supports explaining why digital control and RF behavior require different descriptions. Cited external articles were not all read in this pass.</td>
+</tr>
+<tr class="even">
+<td><span class="internal-reference">Beam-enhanced RF aperture paper</span></td>
+<td>Full text read: Wijayaratna et al., IEEE TAES 51(3), 2015, pp.&nbsp;1996–2011. Four interacting subsystems: IIR prefilter, coefficient-generation/steering engine, phase compensation, and phased/timed beamforming. The complete Virtex-6 hardware design was scaled to <strong>8 antennas</strong>; <strong>64-antenna</strong> results are simulations. ASIC synthesis covers selected subsystems, not the complete Xilinx-FFT-based design. Supports architectural decomposition and distinguishing modeled, hardware, and synthesis results.</td>
+</tr>
+<tr class="odd">
+<td><strong>Cached SPEAR-BF README and Verilog specimen</strong> (<code>spear-readme.md</code>, <code>spear-beamformer.v</code>)</td>
+<td>Both read fully from temporary source-review copies. The external project’s README reports a ZCU216/CHARM D-band testbed with streaming, calibration, synchronization, and weighted beamforming. The 50-line Verilog specimen is an AXI-stream wrapper; it alone does not expose or establish the weight-processing implementation. This is external reference material, not an authored semester result.</td>
+</tr>
+</tbody>
+</table>
+<p>The exact Agilex board and FMCOMMS8 electrical, clocking, interface, and reference-design compatibility remain unresolved. Cadence documentation availability does not establish installed/licensed tools, and its ASIC DFT flow does not supply an FPGA/RF-board BIST implementation.</p>
+</section>
+<section id="recovered-chatgpt-material-and-author-corrections" class="level2">
+<h2 class="anchored" data-anchor-id="recovered-chatgpt-material-and-author-corrections">Recovered ChatGPT material and author corrections</h2>
+<section id="pcienpu-inquiry" class="level3">
+<h3 class="anchored" data-anchor-id="pcienpu-inquiry">PCIe/NPU inquiry</h3>
+<p>Source record: the preserved PCIe/NPU dialogue, with <code>payload-ordered.txt</code> as its chronologically ordered temporary cache. Full text was read through the earlier temporary extraction <code>payload-conversation.txt</code>, then the ordered user-message entrances were checked. Use message IDs rather than that earlier extraction’s reverse-order turn numbers.</p>
+<p>The author asks what architecture lies beneath a quoted NPU specification, requests a simpler conceptual PCIe FPGA implementation, rejects an expansion roadmap, distinguishes QEMU’s computer-side role from a virtual FPGA, and explicitly agrees to omit DMA for simplicity. Useful author message IDs:</p>
+<ul>
+<li><code>78de60a2-7a9a-41a6-96f2-41a2e940f7bf</code>: simple conceptual FPGA accelerator connected to a PC application through PCIe.</li>
+<li><code>bbb219f9-313a-4e6f-a7a5-1f1d811f9892</code>: fixed minimal MAC-based scope, not “once that works, let’s expand.”</li>
+<li><code>bbb214ae-7191-4f88-bb2f-8c801bd0d724</code>: QEMU for the computer side, laptop/PCIe-slot constraint, possible hardware and simulation arrangements.</li>
+<li><code>bbb214f4-82b5-4476-9348-df897dfd5f56</code>: explicit no-DMA agreement.</li>
+</ul>
+<p>Fixed GEMM64 dimensions, an 8×8 array, BAR sizes, detailed register maps, performance estimates, sample PASS output, and acceptance lists are assistant elaborations. Repeated “frozen” wording does not establish adoption of every detail or implementation. Earlier assistant proposals also contained DMA and expansion stages that the author subsequently narrowed. This is a source for learning about architectural inquiry and scope correction, not a beamformer conversation or UART prompt history. Empty and redacted tool turns limit recovery of underlying research evidence.</p>
+</section>
+<section id="dft-and-meaning-among-people" class="level3">
+<h3 class="anchored" data-anchor-id="dft-and-meaning-among-people">DFT and meaning among people</h3>
+<p>Source record: the preserved Cadence dialogue and its complete temporary recovered cache, <code>cadence-ordered.txt</code>.</p>
+<p>The author initially seeks a Brazilian Cadence contact for academic discussion of semantics/taxonomy in engineering and ASIC projects. Message <code>bce8ddab-defe-4927-9cbe-f5b33df9674d</code> makes the motivation explicit: <strong>“Actually DFT segment that influenced me to look semantics around people and their relationship with meaning.”</strong> This directly supports DFT as an experiential context for the inquiry.</p>
+<p>The subsequent combination of SKOS, PROV-O, and a DFT domain model, the interview questions, contact rankings, and outreach email are assistant proposals. Many research/tool results are redacted. The cache does not independently establish current contact roles, specialisms, an email being sent, or adoption of the proposed knowledge-graph architecture.</p>
+</section>
+<section id="eight-generated-background-documents" class="level3">
+<h3 class="anchored" data-anchor-id="eight-generated-background-documents">Eight generated background documents</h3>
+<p>Source record: the preserved greeting dialogue and its temporary recovered cache, <code>greeting-ordered.txt</code>. All eight document bodies occur at lines 507–2761, embedded in assistant message <code>889ead74-c3d2-4e03-b9f5-7ee26ede68c4</code>. They were generated after the author’s request <code>01a2d2f3-d0af-4251-8974-47dd2095e5c9</code>; the embedded Python was treated as historical text and not executed.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Embedded document</th>
+<th>Contribution as a historical derivative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>01_ia_workflow_multi-eixos.md</code></td>
+<td>Proposed account of AI across knowledge, documentation, tools, experiment, pedagogy, and organizational continuity.</td>
+</tr>
+<tr class="even">
+<td><code>02-ia_ferramenta_pedagógica.md</code></td>
+<td>Pedagogical hypothesis about making implicit understanding explicit through task specification and explanation.</td>
+</tr>
+<tr class="odd">
+<td><code>03-ia_sob_controle.md</code></td>
+<td>Proposed operational envelope, instrumentation, checkers, and workflow-state account. Its emphasis does not replace the author’s more broadly epistemological inquiry.</td>
+</tr>
+<tr class="even">
+<td><code>04-fpga_plataforma_controle_teste.md</code></td>
+<td>Candidate digital control/test layer for the already existing PIN-diode surface, with physical, actuation, digital, and experimental descriptions.</td>
+</tr>
+<tr class="odd">
+<td><code>05-invariancia_estrutural_ci_digital_metasuperficie.md</code></td>
+<td>Candidate correspondences involving states, configuration spaces, relationships, coverage, and collective behavior. Explicitly a hypothesis, not a demonstrated invariant or complete future research scope.</td>
+</tr>
+<tr class="even">
+<td><code>06-agilex5_ci_digital_xgmobile.md</code></td>
+<td>Candidate platform-reuse argument closely matching the separately available <code>inbox/agilex.md</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>07_alinhamento_institucional_inatel_xgmobile.md</code></td>
+<td>Conditional institutional-alignment argument; it explicitly lacks institutional verification.</td>
+</tr>
+<tr class="even">
+<td><code>08-justificativa_para-orientador.md</code></td>
+<td>Proposed discussion narrative connecting an existing surface, control/test work, FPGA study, Telecom, and workflow support. Its staged roadmap remains derivative argumentation.</td>
+</tr>
+</tbody>
+</table>
+<p>The surrounding spoken dialogue is covered by the parent’s separate reading. These generated bodies are not independent confirmations of its claims, and their archive filenames do not establish that separate downloadable attachments are currently available. The author’s later corrections outrank their labels, sequencing, and explanatory emphasis.</p>
+</section>
+<section id="the-mixed-source-in-a.md" class="level3">
+<h3 class="anchored" data-anchor-id="the-mixed-source-in-a.md">The mixed source in <code>a.md</code></h3>
+<p><code>ai/assistant/inputs/a.md</code>, all 56 lines read, contains opening first-person project framing followed after <code>---</code> by an assistant-style assessment of another group’s submission package. The opening describes a specification/plan/research mock-up and a broader concern with meaning, context, and transitions between people; the latter proposes packaging and workload choices. Those passages have different roles.</p>
+<p>The author’s latest clarification about mixed domains referred to the <span class="internal-reference">Author’s Manifest</span>, not <code>a.md</code>. Any earlier foundation-document attribution to <code>a.md</code> lines 1–13 for that clarification is stale and must not be repeated.</p>
+</section>
+</section>
+<section id="available-material-and-remaining-limits" class="level2">
+<h2 class="anchored" data-anchor-id="available-material-and-remaining-limits">Available material and remaining limits</h2>
+<p>The beamforming PDF was found directly in <code>kb/</code>; the ADC paper is accessible at its original mounted path. The saved UART binary and VCD are available; neither was executed in this reading pass. The old waveform-side <code>vcd_snapshot.cpp</code> path was not located, while the complete helper source is available under <code>ai-code/</code>.</p>
+<p>The assigned UART documents alone did not contain the helper’s origin dialogue. A subsequent bounded reading recovered it from OpenCode session <code>ses_24cc09407ffeakvUlbgrh9oT6q</code>: the author’s request to correlate scoreboard and waveform data, the standalone-binary and light-OOP choices, requested comments and help/documentation, creation patches, two functional refinements, and a saved successful boundary output. The <span class="internal-reference">OpenCode reading note</span> preserves full message/part IDs and the read-only source comparison. This now establishes that portion of the design and documentation history; it does not establish model runtime identity or authorship of every surrounding report.</p>
+<p>Vendor binaries, databases, RTL simulations, FPGA builds, and the shared chats’ proposed projects were not run. The manuals, existing reports, source code, user accounts, assistant proposals, and independent published research retain their distinct roles.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

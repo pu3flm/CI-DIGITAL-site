@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Fernando Lessa Magalhães">
+<meta name="dcterms.date" content="2026-09-14">
+
+<title>foundation-and-purpose – CI-DIGITAL Group 6</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-707bca35fca44f299eaa8a5a18ad58e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const title = document.querySelector("#title-block-header .quarto-title");
+  if (!title || title.querySelector(".document-type-label")) return;
+
+  const heading = title.querySelector("h1.title")?.textContent.trim() || "";
+  const path = decodeURIComponent(window.location.pathname);
+  let label = "Reference";
+  let color = "secondary";
+
+  if (heading === "CI-DIGITAL Group 6") [label, color] = ["Project", "primary"];
+  else if (path.endsWith("/content/group-6-work-plan.html")) [label, color] = ["Work Plan", "warning"];
+  else if (path.endsWith("/ONTOLOGY.html")) [label, color] = ["Common Ontology", "info"];
+  else if (path.endsWith("/content/docs/approach.html")) [label, color] = ["Technical Approach", "info"];
+  else if (path.endsWith("/worktree/papers/notes/MANIFEST.html")) [label, color] = ["Author's Manifest", "primary"];
+  else if (path.includes("/content/docs/cases/")) [label, color] = ["Case Study", "info"];
+  else if (path.includes("/content/docs/research/")) [label, color] = ["Research", "info"];
+  else if (path.includes("/content/docs/workflows/")) [label, color] = ["Workflow Study", "success"];
+  else if (path.includes("/content/session/")) [label, color] = ["Session Reference", "dark"];
+  else if (path.includes("/worktree/hardware/UART/")) [label, color] = ["UART Engineering", "success"];
+  else if (path.includes("/worktree/software/")) [label, color] = ["Software Study", "success"];
+
+  const element = document.createElement("span");
+  element.className = `badge bg-${color} document-type-label`;
+  element.textContent = label;
+  title.prepend(element);
+});
+</script>
+
+
+<link rel="stylesheet" href="../../../../quarto/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title"><span class="site-title-main">CI-DIGITAL Group 6</span><span class="site-title-subtitle">AI-Assisted Tools and Methods for VLSI Workflows</span></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-home" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Home</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-home">    
+        <li>
+    <a class="dropdown-item" href="../../../../index.html">
+ <span class="dropdown-text">Project Home</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/approach.html">
+ <span class="dropdown-text">Technical Approach</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/ci-digital-concept-graph-methodology.html">
+ <span class="dropdown-text">Research and Methodology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/submission_index.html">
+ <span class="dropdown-text">UART Engineering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/Code-example/index.html">
+ <span class="dropdown-text">Software Studies</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../content/group-6-work-plan.html"> 
+<span class="menu-text">Work Plan</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../ONTOLOGY.html"> 
+<span class="menu-text">Common Ontology</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../worktree/papers/notes/MANIFEST.html"> 
+<span class="menu-text">Author’s Manifest</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-core" id="toc-the-core" class="nav-link active" data-scroll-target="#the-core">The core</a></li>
+  <li><a href="#what-is-behind-that" id="toc-what-is-behind-that" class="nav-link" data-scroll-target="#what-is-behind-that">What is behind that?</a></li>
+  <li><a href="#prototime-trying-things-to-understand-them" id="toc-prototime-trying-things-to-understand-them" class="nav-link" data-scroll-target="#prototime-trying-things-to-understand-them">Prototime: trying things to understand them</a></li>
+  <li><a href="#starting-point" id="toc-starting-point" class="nav-link" data-scroll-target="#starting-point">Starting point</a></li>
+  <li><a href="#the-foremost-distinction" id="toc-the-foremost-distinction" class="nav-link" data-scroll-target="#the-foremost-distinction">The foremost distinction</a></li>
+  <li><a href="#supporting-principles-for-this-specification" id="toc-supporting-principles-for-this-specification" class="nav-link" data-scroll-target="#supporting-principles-for-this-specification">Supporting principles for this specification</a></li>
+  <li><a href="#an-engineering-payload" id="toc-an-engineering-payload" class="nav-link" data-scroll-target="#an-engineering-payload">An engineering payload</a></li>
+  <li><a href="#what-i-want-to-demonstrate" id="toc-what-i-want-to-demonstrate" class="nav-link" data-scroll-target="#what-i-want-to-demonstrate">What I want to demonstrate</a></li>
+  <li><a href="#the-sessions-as-a-record-of-reasoning" id="toc-the-sessions-as-a-record-of-reasoning" class="nav-link" data-scroll-target="#the-sessions-as-a-record-of-reasoning">The sessions as a record of reasoning</a></li>
+  <li><a href="#source-basis" id="toc-source-basis" class="nav-link" data-scroll-target="#source-basis">Source basis</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Tackling the space</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Fernando Lessa Magalhães </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Updated</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 14, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="the-core" class="level2">
+<h2 class="anchored" data-anchor-id="the-core">The core</h2>
+<blockquote class="blockquote">
+<p>STICK TO THE PRINCIPLES, TO THE CORE OF THE FUNDAMENTALS.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>DO NOT ASK TO SOLVE THE PROBLEM, BUT ITS ARCHITECTURE THAT IT RELYS ON.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>TACKLING THE SPACE IS MY MOTTO (FOR REAL) FOR ANY KIND OF SPACE.</p>
+</blockquote>
+<p>My starting point is the architecture the problem relies on. What constitutes this space? Which entities, relations, assumptions, boundaries, and transformations give the problem its shape? What makes an answer meaningful within it?</p>
+<p>In this repository, engineering provides the concrete setting for that inquiry. The specification should make the underlying architecture understandable before committing to a solution. The scope of the motto is broader; this project provides a bounded place to demonstrate the approach.</p>
+</section>
+<section id="what-is-behind-that" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-behind-that">What is behind that?</h2>
+<p>The established question is not merely how to solve the problem, but what architecture the problem relies on: how it is constituted, what it depends on, and which relationships make it work.</p>
+<p>That question also applies to methodologies and tools. A new name or an additional software layer needs to be examined against the concepts it depends on. I want to retain the intent and meaning of those concepts as they pass into another method, vocabulary, or implementation.</p>
+<p>The same demand applies to my own AI workflow. I should identify the established fundamentals it draws on, explain how they are connected, and state what the proposed arrangement adds. The specification should make that lineage visible.</p>
+</section>
+<section id="prototime-trying-things-to-understand-them" class="level2">
+<h2 class="anchored" data-anchor-id="prototime-trying-things-to-understand-them">Prototime: trying things to understand them</h2>
+<p>“Prototime” is my expression for conceptually trying things through prototypes and proofs of concept. Sometimes the immediate purpose is simply to test an idea and see what happens.</p>
+<p>That is part of tackling the space. A small experiment lets me examine an assumption, try a relationship, or encounter a limitation that was hidden in the description. What I learn can change how I understand the problem’s architecture.</p>
+<p>For the specification, an experiment can be presented through four plain questions: what was I trying to understand, what did I try, what did I observe, and what remains open? The experiment earns its place through what it helps us understand.</p>
+<p>Here, “Prototime” is a personal expression from the current discussion. It is not presented as an established technical term or a new formal methodology.</p>
+</section>
+<section id="starting-point" class="level2">
+<h2 class="anchored" data-anchor-id="starting-point">Starting point</h2>
+<p>I have been developing this approach through small efforts over the past ten months. The repository gives those efforts a common place and makes their relationships inspectable. I want to explain the reasoning behind the work and demonstrate it through an engineering problem that matters to me.</p>
+<p>My concern begins with understanding. What does a requirement mean? Which distinction does a term preserve? Why was a decision made? What would count as evidence that the intended behavior has been achieved?</p>
+<p>These questions remain present when we write a specification, build a testbench, use an AI assistant, or interpret a tool report. Every transition asks us to carry meaning into another representation. That is where I want to examine the work.</p>
+<p>The shared understanding develops through people asking, correcting, proposing, demonstrating, and revising. A project vocabulary becomes useful through those interactions. Its organization can evolve as the work gives terms more precise relationships and a clearer context of use.</p>
+</section>
+<section id="the-foremost-distinction" class="level2">
+<h2 class="anchored" data-anchor-id="the-foremost-distinction">The foremost distinction</h2>
+<p>In the manifest, I distinguish the organization of domain knowledge from the organization of executable artifacts. That distinction gives this project its starting point.</p>
+<p>A scoreboard provides a concrete example. Its role in evaluating expected and observed behavior is a conceptual question. Its classes, methods, and communication with monitors are implementation questions. Both matter. Choosing the implementation does not settle what the comparison means or which requirement it addresses.</p>
+<p>The same distinction applies to AI-assisted work. An assistant can help produce a document or a program. We still have to examine whether it expresses the intended problem, preserves the relevant constraints, and provides evidence for the claims made about it.</p>
+</section>
+<section id="supporting-principles-for-this-specification" class="level2">
+<h2 class="anchored" data-anchor-id="supporting-principles-for-this-specification">Supporting principles for this specification</h2>
+<ol type="1">
+<li><strong>Clarify meaning before fixing structure.</strong> Establish enough purpose, terminology, and distinctions to understand a bounded task. Keep the wider conceptual map open to revision as people work with it.</li>
+<li><strong>Keep the reason attached to the artifact.</strong> Requirements, decisions, tests, and reports should retain their relationship to the purpose they serve.</li>
+<li><strong>Keep uncertainty visible.</strong> A proposal, an assumption, an observation, and a verified result carry different commitments.</li>
+<li><strong>Make transitions inspectable.</strong> When a description becomes a task, code, a tool invocation, or a summary, examine what was preserved, changed, or left unresolved.</li>
+<li><strong>Give tools bounded questions.</strong> Select the mechanism according to the question and interpret its result within the conditions of that question.</li>
+<li><strong>Keep authorship and judgment explicit.</strong> AI assistance is part of the working process. The direction of the project, the interpretation of evidence, and responsibility for its claims remain mine.</li>
+<li><strong>Challenge the starting assumptions.</strong> Repeating an explanation or checking it through another tool does not establish that the initial framing was appropriate.</li>
+<li><strong>Give the demonstrator a deliberate boundary.</strong> A small design can serve a complete conceptual purpose. Each added feature needs a reason tied to that purpose.</li>
+<li><strong>Preserve the lineage of concepts.</strong> Name the established idea, retain its meaning and purpose, and distinguish its reuse from a proposed extension. A new wrapper does not establish a new fundamental.</li>
+<li><strong>Try things to learn about the space.</strong> Use conceptual experiments and bounded proofs of concept to examine assumptions. Record the observation and let it inform the next question.</li>
+</ol>
+<p>These principles form a working synthesis for this draft. Their wording can evolve as the specification develops.</p>
+</section>
+<section id="an-engineering-payload" class="level2">
+<h2 class="anchored" data-anchor-id="an-engineering-payload">An engineering payload</h2>
+<p>The proposed four-antenna digital beamformer gives the methodology a concrete object to work on. The current hardware idea combines an AD-FMCOMMS8 RF module with an Agilex 5 board. The board details and integration remain open.</p>
+<p>The project would live under a <code>work/</code> directory in a tool-oriented workspace. Around it, the AI workflow would help organize the specification, prepare bounded tasks, locate relevant documentation, and connect tool outputs to the questions being investigated.</p>
+<p>This gives the presentation a practical thread: a requirement is stated, its terms are clarified, an artifact is prepared, a check is selected, and the resulting evidence is interpreted. The contribution to examine is how that chain preserves understanding.</p>
+<p>Built-in self-test belongs in this specification as an explicit topic. It makes us ask which part of the design can test itself, which faults that mechanism addresses, and what remains outside its observations. Those questions connect domain meaning to concrete verification decisions. The <span class="internal-reference">Cadence and payload working note</span> identifies the existing BIST documentation and a proposed place for it in the mock-up.</p>
+<p>The master’s research and the other experiments remain available as context and possible cases. Their relationship to this payload can be developed without making every idea a commitment in the first specification.</p>
+</section>
+<section id="what-i-want-to-demonstrate" class="level2">
+<h2 class="anchored" data-anchor-id="what-i-want-to-demonstrate">What I want to demonstrate</h2>
+<p>I want to show the verification and test engineering mentality needed to make AI-assisted workflows useful: understanding the problem, identifying what can go wrong, choosing an appropriate check, and stating what the result establishes.</p>
+<p>The present submission can make that approach clear through a specification, a small workflow mock-up, documented sources, and a worked explanation. Hardware implementation and operational results will need their own evidence as the work progresses.</p>
+<p>The strength of the presentation should come from the connection between purpose, decisions, artifacts, and evidence. Each included item should help the reader follow that connection.</p>
+</section>
+<section id="the-sessions-as-a-record-of-reasoning" class="level2">
+<h2 class="anchored" data-anchor-id="the-sessions-as-a-record-of-reasoning">The sessions as a record of reasoning</h2>
+<p>The shared sessions preserve the development of these ideas. Selected user turns were reviewed directly in the three sessions below. Their roles here are interpretive connections for this draft, rather than a claim that every earlier proposal has been adopted.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Session</th>
+<th>What the reviewed user statements contribute</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Runtime Analysis Perspectives</td>
+<td>A challenge to unexamined premises and repeated self-confirmation; a request to reconsider the broader engineering perspective.</td>
+</tr>
+<tr class="even">
+<td>Living Thesaurus in ASIC Design</td>
+<td>Human participation gives the project vocabulary its evolving relationships. The user explicitly corrects “world” to “word”; the linguistic distinction matters.</td>
+</tr>
+<tr class="odd">
+<td>AI Accelerator Architecture</td>
+<td>Deliberately limited scope and separation of host virtualization from RTL simulation. The earlier accelerator’s specific choices, including no DMA, are not automatically beamformer requirements.</td>
+</tr>
+</tbody>
+</table>
+<p>Other supplied sessions remain pointers for selective follow-up: <em>List Mentioned Papers</em>, <em>Cadence Design Systems Contact</em>, <em>ISO 25964 Thesaurus Research</em>, <em>Master’s Work Plan</em>, and <em>Saudação breve</em>. Their conversation contents were not used to establish this draft’s claims.</p>
+</section>
+<section id="source-basis" class="level2">
+<h2 class="anchored" data-anchor-id="source-basis">Source basis</h2>
+<ul>
+<li><span class="internal-reference">Author’s Manifest</span>: the distinction between domain meaning and executable structure, illustrated through verification.</li>
+<li>Project notes in the private source collection: the expressed interest in methodology, human understanding, AI-assisted workflows, and concrete project cases. These notes contain both personal statements and previous assistant commentary.</li>
+<li><span class="internal-reference">Relational-domain proposal</span>: a proposal for preserving relationships among intent, rationale, artifacts, and evidence.</li>
+<li><span class="internal-reference">Temporal-coherence record</span>: a documented case for keeping observations, context, and the limits of evidence distinct. Its reported experiments have not been rerun here.</li>
+<li>Current discussion: personal development of the approach, the beamformer payload, and the emphasis on coherence, content, and presentation without equations.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
