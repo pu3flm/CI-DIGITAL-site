@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Fernando Lessa Magalhães">
+<meta name="dcterms.date" content="2026-09-14">
+
+<title>knowledge-evolution – CI-DIGITAL Group 6</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/session/temporal-axis.html" rel="next">
+<link href="../../content/session/lineage-graph-schema.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-ca4ff22b80352a23c2d66fe9afbea44d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const title = document.querySelector("#title-block-header .quarto-title");
+  if (!title || title.querySelector(".document-type-label")) return;
+
+  const heading = title.querySelector("h1.title")?.textContent.trim() || "";
+  const path = decodeURIComponent(window.location.pathname);
+  let label = "Reference";
+  let color = "secondary";
+
+  if (heading === "CI-DIGITAL Group 6") [label, color] = ["Project", "primary"];
+  else if (path.endsWith("/content/group-6-work-plan.html")) [label, color] = ["Work Plan", "warning"];
+  else if (path.endsWith("/ONTOLOGY.html")) [label, color] = ["Common Ontology", "info"];
+  else if (path.endsWith("/content/docs/approach.html")) [label, color] = ["Technical Approach", "info"];
+  else if (path.endsWith("/worktree/papers/notes/MANIFEST.html")) [label, color] = ["Author's Manifest", "primary"];
+  else if (path.includes("/content/docs/cases/")) [label, color] = ["Case Study", "info"];
+  else if (path.includes("/content/docs/research/")) [label, color] = ["Research", "info"];
+  else if (path.includes("/content/docs/workflows/")) [label, color] = ["Workflow Study", "success"];
+  else if (path.includes("/content/session/")) [label, color] = ["Session Reference", "dark"];
+  else if (path.includes("/worktree/hardware/UART/")) [label, color] = ["UART Engineering", "success"];
+  else if (path.includes("/worktree/software/")) [label, color] = ["Software Study", "success"];
+
+  const element = document.createElement("span");
+  element.className = `badge bg-${color} document-type-label`;
+  element.textContent = label;
+  title.prepend(element);
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // The Pages menu is declared flat in _quarto.yml: "A › B" headers followed by links.
+  // Rebuild it as collapsible nested groups; without JavaScript the flat list remains usable.
+  const toggle = document.getElementById("nav-menu-pages");
+  const menu = toggle?.parentElement.querySelector(".dropdown-menu");
+  if (!menu || menu.classList.contains("pages-menu")) return;
+
+  const root = { children: new Map(), items: [] };
+  let current = root;
+
+  for (const entry of [...menu.children]) {
+    if (entry.classList.contains("dropdown-header")) {
+      current = root;
+      for (const label of entry.textContent.split("›").map((part) => part.trim()).filter(Boolean)) {
+        if (!current.children.has(label)) current.children.set(label, { children: new Map(), items: [] });
+        current = current.children.get(label);
+      }
+    } else if (entry.querySelector(".dropdown-item")) {
+      current.items.push(entry);
+    }
+  }
+
+  let groupCount = 0;
+  const here = window.location.pathname;
+
+  const render = (node, list, level) => {
+    let containsCurrentPage = false;
+
+    for (const item of node.items) {
+      const link = item.querySelector(".dropdown-item");
+      link.style.setProperty("--pages-level", level);
+      if (new URL(link.href, window.location.href).pathname === here) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+        containsCurrentPage = true;
+      }
+      list.append(item);
+    }
+
+    for (const [label, child] of node.children) {
+      const id = `pages-menu-group-${++groupCount}`;
+      const entry = document.createElement("li");
+      const button = document.createElement("button");
+      const group = document.createElement("ul");
+
+      button.type = "button";
+      button.className = "dropdown-item pages-menu-toggle";
+      button.style.setProperty("--pages-level", level);
+      button.setAttribute("aria-controls", id);
+      button.textContent = label;
+      group.id = id;
+      group.className = "pages-menu-group list-unstyled";
+
+      const open = render(child, group, level + 1);
+      button.setAttribute("aria-expanded", String(open));
+      group.hidden = !open;
+      containsCurrentPage ||= open;
+
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const expanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", String(!expanded));
+        group.hidden = expanded;
+      });
+
+      entry.append(button, group);
+      list.append(entry);
+    }
+
+    return containsCurrentPage;
+  };
+
+  menu.replaceChildren();
+  menu.classList.add("pages-menu");
+  toggle.setAttribute("data-bs-auto-close", "outside");
+  render(root, menu, 0);
+});
+</script>
+
+
+<link rel="stylesheet" href="../../quarto/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title"><span class="site-title-main">CI-DIGITAL Group 6</span><span class="site-title-subtitle">AI-Assisted Tools and Methods for VLSI Workflows</span></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-home" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Home</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-home">    
+        <li>
+    <a class="dropdown-item" href="../../index.html">
+ <span class="dropdown-text">Project Home</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/docs/approach.html">
+ <span class="dropdown-text">Technical Approach</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/docs/research/ci-digital-concept-graph-methodology.html">
+ <span class="dropdown-text">Research and Methodology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/submission_index.html">
+ <span class="dropdown-text">UART Engineering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/Code-example/index.html">
+ <span class="dropdown-text">Software Studies</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../content/group-6-work-plan.html"> 
+<span class="menu-text">Work Plan</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../ONTOLOGY.html"> 
+<span class="menu-text">Common Ontology</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../worktree/papers/notes/MANIFEST.html"> 
+<span class="menu-text">Author’s Manifest</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-pages" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Pages</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-pages">    
+        <li class="dropdown-header">Epistemic › Dom</li>
+        <li>
+    <a class="dropdown-item" href="../../content/session/content.html">
+ <span class="dropdown-text">Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/context.html">
+ <span class="dropdown-text">Context</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/domain.html">
+ <span class="dropdown-text">Domain</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/ontology.html">
+ <span class="dropdown-text">Ontology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/epistemology.html">
+ <span class="dropdown-text">Epistemology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/symbol-and-binding.html">
+ <span class="dropdown-text">Symbol and Binding</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/interface-and-overlap.html">
+ <span class="dropdown-text">Interface and Overlap</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/conceptual-provenance.html">
+ <span class="dropdown-text">Conceptual Provenance</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/concept-lineage-method.html">
+ <span class="dropdown-text">Concept Lineage Method</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/lineage-graph-schema.html">
+ <span class="dropdown-text">Candidate concept-lineage graph schema</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/knowledge-evolution.html">
+ <span class="dropdown-text">Knowledge Evolution</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/temporal-axis.html">
+ <span class="dropdown-text">Temporal Axis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/drift.html">
+ <span class="dropdown-text">Drift</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/provenance.html">
+ <span class="dropdown-text">Provenance</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/conceptual-exploration.html">
+ <span class="dropdown-text">Conceptual Exploration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/interaction-and-language-boundaries.html">
+ <span class="dropdown-text">Interaction and Language Boundaries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/authority-capability-and-delegation.html">
+ <span class="dropdown-text">Authority, Capability, and Delegation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/ai-assistance.html">
+ <span class="dropdown-text">AI Assistance</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/artifact-maturity-and-presentation.html">
+ <span class="dropdown-text">Artifact Maturity and Presentation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/development.html">
+ <span class="dropdown-text">Development</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/storage.html">
+ <span class="dropdown-text">Storage</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/worktree.html">
+ <span class="dropdown-text">Worktree</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/file-tree-as-contextual-index.html">
+ <span class="dropdown-text">File Tree as Contextual Index</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/repository-boundary.html">
+ <span class="dropdown-text">Repository Boundary</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/session/simplicity.html">
+ <span class="dropdown-text">Simplicity</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Research › Foundations</li>
+        <li>
+    <a class="dropdown-item" href="../../content/docs/research/foundations/foundation-and-purpose.html">
+ <span class="dropdown-text">Tackling the space</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/docs/research/foundations/philosophical-affinities.html">
+ <span class="dropdown-text">Philosophical affinities: tackling the space</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/docs/research/foundations/return-to-the-opening-specification.html">
+ <span class="dropdown-text">Specification: mapping occurrences and attempting a return</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/docs/research/foundations/return-to-the-opening.html">
+ <span class="dropdown-text">Returning to this opening</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/docs/research/foundations/the-scholastic-decree.html">
+ <span class="dropdown-text">The Scholastic Decree</span></a>
+  </li>  
+        <li class="dropdown-header">Research › Studies</li>
+        <li>
+    <a class="dropdown-item" href="../../content/docs/research/relational-domain-ontology.html">
+ <span class="dropdown-text">Relational Domain Ontology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/docs/research/temporal-coherence-study.html">
+ <span class="dropdown-text">Temporal Coherence for Agentic Control</span></a>
+  </li>  
+        <li class="dropdown-header">Research › Notes</li>
+        <li>
+    <a class="dropdown-item" href="../../content/docs/research/reading-notes/README.html">
+ <span class="dropdown-text">Reading map</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/docs/research/reading-notes/behavior-and-native-methods.html">
+ <span class="dropdown-text">Reading notes: behavior, native methods, and recorded experiments</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/docs/research/reading-notes/dialogue-and-foundations.html">
+ <span class="dropdown-text">Dialogue and foundations — reading notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/docs/research/reading-notes/formal-methods-library.html">
+ <span class="dropdown-text">Reading notes: AI, formal methods, and graph tools</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/docs/research/reading-notes/opencode-archive.html">
+ <span class="dropdown-text">Reading notes: OpenCode archive and recovered UART helper dialogue</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/docs/research/reading-notes/research-and-references.html">
+ <span class="dropdown-text">Research and reference reading notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/docs/research/reading-notes/simulation-and-language-references.html">
+ <span class="dropdown-text">Simulation and language references</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/docs/research/reading-notes/vlsi-and-workflows.html">
+ <span class="dropdown-text">Reading notes: VLSI cases and workflow sources</span></a>
+  </li>  
+        <li class="dropdown-header">Research › Cases</li>
+        <li>
+    <a class="dropdown-item" href="../../content/docs/cases/concept-index.html">
+ <span class="dropdown-text">Concept Index: Giving Every Connection a Source</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/docs/cases/temporal-coherence.html">
+ <span class="dropdown-text">What Changes While the Agent Thinks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/docs/workflows/cadence/cadence-documentation.html">
+ <span class="dropdown-text">Cadence</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Analysis › UART › RTL</li>
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/rtl/docs/uart/overview.html">
+ <span class="dropdown-text">UART Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/rtl/docs/uart/uart_controller.html">
+ <span class="dropdown-text">uart_controller</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/rtl/docs/uart/data_flow.html">
+ <span class="dropdown-text">Data Flow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/rtl/docs/uart/signal_map.html">
+ <span class="dropdown-text">Signal Map</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/rtl/docs/uart/register_map.html">
+ <span class="dropdown-text">Register Map</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/rtl/docs/uart/baud_rate_type.html">
+ <span class="dropdown-text">uart_baud_rate_t</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/rtl/docs/uart/clock_div.html">
+ <span class="dropdown-text">clock_div</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/rtl/docs/uart/reg_bank.html">
+ <span class="dropdown-text">reg_bank</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/rtl/docs/uart/tx_uart.html">
+ <span class="dropdown-text">tx_uart</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/rtl/docs/uart/rx_uart.html">
+ <span class="dropdown-text">rx_uart</span></a>
+  </li>  
+        <li class="dropdown-header">Analysis › UART › Docs and Verification</li>
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/docs/README.html">
+ <span class="dropdown-text">UVM_uart</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/docs/verification/sim_architecture_study.html">
+ <span class="dropdown-text">SIM Architecture Study</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/docs/verification/incremental_changes_from_original_snapshot.html">
+ <span class="dropdown-text">Incremental Changes From Original Snapshot</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/docs/verification/sim_extension_results.html">
+ <span class="dropdown-text">SIM Extension Results</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/docs/verification/vcd_correlation_process.html">
+ <span class="dropdown-text">VCD Correlation Process</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/hardware/UART/docs/verification/waves/baud_boundary_wave_guide.html">
+ <span class="dropdown-text">Baud Boundary Wave Guide</span></a>
+  </li>  
+        <li class="dropdown-header">Analysis › Software</li>
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/Code-example/README.html">
+ <span class="dropdown-text">Making a UART failure tell a clearer story</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/Code-example/local-language-tooling.html">
+ <span class="dropdown-text">Local language tooling: capabilities and boundaries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/Code-example/language-toolbox/README.html">
+ <span class="dropdown-text">CI-DIGITAL language toolbox</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/Code-example/language-toolbox/build-record.html">
+ <span class="dropdown-text">Language toolbox build record</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/ci-digital-concept-index/README.html">
+ <span class="dropdown-text">CI-DIGITAL Concept Index</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/ci-digital-concept-index/docs/REQUIREMENTS.html">
+ <span class="dropdown-text">Requirements</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/ci-digital-concept-index/docs/ARCHITECTURE.html">
+ <span class="dropdown-text">Architecture</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/ci-digital-concept-index/docs/DATA-MODEL.html">
+ <span class="dropdown-text">Data Model</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/ci-digital-concept-index/docs/DOMAIN-POLICY.html">
+ <span class="dropdown-text">Domain Policy</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/ci-digital-concept-index/docs/CLI-SPEC.html">
+ <span class="dropdown-text">CLI Specification</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/ci-digital-concept-index/docs/LIFECYCLE.html">
+ <span class="dropdown-text">Lifecycle</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/ci-digital-concept-index/docs/PROVENANCE-AND-ASSURANCE.html">
+ <span class="dropdown-text">Provenance and Assurance</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/ci-digital-concept-index/docs/SECURITY.html">
+ <span class="dropdown-text">Security</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/ci-digital-concept-index/docs/DEPLOYMENT.html">
+ <span class="dropdown-text">Deployment</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/ci-digital-concept-index/docs/STANDARDS.html">
+ <span class="dropdown-text">Standards Baseline</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/ci-digital-concept-index/docs/TRACEABILITY.html">
+ <span class="dropdown-text">Traceability</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/ci-digital-concept-index/docs/DECISIONS.html">
+ <span class="dropdown-text">Design Decisions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/ci-digital-concept-index/docs/ACCEPTANCE-CRITERIA.html">
+ <span class="dropdown-text">Acceptance Criteria</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../worktree/software/ci-digital-concept-index/fixtures/README.html">
+ <span class="dropdown-text">Fixtures</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+          <h1 class="quarto-secondary-nav-title">Knowledge Evolution</h1>
+        </a>     
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Dom</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Content</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/context.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Context</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/domain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Domain</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/ontology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ontology</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/epistemology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Epistemology</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/symbol-and-binding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Symbol and Binding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/interface-and-overlap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interface and Overlap</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/conceptual-provenance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conceptual Provenance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/concept-lineage-method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concept Lineage Method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/lineage-graph-schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Candidate concept-lineage graph schema</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/knowledge-evolution.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Knowledge Evolution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/temporal-axis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Temporal Axis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/drift.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Drift</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/provenance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Provenance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/conceptual-exploration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conceptual Exploration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/interaction-and-language-boundaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interaction and Language Boundaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/authority-capability-and-delegation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Authority, Capability, and Delegation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/ai-assistance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AI Assistance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/artifact-maturity-and-presentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Artifact Maturity and Presentation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Development</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/storage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Storage</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/worktree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Worktree</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/file-tree-as-contextual-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">File Tree as Contextual Index</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/repository-boundary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Repository Boundary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/session/simplicity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simplicity</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#scope" id="toc-scope" class="nav-link" data-scroll-target="#scope">Scope</a></li>
+  <li><a href="#development-through-interaction" id="toc-development-through-interaction" class="nav-link" data-scroll-target="#development-through-interaction">Development through interaction</a>
+  <ul class="collapse">
+  <li><a href="#grouping-entities-opened-into-a-process-of-knowing" id="toc-grouping-entities-opened-into-a-process-of-knowing" class="nav-link" data-scroll-target="#grouping-entities-opened-into-a-process-of-knowing">1. Grouping entities opened into a process of knowing</a></li>
+  <li><a href="#progress-began-from-recoverable-ground" id="toc-progress-began-from-recoverable-ground" class="nav-link" data-scroll-target="#progress-began-from-recoverable-ground">2. Progress began from recoverable ground</a></li>
+  <li><a href="#drift-determined-where-learning-resumed" id="toc-drift-determined-where-learning-resumed" class="nav-link" data-scroll-target="#drift-determined-where-learning-resumed">3. Drift determined where learning resumed</a></li>
+  <li><a href="#movement-occurred-upward-and-downward" id="toc-movement-occurred-upward-and-downward" class="nav-link" data-scroll-target="#movement-occurred-upward-and-downward">4. Movement occurred upward and downward</a></li>
+  <li><a href="#the-process-stayed-open-and-produced-shared-symbols" id="toc-the-process-stayed-open-and-produced-shared-symbols" class="nav-link" data-scroll-target="#the-process-stayed-open-and-produced-shared-symbols">5. The process stayed open and produced shared symbols</a></li>
+  <li><a href="#the-process-itself-became-requested-content" id="toc-the-process-itself-became-requested-content" class="nav-link" data-scroll-target="#the-process-itself-became-requested-content">6. The process itself became requested content</a></li>
+  <li><a href="#communication-supplied-a-later-shared-meaning-use" id="toc-communication-supplied-a-later-shared-meaning-use" class="nav-link" data-scroll-target="#communication-supplied-a-later-shared-meaning-use">7. Communication supplied a later shared-meaning use</a></li>
+  <li><a href="#concept-lineages-became-the-recording-method" id="toc-concept-lineages-became-the-recording-method" class="nav-link" data-scroll-target="#concept-lineages-became-the-recording-method">8. Concept lineages became the recording method</a></li>
+  </ul></li>
+  <li><a href="#current-formulation" id="toc-current-formulation" class="nav-link" data-scroll-target="#current-formulation">Current formulation</a>
+  <ul class="collapse">
+  <li><a href="#a-candidate-conception-of-knowledge" id="toc-a-candidate-conception-of-knowledge" class="nav-link" data-scroll-target="#a-candidate-conception-of-knowledge">A candidate conception of knowledge</a></li>
+  <li><a href="#knowing-as-pursuit-thinking-acting-and-recording" id="toc-knowing-as-pursuit-thinking-acting-and-recording" class="nav-link" data-scroll-target="#knowing-as-pursuit-thinking-acting-and-recording">Knowing as pursuit: thinking, acting, and recording</a></li>
+  </ul></li>
+  <li><a href="#relations-and-interfaces" id="toc-relations-and-interfaces" class="nav-link" data-scroll-target="#relations-and-interfaces">Relations and interfaces</a></li>
+  <li><a href="#how-the-concept-formed" id="toc-how-the-concept-formed" class="nav-link" data-scroll-target="#how-the-concept-formed">How the concept formed</a></li>
+  <li><a href="#open-questions" id="toc-open-questions" class="nav-link" data-scroll-target="#open-questions">Open questions</a></li>
+  <li><a href="#limits" id="toc-limits" class="nav-link" data-scroll-target="#limits">Limits</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Knowledge Evolution</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Fernando Lessa Magalhães </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Updated</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 14, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p><strong>Knowledge Evolution</strong> concerns how an understanding forms, loses alignment, returns to recoverable ground, and continues. The engineer described a process and evolution of knowledge, knowing, cognition, learning, and understanding while the engineer and the agent were grouping domains and relations. Through that interaction, drift became a signal for where inquiry resumes rather than a failure, and the process itself became content worth recording. The title, its separation from Epistemology, and the compact process sketch are agent formulations.</p>
+</section>
+<section id="scope" class="level2">
+<h2 class="anchored" data-anchor-id="scope">Scope</h2>
+<p>Knowledge Evolution concerns the temporal movement through which an understanding is formed, loses alignment, returns to earlier ground, incorporates further distinctions or references, stabilizes enough to continue, and later changes again.</p>
+<p>It does not decide which beliefs are true, provide a formal learning algorithm, or certify that the process always succeeds. Those questions belong to epistemic evaluation or later implementation.</p>
+</section>
+<section id="development-through-interaction" class="level2">
+<h2 class="anchored" data-anchor-id="development-through-interaction">Development through interaction</h2>
+<section id="grouping-entities-opened-into-a-process-of-knowing" class="level3">
+<h3 class="anchored" data-anchor-id="grouping-entities-opened-into-a-process-of-knowing">1. Grouping entities opened into a process of knowing</h3>
+<p>The engineer’s inquiry into domains, bindings, semantic relations, and ontology became what the engineer called the process of knowledge, the evolution of knowing, cognition, and learning (Segments 0646–0665).</p>
+<p>The agent called it iterative learning. That compact label is agent wording.</p>
+<p>The engineer asked whether an IEEE standard could supply another angle and said that such a perspective could help normalize the discussion with other people. The agent named ISO/IEC/IEEE 42010 and 24748-1 as partial parallels (Segments 0659–0666). Those references and their claimed fit are agent statements, not independently verified here.</p>
+</section>
+<section id="progress-began-from-recoverable-ground" class="level3">
+<h3 class="anchored" data-anchor-id="progress-began-from-recoverable-ground">2. Progress began from recoverable ground</h3>
+<p>The engineer described backtracing to find a sound foundation and then moving forward. At the next doubt, the same activity resumes: elaborate, research when needed, normalize, and relate the new understanding to the earlier foundation through provenance (Segments 0671–0675).</p>
+</section>
+<section id="drift-determined-where-learning-resumed" class="level3">
+<h3 class="anchored" data-anchor-id="drift-determined-where-learning-resumed">3. Drift determined where learning resumed</h3>
+<p>The engineer explicitly rebound drift from failure to signal. An underdefined point stops forward movement; resolving the missing knowledge can establish a usable interface and allow the inquiry to grow and continue (Segments 0673–0681).</p>
+</section>
+<section id="movement-occurred-upward-and-downward" class="level3">
+<h3 class="anchored" data-anchor-id="movement-occurred-upward-and-downward">4. Movement occurred upward and downward</h3>
+<p>The engineer described bottom-up work from entity kinds and relations toward domains and architecture, also named a top-down approach, and said that abstraction through many levels is difficult (Segment 0682).</p>
+<p>The agent’s sequence from entities to domains to abstractions and then testing downward is an agent reconstruction, not the engineer’s stated procedure (Segment 0684).</p>
+</section>
+<section id="the-process-stayed-open-and-produced-shared-symbols" class="level3">
+<h3 class="anchored" data-anchor-id="the-process-stayed-open-and-produced-shared-symbols">5. The process stayed open and produced shared symbols</h3>
+<p>The engineer rejected a final endpoint, then described understanding as organizing relations among symbols until a shared meaning becomes available, using a ZIP-file comparison for the density of that meaning (Segments 0685–0689).</p>
+</section>
+<section id="the-process-itself-became-requested-content" class="level3">
+<h3 class="anchored" data-anchor-id="the-process-itself-became-requested-content">6. The process itself became requested content</h3>
+<p>The engineer asked that the exchange be recorded because the evolution of Development, knowing, knowledge, and understanding would be an important part of the work (Segments 0694–0718). The engineer required the factual record to remain complete and any reconstruction or analysis to remain separate from it.</p>
+</section>
+<section id="communication-supplied-a-later-shared-meaning-use" class="level3">
+<h3 class="anchored" data-anchor-id="communication-supplied-a-later-shared-meaning-use">7. Communication supplied a later shared-meaning use</h3>
+<p>During the file-tree discussion, the engineer said that communication is not only exchange but understanding, and attributed that understanding to cognitive work that binds symbols into meaning (Segments 0900–0906).</p>
+<p>This later use extends shared meaning beyond the earlier abstract account without establishing Communication as a separate final theory.</p>
+</section>
+<section id="concept-lineages-became-the-recording-method" class="level3">
+<h3 class="anchored" data-anchor-id="concept-lineages-became-the-recording-method">8. Concept lineages became the recording method</h3>
+<p>After the Context sample, the engineer emphasized that concepts are corrected and rebound over the course of the interaction rather than created as final truth. The agent proposed recording first appearance, later use, drift, correction, present meaning, and open branches, and the engineer said the approach captured what was wanted (Segments 0962–0976).</p>
+<p>The exact list and any common frame are agent constructions. The engineer directly supports evolving lineages, not a mandatory multi-part template.</p>
+</section>
+</section>
+<section id="current-formulation" class="level2">
+<h2 class="anchored" data-anchor-id="current-formulation">Current formulation</h2>
+<p>Established through the interaction:</p>
+<ul>
+<li>knowledge develops through repeated movement rather than toward a final endpoint;</li>
+<li>doubt or drift can send inquiry back to a recoverable foundation;</li>
+<li>elaboration, research, normalization, and provenance can support a new ground;</li>
+<li>bottom-up and top-down abstraction are both possible;</li>
+<li>shared meaning develops through organized relations among symbols;</li>
+<li>concept records should preserve correction and rebinding over time;</li>
+<li>external standards may supply a comparative angle, but their applicability remains unverified.</li>
+</ul>
+<p>Agent formulations and limits:</p>
+<pre class="text"><code>current ground -&gt; doubt or drift -&gt; pause and backtrace
+               -&gt; elaborate or research -&gt; revise relations
+               -&gt; stabilize enough to continue -&gt; repeat</code></pre>
+<p>This process sketch is a compact analytic representation, not an engineer-authored algorithm.</p>
+<section id="a-candidate-conception-of-knowledge" class="level3">
+<h3 class="anchored" data-anchor-id="a-candidate-conception-of-knowledge">A candidate conception of knowledge</h3>
+<p>One candidate conception of <strong>knowledge</strong> is used here without being claimed as the single or universal definition. A point of view constitutes a context, so other contexts may support other valid conceptions of knowledge.</p>
+<p>In this conception, an inference becomes a concept and then qualifies as knowledge when:</p>
+<ul>
+<li>its foundational concepts and relations are identified;</li>
+<li>relevant external sources are used to support those foundations;</li>
+<li>unsupported or misplaced bindings are corrected;</li>
+<li>the participants consolidate a shared understanding; and</li>
+<li>the resulting meaning is recorded with its attribution and provenance.</li>
+</ul>
+<p>The resulting conceptual content is <strong>atemporal</strong>: its meaning does not depend on a particular time. Its formation has a temporal lineage, but that history is provenance for the knowledge and is not part of the concept’s defining content.</p>
+<p>The immediate example is <strong>contextual polymorphism</strong>, an agent-proposed synthesis concerning one entity acquiring different meanings or roles through different contextual relations. The object-oriented comparison is an analogy, not the concept’s origin or governing domain. This example supports the candidate conception of knowledge; it does not establish <em>contextual polymorphism</em> as standard academic terminology.</p>
+</section>
+<section id="knowing-as-pursuit-thinking-acting-and-recording" class="level3">
+<h3 class="anchored" data-anchor-id="knowing-as-pursuit-thinking-acting-and-recording">Knowing as pursuit: thinking, acting, and recording</h3>
+<p>The etymological root of <strong>science</strong> points to knowledge or knowing. In this account, <strong>to know</strong> is understood dynamically as <strong>coming to know</strong>: a pursuit through which knowledge is formed. This is a conceptual extension, not a claim about the verb’s strict etymological definition.</p>
+<p>The refinement preserves these distinctions:</p>
+<ul>
+<li><strong>thinking</strong> and <strong>conceptualizing</strong> operate within a conceptual domain and can form possible meanings without intervening in an external domain;</li>
+<li><strong>acting</strong> intervenes in or changes a domain;</li>
+<li>writing a file is therefore an action, even when its purpose is epistemological;</li>
+<li><strong>recording</strong> preserves observations, conceptual results, and their sequence so they remain available for comparison and later learning; and</li>
+<li>unrecorded experience cannot provide the same observable continuity or provenance.</li>
+</ul>
+<p>The resulting relation is:</p>
+<p><code>thinking or observation -&gt; formed understanding -&gt; recording action -&gt; persistent evidence -&gt; later retrieval and refinement</code></p>
+<p>This does not make every thought knowledge or every record true. Recording supplies continuity and inspectability; the candidate conception of knowledge above still requires grounded relations, correction, shared consolidation, attribution, and provenance.</p>
+</section>
+</section>
+<section id="relations-and-interfaces" class="level2">
+<h2 class="anchored" data-anchor-id="relations-and-interfaces">Relations and interfaces</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Related domain</th>
+<th>Relation</th>
+<th>Boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Epistemology</td>
+<td>Epistemology examines knowing and its limits.</td>
+<td>Knowledge Evolution records temporal change and should not claim epistemic validity.</td>
+</tr>
+<tr class="even">
+<td>Drift</td>
+<td>Drift can select the point at which inquiry resumes.</td>
+<td>It is not the only possible trigger.</td>
+</tr>
+<tr class="odd">
+<td>Provenance</td>
+<td>Backtrace connects successive grounds.</td>
+<td>Provenance preserves relation, not correctness.</td>
+</tr>
+<tr class="even">
+<td>Ontology</td>
+<td>Developing knowledge can change the ontology in use.</td>
+<td>No formal ontology versioning method was established.</td>
+</tr>
+<tr class="odd">
+<td>Symbol and Binding</td>
+<td>Shared symbols can carry accumulated relational meaning.</td>
+<td>The mechanism remains conceptual rather than computational.</td>
+</tr>
+<tr class="even">
+<td>Communication</td>
+<td>Later statements connect understanding with more than exchange.</td>
+<td>This page records the relation without creating a full communication theory.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="how-the-concept-formed" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-concept-formed">How the concept formed</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Conceptual contribution</th>
+<th>Formation</th>
+<th>Anchor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Knowledge is a process; knowing, cognition, and learning evolve.</td>
+<td>Engineer-established</td>
+<td>Segment 0661 and Segments 0700–0701</td>
+</tr>
+<tr class="even">
+<td>Inquiry repeats backtrace, elaboration, normalization, and forward movement.</td>
+<td>Engineer-established</td>
+<td>Segments 0671–0675</td>
+</tr>
+<tr class="odd">
+<td>Drift is a signal that selects where inquiry resumes, not a failure.</td>
+<td>Engineer-established</td>
+<td>Segments 0673–0681</td>
+</tr>
+<tr class="even">
+<td><strong>Iterative learning</strong> labels the process.</td>
+<td>Agent wording</td>
+<td>Segment 0665</td>
+</tr>
+<tr class="odd">
+<td>ISO/IEC/IEEE 42010 and 24748-1 are partial parallels.</td>
+<td>Agent statement, not independently verified</td>
+<td>Segments 0665–0666</td>
+</tr>
+<tr class="even">
+<td>Concepts should be recorded as evolving lineages of use, drift, and correction.</td>
+<td>Agent proposal, affirmed by the engineer as the approach</td>
+<td>Segments 0962–0976</td>
+</tr>
+<tr class="odd">
+<td>A fixed arrow sequence represents the process.</td>
+<td>Agent reconstruction</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>A fixed multi-part lineage frame governs every concept.</td>
+<td>Agent proposal, not adopted by the engineer</td>
+<td>Segment 1018</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="open-questions" class="level2">
+<h2 class="anchored" data-anchor-id="open-questions">Open questions</h2>
+<ul>
+<li>What makes a new ground stable enough for continued work?</li>
+<li>How should conflicting lineages be represented without forcing one final path?</li>
+<li>When is external research needed rather than further internal distinction?</li>
+<li>What preserves concept identity across a major rebinding?</li>
+<li>How can a compact representation retain enough provenance to expose lost meaning?</li>
+</ul>
+</section>
+<section id="limits" class="level2">
+<h2 class="anchored" data-anchor-id="limits">Limits</h2>
+<p>The interaction provides a rich process description but no operational test, formal model, or independent academic validation. Several agent condensations occurred during the conversation; this page marks them instead of converting them into the engineer’s terminology.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/session/lineage-graph-schema.html" class="pagination-link" aria-label="Candidate concept-lineage graph schema">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Candidate concept-lineage graph schema</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/session/temporal-axis.html" class="pagination-link" aria-label="Temporal Axis">
+        <span class="nav-page-text">Temporal Axis</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

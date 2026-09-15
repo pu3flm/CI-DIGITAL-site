@@ -38,6 +38,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../../">
+<link href="../../../../content/docs/research/reading-notes/dialogue-and-foundations.html" rel="next">
+<link href="../../../../content/docs/research/reading-notes/README.html" rel="prev">
 <script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../../../site_libs/quarto-html/popper.min.js"></script>
@@ -47,7 +49,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap-707bca35fca44f299eaa8a5a18ad58e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-ca4ff22b80352a23c2d66fe9afbea44d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -103,12 +105,91 @@ document.addEventListener("DOMContentLoaded", () => {
   title.prepend(element);
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // The Pages menu is declared flat in _quarto.yml: "A › B" headers followed by links.
+  // Rebuild it as collapsible nested groups; without JavaScript the flat list remains usable.
+  const toggle = document.getElementById("nav-menu-pages");
+  const menu = toggle?.parentElement.querySelector(".dropdown-menu");
+  if (!menu || menu.classList.contains("pages-menu")) return;
+
+  const root = { children: new Map(), items: [] };
+  let current = root;
+
+  for (const entry of [...menu.children]) {
+    if (entry.classList.contains("dropdown-header")) {
+      current = root;
+      for (const label of entry.textContent.split("›").map((part) => part.trim()).filter(Boolean)) {
+        if (!current.children.has(label)) current.children.set(label, { children: new Map(), items: [] });
+        current = current.children.get(label);
+      }
+    } else if (entry.querySelector(".dropdown-item")) {
+      current.items.push(entry);
+    }
+  }
+
+  let groupCount = 0;
+  const here = window.location.pathname;
+
+  const render = (node, list, level) => {
+    let containsCurrentPage = false;
+
+    for (const item of node.items) {
+      const link = item.querySelector(".dropdown-item");
+      link.style.setProperty("--pages-level", level);
+      if (new URL(link.href, window.location.href).pathname === here) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+        containsCurrentPage = true;
+      }
+      list.append(item);
+    }
+
+    for (const [label, child] of node.children) {
+      const id = `pages-menu-group-${++groupCount}`;
+      const entry = document.createElement("li");
+      const button = document.createElement("button");
+      const group = document.createElement("ul");
+
+      button.type = "button";
+      button.className = "dropdown-item pages-menu-toggle";
+      button.style.setProperty("--pages-level", level);
+      button.setAttribute("aria-controls", id);
+      button.textContent = label;
+      group.id = id;
+      group.className = "pages-menu-group list-unstyled";
+
+      const open = render(child, group, level + 1);
+      button.setAttribute("aria-expanded", String(open));
+      group.hidden = !open;
+      containsCurrentPage ||= open;
+
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const expanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", String(!expanded));
+        group.hidden = expanded;
+      });
+
+      entry.append(button, group);
+      list.append(entry);
+    }
+
+    return containsCurrentPage;
+  };
+
+  menu.replaceChildren();
+  menu.classList.add("pages-menu");
+  toggle.setAttribute("data-bs-auto-close", "outside");
+  render(root, menu, 0);
+});
+</script>
 
 
 <link rel="stylesheet" href="../../../../quarto/styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -164,6 +245,335 @@ document.addEventListener("DOMContentLoaded", () => {
     <a class="nav-link" href="../../../../worktree/papers/notes/MANIFEST.html"> 
 <span class="menu-text">Author’s Manifest</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-pages" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Pages</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-pages">    
+        <li class="dropdown-header">Epistemic › Dom</li>
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/content.html">
+ <span class="dropdown-text">Content</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/context.html">
+ <span class="dropdown-text">Context</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/domain.html">
+ <span class="dropdown-text">Domain</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/ontology.html">
+ <span class="dropdown-text">Ontology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/epistemology.html">
+ <span class="dropdown-text">Epistemology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/symbol-and-binding.html">
+ <span class="dropdown-text">Symbol and Binding</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/interface-and-overlap.html">
+ <span class="dropdown-text">Interface and Overlap</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/conceptual-provenance.html">
+ <span class="dropdown-text">Conceptual Provenance</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/concept-lineage-method.html">
+ <span class="dropdown-text">Concept Lineage Method</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/lineage-graph-schema.html">
+ <span class="dropdown-text">Candidate concept-lineage graph schema</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/knowledge-evolution.html">
+ <span class="dropdown-text">Knowledge Evolution</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/temporal-axis.html">
+ <span class="dropdown-text">Temporal Axis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/drift.html">
+ <span class="dropdown-text">Drift</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/provenance.html">
+ <span class="dropdown-text">Provenance</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/conceptual-exploration.html">
+ <span class="dropdown-text">Conceptual Exploration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/interaction-and-language-boundaries.html">
+ <span class="dropdown-text">Interaction and Language Boundaries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/authority-capability-and-delegation.html">
+ <span class="dropdown-text">Authority, Capability, and Delegation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/ai-assistance.html">
+ <span class="dropdown-text">AI Assistance</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/artifact-maturity-and-presentation.html">
+ <span class="dropdown-text">Artifact Maturity and Presentation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/development.html">
+ <span class="dropdown-text">Development</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/storage.html">
+ <span class="dropdown-text">Storage</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/worktree.html">
+ <span class="dropdown-text">Worktree</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/file-tree-as-contextual-index.html">
+ <span class="dropdown-text">File Tree as Contextual Index</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/repository-boundary.html">
+ <span class="dropdown-text">Repository Boundary</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/session/simplicity.html">
+ <span class="dropdown-text">Simplicity</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Research › Foundations</li>
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/foundations/foundation-and-purpose.html">
+ <span class="dropdown-text">Tackling the space</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/foundations/philosophical-affinities.html">
+ <span class="dropdown-text">Philosophical affinities: tackling the space</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/foundations/return-to-the-opening-specification.html">
+ <span class="dropdown-text">Specification: mapping occurrences and attempting a return</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/foundations/return-to-the-opening.html">
+ <span class="dropdown-text">Returning to this opening</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/foundations/the-scholastic-decree.html">
+ <span class="dropdown-text">The Scholastic Decree</span></a>
+  </li>  
+        <li class="dropdown-header">Research › Studies</li>
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/relational-domain-ontology.html">
+ <span class="dropdown-text">Relational Domain Ontology</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/temporal-coherence-study.html">
+ <span class="dropdown-text">Temporal Coherence for Agentic Control</span></a>
+  </li>  
+        <li class="dropdown-header">Research › Notes</li>
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/reading-notes/README.html">
+ <span class="dropdown-text">Reading map</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/reading-notes/behavior-and-native-methods.html">
+ <span class="dropdown-text">Reading notes: behavior, native methods, and recorded experiments</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/reading-notes/dialogue-and-foundations.html">
+ <span class="dropdown-text">Dialogue and foundations — reading notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/reading-notes/formal-methods-library.html">
+ <span class="dropdown-text">Reading notes: AI, formal methods, and graph tools</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/reading-notes/opencode-archive.html">
+ <span class="dropdown-text">Reading notes: OpenCode archive and recovered UART helper dialogue</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/reading-notes/research-and-references.html">
+ <span class="dropdown-text">Research and reference reading notes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/reading-notes/simulation-and-language-references.html">
+ <span class="dropdown-text">Simulation and language references</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/research/reading-notes/vlsi-and-workflows.html">
+ <span class="dropdown-text">Reading notes: VLSI cases and workflow sources</span></a>
+  </li>  
+        <li class="dropdown-header">Research › Cases</li>
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/cases/concept-index.html">
+ <span class="dropdown-text">Concept Index: Giving Every Connection a Source</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/cases/temporal-coherence.html">
+ <span class="dropdown-text">What Changes While the Agent Thinks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../content/docs/workflows/cadence/cadence-documentation.html">
+ <span class="dropdown-text">Cadence</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Analysis › UART › RTL</li>
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/rtl/docs/uart/overview.html">
+ <span class="dropdown-text">UART Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/rtl/docs/uart/uart_controller.html">
+ <span class="dropdown-text">uart_controller</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/rtl/docs/uart/data_flow.html">
+ <span class="dropdown-text">Data Flow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/rtl/docs/uart/signal_map.html">
+ <span class="dropdown-text">Signal Map</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/rtl/docs/uart/register_map.html">
+ <span class="dropdown-text">Register Map</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/rtl/docs/uart/baud_rate_type.html">
+ <span class="dropdown-text">uart_baud_rate_t</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/rtl/docs/uart/clock_div.html">
+ <span class="dropdown-text">clock_div</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/rtl/docs/uart/reg_bank.html">
+ <span class="dropdown-text">reg_bank</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/rtl/docs/uart/tx_uart.html">
+ <span class="dropdown-text">tx_uart</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/rtl/docs/uart/rx_uart.html">
+ <span class="dropdown-text">rx_uart</span></a>
+  </li>  
+        <li class="dropdown-header">Analysis › UART › Docs and Verification</li>
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/docs/README.html">
+ <span class="dropdown-text">UVM_uart</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/docs/verification/sim_architecture_study.html">
+ <span class="dropdown-text">SIM Architecture Study</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/docs/verification/incremental_changes_from_original_snapshot.html">
+ <span class="dropdown-text">Incremental Changes From Original Snapshot</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/docs/verification/sim_extension_results.html">
+ <span class="dropdown-text">SIM Extension Results</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/docs/verification/vcd_correlation_process.html">
+ <span class="dropdown-text">VCD Correlation Process</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/hardware/UART/docs/verification/waves/baud_boundary_wave_guide.html">
+ <span class="dropdown-text">Baud Boundary Wave Guide</span></a>
+  </li>  
+        <li class="dropdown-header">Analysis › Software</li>
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/Code-example/README.html">
+ <span class="dropdown-text">Making a UART failure tell a clearer story</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/Code-example/local-language-tooling.html">
+ <span class="dropdown-text">Local language tooling: capabilities and boundaries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/Code-example/language-toolbox/README.html">
+ <span class="dropdown-text">CI-DIGITAL language toolbox</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/Code-example/language-toolbox/build-record.html">
+ <span class="dropdown-text">Language toolbox build record</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/ci-digital-concept-index/README.html">
+ <span class="dropdown-text">CI-DIGITAL Concept Index</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/ci-digital-concept-index/docs/REQUIREMENTS.html">
+ <span class="dropdown-text">Requirements</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/ci-digital-concept-index/docs/ARCHITECTURE.html">
+ <span class="dropdown-text">Architecture</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/ci-digital-concept-index/docs/DATA-MODEL.html">
+ <span class="dropdown-text">Data Model</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/ci-digital-concept-index/docs/DOMAIN-POLICY.html">
+ <span class="dropdown-text">Domain Policy</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/ci-digital-concept-index/docs/CLI-SPEC.html">
+ <span class="dropdown-text">CLI Specification</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/ci-digital-concept-index/docs/LIFECYCLE.html">
+ <span class="dropdown-text">Lifecycle</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/ci-digital-concept-index/docs/PROVENANCE-AND-ASSURANCE.html">
+ <span class="dropdown-text">Provenance and Assurance</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/ci-digital-concept-index/docs/SECURITY.html">
+ <span class="dropdown-text">Security</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/ci-digital-concept-index/docs/DEPLOYMENT.html">
+ <span class="dropdown-text">Deployment</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/ci-digital-concept-index/docs/STANDARDS.html">
+ <span class="dropdown-text">Standards Baseline</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/ci-digital-concept-index/docs/TRACEABILITY.html">
+ <span class="dropdown-text">Traceability</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/ci-digital-concept-index/docs/DECISIONS.html">
+ <span class="dropdown-text">Design Decisions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/ci-digital-concept-index/docs/ACCEPTANCE-CRITERIA.html">
+ <span class="dropdown-text">Acceptance Criteria</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../worktree/software/ci-digital-concept-index/fixtures/README.html">
+ <span class="dropdown-text">Fixtures</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -175,10 +585,179 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+          <h1 class="quarto-secondary-nav-title">Reading notes: behavior, native methods, and recorded experiments</h1>
+        </a>     
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Foundations</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/research/foundations/foundation-and-purpose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tackling the space</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/research/foundations/philosophical-affinities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Philosophical affinities: tackling the space</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/research/foundations/return-to-the-opening-specification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Specification: mapping occurrences and attempting a return</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/research/foundations/return-to-the-opening.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Returning to this opening</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/research/foundations/the-scholastic-decree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Scholastic Decree</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Studies</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/research/relational-domain-ontology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Relational Domain Ontology</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/research/temporal-coherence-study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Temporal Coherence for Agentic Control</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Notes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/research/reading-notes/README.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reading map</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/research/reading-notes/behavior-and-native-methods.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Reading notes: behavior, native methods, and recorded experiments</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/research/reading-notes/dialogue-and-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dialogue and foundations — reading notes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/research/reading-notes/formal-methods-library.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reading notes: AI, formal methods, and graph tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/research/reading-notes/opencode-archive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reading notes: OpenCode archive and recovered UART helper dialogue</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/research/reading-notes/research-and-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Research and reference reading notes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/research/reading-notes/simulation-and-language-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simulation and language references</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/research/reading-notes/vlsi-and-workflows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reading notes: VLSI cases and workflow sources</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Cases</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/cases/concept-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concept Index: Giving Every Connection a Source</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/cases/temporal-coherence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What Changes While the Agent Thinks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../content/docs/workflows/cadence/cadence-documentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cadence</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -202,7 +781,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Reading notes: behavior, native methods, and recorded experiments</h1>
+<h1 class="title d-none d-lg-block">Reading notes: behavior, native methods, and recorded experiments</h1>
 </div>
 
 
@@ -715,6 +1294,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../../content/docs/research/reading-notes/README.html" class="pagination-link" aria-label="Reading map">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Reading map</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../../content/docs/research/reading-notes/dialogue-and-foundations.html" class="pagination-link" aria-label="Dialogue and foundations — reading notes">
+        <span class="nav-page-text">Dialogue and foundations — reading notes</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
